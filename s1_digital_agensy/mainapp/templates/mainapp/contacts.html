@@ -1,0 +1,595 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-ONE | Контакты</title>
+    <style>
+        /* ----- ПОЛНЫЙ СБРОС И БАЗОВЫЕ СТИЛИ ИЗ FIGMA ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FCFCFC;
+            overflow-x: hidden;
+        }
+
+        /* ГЛАВНЫЙ КОНТЕЙНЕР  */
+        .contacts-page {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            background: #FCFCFC;
+            min-height: 2001px;
+        }
+
+        /* ---------- ШАПКА / НАВИГАЦИЯ ( + переключатель языков) ---------- */
+        .top-nav {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            width: 489px;
+            height: 33px;
+            left: 195px;
+            top: 30px;
+            z-index: 10;
+        }
+
+        .top-nav a {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .projects-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 9px;
+            gap: 10px;
+            width: 157px;
+            height: 33px;
+            background: #7A00FF;
+            border-radius: 30px;
+        }
+
+        .projects-btn a {
+            color: #FFFFFF !important;
+            width: 139px;
+        }
+
+        /* Переключатель языков */
+        .lang-switcher {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            width: 176px;
+            height: 44px;
+            left: 1627px;
+            top: 20px;
+            z-index: 10;
+        }
+
+        .lang-ru {
+            position: relative;
+            width: 71px;
+            height: 44px;
+            background: #7A00FF;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-ru span {
+            font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 100%;
+            color: #FCFCFC;
+        }
+
+        .lang-options {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .lang-options span {
+            font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 100%;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        /* Жёлтый круг из Figma */
+        .yellow-circle {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            left: 1023px;
+            top: 193px;
+            background: #C9FF00;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* ГЛАВНЫЙ ЗАГОЛОВОК КОНТАКТЫ */
+        .main-title {
+            position: absolute;
+            width: 1022px;
+            height: 216px;
+            left: calc(50% - 1022px/2 + 6.5px);
+            top: 272.59px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 180px;
+            line-height: 120%;
+            color: #000000;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* СЕРЫЙ БЛОК (левая часть с адресами) */
+        .gray-block {
+            position: absolute;
+            width: 946px;
+            height: 468px;
+            left: 0px;
+            top: 626px;
+            background: #E7E7E7;
+            border-radius: 30px;
+            z-index: 2;
+        }
+
+        /* ЛОГОТИП В ЛЕВОМ БЛОКЕ */
+        .logo-mask {
+            position: absolute;
+            width: 108px;
+            height: 54px;
+            left: 50px;
+            top: 19.5px;
+        }
+
+        /* Адреса внутри серого блока */
+        .addresses-block {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            width: 348px;
+            height: 142px;
+            left: 50px;
+            top: 686px;
+        }
+
+        .addresses-block .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .addresses-block .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* График работы */
+        .schedule-block {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 21px;
+            width: 348px;
+            height: 61px;
+            left: 418px;
+            top: 686px;
+        }
+
+        .schedule-block .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .schedule-block .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* E-mail */
+        .email-block-left {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 21px;
+            width: 107px;
+            height: 61px;
+            left: 421px;
+            top: 950px;
+        }
+
+        .email-block-left .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .email-block-left .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* Телефоны */
+        .phones-block-left {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            width: 133px;
+            height: 86px;
+            left: 53px;
+            top: 950px;
+        }
+
+        .phones-block-left .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .phones-block-left .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* ФИОЛЕТОВЫЙ БЛОК (справа) */
+        .purple-block {
+            position: absolute;
+            width: 874px;
+            height: 467.69px;
+            left: 970px;
+            top: 626px;
+            background: #7A00FF;
+            border-radius: 30px;
+            z-index: 2;
+        }
+
+        /* Текст "Свяжитесь с нами" */
+        .contact-us-text {
+            position: absolute;
+            width: 458.6px;
+            height: 168px;
+            left: calc(50% - 458.6px/2 + 447px);
+            top: 771.97px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 70px;
+            line-height: 120%;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .contact-us-bg {
+            position: absolute;
+            width: 768.5px;
+            height: 240px;
+            left: calc(50% - 768.5px/2 + 447.25px);
+            top: 721.97px;
+            font-family: 'Raleway';
+            font-weight: 700;
+            font-size: 120px;
+            line-height: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* ---------- ФУТЕР  ---------- */
+        .footer-purple {
+            position: absolute;
+            width: 1920px;
+            height: 700px;
+            left: -4.6px;
+            top: 1301.19px;
+            background: #7A00FF;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .footer-bg-letter {
+            position: absolute;
+            width: 470px;
+            height: 480px;
+            left: -115.6px;
+            top: 1213.19px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 400px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            opacity: 0.2;
+            z-index: 2;
+        }
+
+        /* Заголовки футера */
+        .footer-title {
+            position: absolute;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-title-small {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+
+        /* Меню футера */
+        .footer-menu {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 109px;
+            height: 106px;
+            left: 43.4px;
+            top: 1537.19px;
+            z-index: 3;
+        }
+
+        .footer-menu a {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        /* Юридические ссылки */
+        .legal-links-footer {
+            position: absolute;
+            left: 43.4px;
+            top: 1784.19px;
+            z-index: 3;
+        }
+
+        .legal-links-footer .info-label {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .legal-links-footer a {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Копирайт */
+        .copyright {
+            position: absolute;
+            width: 37px;
+            height: 19px;
+            left: calc(50% - 37px/2 - 5.1px);
+            top: 1944.19px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Адаптив (для маленьких экранов) */
+        @media (max-width: 1400px) {
+            .main-title { font-size: 100px; top: 320px; }
+            .yellow-circle { width: 200px; height: 200px; left: 70%; }
+            .gray-block, .purple-block { width: 45%; }
+            .purple-block { left: 52%; }
+            .contact-us-text { font-size: 40px; top: 750px; }
+        }
+
+        @media (max-width: 768px) {
+            .top-nav, .lang-switcher { display: none; }
+            .main-title { font-size: 48px; top: 200px; }
+            .gray-block, .purple-block { position: relative; width: 90%; margin: 20px auto; left: auto; top: auto; }
+            .contacts-page { height: auto; padding-bottom: 700px; }
+            .footer-purple { position: relative; left: 0; top: 100px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="contacts-page">
+    <!-- Шапка навигации -->
+    <div class="top-nav">
+        <a href="#">О нас</a>
+        <div class="projects-btn"><a href="#">Наши проекты</a></div>
+        <a href="#">Услуги</a>
+        <a href="#">Блог</a>
+        <a href="#">Контакты</a>
+    </div>
+
+    <!-- Переключатель языков -->
+    <div class="lang-switcher">
+        <div class="lang-ru"><span>RU</span></div>
+        <div class="lang-options">
+            <span>EN</span>
+            <span>FR</span>
+            <span>DE</span>
+        </div>
+    </div>
+
+    <!-- Жёлтый круг из Figma -->
+    <div class="yellow-circle"></div>
+
+    <!-- Главный заголовок -->
+    <h1 class="main-title">КОНТАКТЫ</h1>
+
+    <!-- Серый блок (левая часть) -->
+    <div class="gray-block">
+        <div class="logo-mask">
+            <!-- Здесь логотип -->
+        </div>
+        
+        <div class="addresses-block">
+            <div class="title">АДРЕСА</div>
+            <div class="text">Россия, г. Санкт-Петербург, ул.Большая Морская 43</div>
+            <div class="text">Россия, г.Москва, Спартаковская площадь 10.</div>
+        </div>
+
+        <div class="schedule-block">
+            <div class="title">График работы:</div>
+            <div class="text">ПН-ПТ: 10:00-19:00 СБ, ВС (Выходной)</div>
+        </div>
+
+        <div class="email-block-left">
+            <div class="title">E-MAIL</div>
+            <div class="text">hello@s-one.ru</div>
+        </div>
+
+        <div class="phones-block-left">
+            <div class="title">ТЕЛЕФОНЫ</div>
+            <div class="text">+7 812 507-9366</div>
+            <div class="text">+7 995 911-5700</div>
+        </div>
+    </div>
+
+    <!-- Фиолетовый блок (правая часть) -->
+    <div class="purple-block"></div>
+    <div class="contact-us-text">Свяжитесь с нами</div>
+    <div class="contact-us-bg">Свяжитесь с нами</div>
+
+    <!-- Футер (фиолетовый) -->
+    <div class="footer-purple"></div>
+    <div class="footer-bg-letter">S1</div>
+
+    <!-- Заголовки футера -->
+    <div class="footer-title" style="left: 43.4px; top: 1488.19px;">Компания</div>
+    <div class="footer-title" style="left: 282.4px; top: 1488.19px;">КОНТАКТЫ</div>
+    <div class="footer-title" style="left: 505.4px; top: 1488.19px;">ГРафик работы</div>
+    <div class="footer-title" style="left: 735.4px; top: 1488.19px;">НАШИ АДРЕСА</div>
+    <div class="footer-title-small" style="position: absolute; left: 965.4px; top: 1490.19px;">САНКТ-ПЕТЕРБУРГ</div>
+    <div class="footer-title-small" style="position: absolute; left: 1202.4px; top: 1490.19px;">МОСКВА</div>
+
+    <!-- Меню футера -->
+    <div class="footer-menu">
+        <a href="#">УСЛУГИ</a>
+        <a href="#">ПРОЕКТЫ</a>
+        <a href="#">БЛОГ</a>
+        <a href="#">СТАЖИРОВКА</a>
+    </div>
+
+    <!-- Адреса футера -->
+    <div style="position: absolute; left: 965.4px; top: 1537.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF; width: 220px;">
+        Россия, г. Санкт-Петербург, ул.Большая Морская 43
+    </div>
+    <div style="position: absolute; left: 1202.4px; top: 1537.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF; width: 203px;">
+        Россия, г.Москва, Спартаковская площадь 10.
+    </div>
+
+    <!-- Телефоны в футере -->
+    <div style="position: absolute; left: 282.4px; top: 1537.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">+7 (812) 507- 93-66</div>
+    <div style="position: absolute; left: 282.4px; top: 1566.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">+7 (995) 911- 57-00</div>
+
+    <!-- График в футере -->
+    <div style="position: absolute; left: 505.4px; top: 1537.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">ПН-ПТ 10-00 - 19-00</div>
+    <div style="position: absolute; left: 505.4px; top: 1566.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">СБ, ВС - выходной</div>
+
+    <!-- Почта в футере -->
+    <div style="position: absolute; left: 505.4px; top: 1815.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">hello@s-one.ru</div>
+    <div style="position: absolute; left: 505.4px; top: 1784.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">ПОЧТА</div>
+
+    <!-- Соц сети -->
+    <div style="position: absolute; left: 965.4px; top: 1784.19px; font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">СОЦ СЕТИ</div>
+
+    <!-- Юридические ссылки -->
+    <div class="legal-links-footer">
+        <div class="info-label">Информация:</div>
+        <a href="#">Пользовательское соглашение</a>
+        <a href="#">Политика конфиденциальности</a>
+    </div>
+
+    <!-- Копирайт -->
+    <div class="copyright">2025</div>
+</div>
+</body>
+</html>

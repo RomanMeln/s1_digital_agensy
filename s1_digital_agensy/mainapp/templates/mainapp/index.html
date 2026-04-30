@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1 Digital Agency</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">S1</div>
+            <ul class="nav-menu">
+                <li><a href="#about">Кто мы</a></li>
+                <li><a href="#projects">Наши проекты</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#team">Команда</a></li>
+                <li><a href="#blog">Блог</a></li>
+				<li><a href="#contacts">Контакты</a></li>
+<!--заготовка под страницы-->
+<!--                <li><a href="{% url 'mainapp:about_us' %}">Кто мы</a></li>-->
+<!--                <li><a href="{% url 'mainapp:projects' %}">Наши проекты</a></li>-->
+<!--                <li><a href="{% url 'mainapp:services' %}">Услуги</a></li>-->
+<!--                <li><a href="#team">Команда</a></li>-->
+<!--                <li><a href="{% url 'mainapp:blog' %}">Блог</a></li>-->
+<!--				<li><a href="{% url 'mainapp:contacts' %}">Контакты</a></li>-->
+
+            </ul>
+            <button class="btn-contact">Связаться</button>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero-circle"></div>
+        <div class="hero-content">
+            <h1>S1 digital-<span>агентство</span></h1>
+            <p>Выводим ваш бизнес на новый уровень прибыли</p>
+            <div class="hero-tags">
+                <span>Marketing</span>
+                <span>Design</span>
+                <span>Development</span>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'img/main_screen.svg' %}" alt="Главная иллюстрация">
+        </div>
+    </section>
+<!-- Блок КТО МЫ -->
+<section id="about" class="about-section">
+    <div class="about-container">
+        <div class="about-text">
+            <h2 class="huge-title" >
+                <a href="{% url 'mainapp:about_us' %}">КТО МЫ</a>
+            </h2>    
+            <div class="about-description">
+                <p>Мы — команда стратегического маркетинга и креативного дизайна. Помогаем брендам находить свой голос и масштабировать прибыль через цифровые инструменты.</p>
+                <p>Наш подход основан на данных и глубоком анализе вашей ниши.</p>
+            </div>
+        </div>
+        <div class="about-circle"></div> <!-- Тот самый желтый круг из макета -->
+    </div>
+</section>
+
+
+
+    <!-- Секция Проекты (пример карточек) -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">
+            <a href="{% url 'mainapp:projects' %}">проекты</a>
+        </h2>
+        <div class="projects-grid">
+            <div class="project-card large" style="background-color: #7B2CBF;">
+                <h3>CONTORA LISOVETS</h3>
+            </div>
+            <div class="project-card small">
+                <h3>Дизайн системы</h3>
+            </div>
+            <div class="project-card small">
+                <h3>Брендинг</h3>
+            </div>
+        </div>
+    </section>
+	<!-- Блок УСЛУГИ -->
+<section id="services" class="services-section">
+    <h2 class="section-title">
+        <a href="{% url 'mainapp:services' %}">УСЛУГИ</a>
+    </h2>
+    <div class="services-list">
+        <div class="service-item">
+            <span class="service-num">01</span>
+            <h3>Маркетинговая стратегия</h3>
+            <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+            <span class="service-num">02</span>
+            <h3>Брендинг и айдентика</h3>
+            <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+            <span class="service-num">03</span>
+            <h3>Разработка сайтов и сервисов</h3>
+            <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+            <span class="service-num">04</span>
+            <h3>SMM и продвижение</h3>
+            <span class="service-arrow">→</span>
+        </div>
+    </div>
+</section>
+<section id="team" class="team">
+    <div class="container">
+        <h2 class="section-title">КОМАНДА</h2>
+        <p class="team-subtitle">Наши специалисты — это сердце агентства</p>
+
+        <div class="team-grid">
+            <!-- Карточка участника -->
+            <div class="team-card">
+                <div class="photo-wrapper">
+                    <img src="{% static 'img/member1.jpg' %}" alt="Имя">
+                </div>
+                <h3>Алексей Иванов</h3>
+                <p>CEO & Founder</p>
+            </div>
+            <!-- Повторить такие блоки для остальных 7 человек -->
+        </div>
+    </div>
+</section>
+<section id="blog" class="blog-section">
+    <div class="container">
+        <div class="blog-header">
+            <h2 class="section-title">
+                <a href="{% url 'mainapp:blog' %}">БЛОГ</a>
+            </h2>
+            <a href="#" class="all-posts">Все статьи →</a>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Главная статья (слева) -->
+            <div class="blog-main-card">
+                <div class="blog-badge">Новое</div>
+                <div class="blog-main-content">
+                    <span class="blog-date">24 Июня 2024</span>
+                    <h3>Как нейросети меняют рынок маркетинга в 2024 году</h3>
+                    <p>Разбираемся, какие инструменты действительно экономят бюджет, а какие — лишь игрушки.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </div>
+
+            <!-- Список статей (справа) -->
+            <div class="blog-side-list">
+                <div class="side-item">
+                    <span class="blog-date">15 Июня</span>
+                    <h4>Тренды дизайна: почему минимализм снова в моде?</h4>
+                </div>
+                <div class="side-item">
+                    <span class="blog-date">10 Июня</span>
+                    <h4>Кейс: как мы увеличили конверсию для S1 на 40%</h4>
+                </div>
+                <div class="side-item">
+                    <span class="blog-date">05 Июня</span>
+                    <h4>Интервью с нашим арт-директором</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contacts" class="contact-section">
+    <!-- Фоновый декоративный круг -->
+    <div class="contact-circle"></div>
+
+    <div class="contact-content">
+        <h2 class="section-title">СВЯЖИТЕСЬ С НАМИ</h2>
+        <p>Есть проект? Давайте обсудим его и создадим что-то крутое вместе.</p>
+
+        <form action="#" method="post" class="contact-form">
+            {% csrf_token %} <!-- Обязательная защита Django для форм -->
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Расскажите о проекте" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-bg-text">S1</div>
+
+  <div class="footer-grid">
+    <!-- Колонки -->
+    <div class="footer-col">
+      <h3 class="footer-title">Компания</h3>
+      <nav class="footer-nav">
+        <a href="#">Услуги</a>
+        <a href="#">Проекты</a>
+        <a href="#">Блог</a>
+        <a href="#">Стажировка</a>
+      </nav>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Контакты</h3>
+      <div class="footer-text">
+        <p>+7 (812) 507-93-66</p>
+        <p>+7 (995) 911-57-00</p>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">График работы</h3>
+      <div class="footer-text">
+        <p>ПН-ПТ 10:00 — 19:00</p>
+        <p class="text-muted">СБ, ВС — выходной</p>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Наши адреса</h3>
+      <div class="footer-address-group">
+        <div>
+          <span class="city-name">Санкт-Петербург</span>
+          <p class="footer-text">ул. Большая Морская 43</p>
+        </div>
+        <div>
+          <span class="city-name">Москва</span>
+          <p class="footer-text">Спартаковская площадь 10</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-info">
+      <a href="#">Пользовательское соглашение</a>
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+    <div class="footer-year">2025</div>
+    <div class="footer-socials">
+      <span>Соц сети:</span>
+      <!-- Иконки VK, Behance -->
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

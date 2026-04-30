@@ -1,0 +1,211 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafaf9;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        /* Контейнер сетки */
+        .contacts-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 32px 80px;
+        }
+
+        /* Заголовок */
+        .page-title {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+            border-left: 6px solid #000;
+            padding-left: 24px;
+            color: #111;
+        }
+
+        /* Основная сетка — 2 колонки на десктопе */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px 64px;
+            margin-bottom: 64px;
+        }
+
+        /* Левая колонка — вся информация */
+        .info-block p, .address-item, .detail-item {
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 24px 0 16px 0;
+            letter-spacing: -0.2px;
+            color: #000;
+            border-bottom: 2px solid #e5e5e5;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .address-block, .phones-block, .email-block, .schedule-block {
+            margin-bottom: 28px;
+        }
+
+        .address-line, .phone-line, .email-line {
+            font-weight: 500;
+            color: #2c2c2c;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .address-detail {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        /* Навигационные ссылки */
+        .nav-links {
+            list-style: none;
+            margin: 0 0 32px 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 14px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1f2937;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .info-links {
+            list-style: none;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .info-links li {
+            margin-bottom: 10px;
+        }
+
+        .info-links a {
+            font-size: 0.85rem;
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .info-links a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        /* Блок с адресами (нижняя часть макета: СПБ и МСК) */
+        .addresses-footer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .city-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .city-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .city-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .city-address {
+            color: #334155;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .work-hours {
+            font-size: 0.85rem;
+            color: #5b6e8c;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .contacts-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .addresses-footer {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contacts-container {
+                padding: 40px 20px 60px;
+            }
+
+            .page-title {
+                padding-left: 16px;
+                margin-bottom: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .city-card {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Вспомогательные утилиты */
+        .text-muted {
+            color: #6c757d;
+        }
+
+        hr {
+            margin: 24px 0;
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+        }

@@ -1,0 +1,24 @@
+# Виртуальное окружение
+venv/
+.venv/
+env/
+ENV/
+
+# Настройки PyCharm
+.idea/
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Распределенные пакеты и сборка
+dist/
+build/
+*.egg-info/
+
+# Файлы окружения с секретами (пароли, API-ключи)
+.env
+
+# Логи
+*.log

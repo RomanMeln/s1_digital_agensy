@@ -1,0 +1,979 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-ONE | Блог</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FCFCFC;
+            overflow-x: hidden;
+        }
+
+        /* ГЛАВНЫЙ КОНТЕЙНЕР */
+        .blog-page {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            background: #FCFCFC;
+            min-height: 2889px;
+        }
+
+        /* ---------- ВЕРХНЯЯ ЧАСТЬ С ФИОЛЕТОВЫМ ФОНОМ ---------- */
+        .hero-purple {
+            position: absolute;
+            width: 100%;
+            max-width: 1920px;
+            height: 620px;
+            left: 0;
+            top: 0;
+            background: #7A00FF;
+            border-radius: 30px;
+            z-index: 0;
+        }
+
+        /* ШАПКА / НАВИГАЦИЯ */
+        .top-nav {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            width: 489px;
+            height: 33px;
+            left: 195px;
+            top: 30px;
+            z-index: 10;
+        }
+
+        .top-nav a {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .projects-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 9px;
+            gap: 10px;
+            width: 157px;
+            height: 33px;
+            background: #7A00FF;
+            border-radius: 30px;
+        }
+
+        .projects-btn a {
+            color: #FFFFFF !important;
+            width: 139px;
+        }
+
+        /* Переключатель языков */
+        .lang-switcher {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            width: 176px;
+            height: 44px;
+            left: 1627px;
+            top: 20px;
+            z-index: 10;
+        }
+
+        .lang-ru {
+            position: relative;
+            width: 71px;
+            height: 44px;
+            background: #7A00FF;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-ru span {
+            font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 100%;
+            color: #FCFCFC;
+        }
+
+        .lang-options {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .lang-options span {
+            font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 100%;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        /* Логотип */
+        .logo {
+            position: absolute;
+            width: 108px;
+            height: 54px;
+            left: 50px;
+            top: 19.5px;
+            background: #FFFFFF;
+            z-index: 10;
+        }
+
+        /* Заголовок "Блог" */
+        .blog-title {
+            position: absolute;
+            width: 418px;
+            height: 216px;
+            left: calc(50% - 418px/2 - 433.15px);
+            top: 224.93px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 180px;
+            line-height: 120%;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Знак + */
+        .plus-sign {
+            position: absolute;
+            width: 76px;
+            height: 180px;
+            left: calc(50% - 76px/2 - 145px);
+            top: 230px;
+            font-family: 'Raleway';
+            font-weight: 700;
+            font-size: 180px;
+            line-height: 100%;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Подзаголовок */
+        .subhead {
+            position: absolute;
+            width: 727px;
+            height: 200px;
+            left: calc(50% - 727px/2 + 278.65px);
+            top: 224.93px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 100px;
+            line-height: 100%;
+            text-align: center;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Белый круг с иконкой */
+        .white-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 1617.52px;
+            top: 279.93px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .circle-arrow {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 1652.52px;
+            top: 314.93px;
+            border: 4px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            z-index: 3;
+        }
+
+        /* ФИЛЬТРЫ (хлебные крошки) */
+        .filters {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            width: 1618px;
+            height: 33px;
+            left: 50px;
+            top: 722px;
+            z-index: 5;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 9px;
+            gap: 10px;
+            height: 33px;
+            border: 1px solid #E7E7E7;
+            border-radius: 30px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-chip span {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 120%;
+            text-align: center;
+            text-transform: uppercase;
+            color: #000000;
+            white-space: nowrap;
+        }
+
+        .filter-chip:hover {
+            background: #7A00FF;
+            border-color: #7A00FF;
+        }
+
+        .filter-chip:hover span {
+            color: #FFFFFF;
+        }
+
+        /* ---------- КАРТОЧКИ СТАТЕЙ ---------- */
+        /* Карточка 1 (серая, слева) */
+        .card-gray {
+            position: absolute;
+            width: 532px;
+            height: 409px;
+            left: 50px;
+            top: 817px;
+            background: #E7E7E7;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .card-gray-tag {
+            position: absolute;
+            left: 72.55px;
+            top: 847px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 35px;
+            text-transform: uppercase;
+            color: #000000;
+            z-index: 3;
+        }
+
+        .card-gray-title {
+            position: absolute;
+            width: 412.7px;
+            height: 38px;
+            left: 72.55px;
+            top: 892px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+            z-index: 3;
+        }
+
+        .card-gray-desc {
+            position: absolute;
+            width: 412px;
+            height: 95px;
+            left: 71px;
+            top: 1066px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+            z-index: 3;
+        }
+
+        .card-gray-link {
+            position: absolute;
+            left: 71px;
+            top: 1176px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #7A00FF;
+            text-decoration: none;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-gray-link .arrow {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+        }
+
+        /* Карточка 2 (фиолетовая, справа вверху) */
+        .card-purple-large {
+            position: absolute;
+            width: 899px;
+            height: 669px;
+            left: 970px;
+            top: 817px;
+            background: #7A00FF;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .purple-tag {
+            position: absolute;
+            left: 1000px;
+            top: 863px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 35px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-title {
+            position: absolute;
+            width: 555px;
+            height: 58px;
+            left: 1000px;
+            top: 931px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-desc {
+            position: absolute;
+            width: 554px;
+            height: 93px;
+            left: 1000px;
+            top: 1363px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .yellow-square {
+            position: absolute;
+            width: 152px;
+            height: 152px;
+            left: 1687px;
+            top: 1304px;
+            background: #C9FF00;
+            border-radius: 20px;
+            z-index: 3;
+        }
+
+        .yellow-arrow {
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            left: 1741px;
+            top: 1358px;
+            border: 4px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            z-index: 4;
+        }
+
+        /* Карточка 3 (фиолетовая, слева внизу) */
+        .card-purple-bottom {
+            position: absolute;
+            width: 899px;
+            height: 669px;
+            left: 51px;
+            top: 1246px;
+            background: #7A00FF;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .purple-bottom-tag {
+            position: absolute;
+            left: 81px;
+            top: 1292px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 35px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-bottom-title {
+            position: absolute;
+            width: 555px;
+            height: 58px;
+            left: 81px;
+            top: 1360px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-bottom-desc {
+            position: absolute;
+            width: 554px;
+            height: 93px;
+            left: 81px;
+            top: 1792px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .yellow-square-bottom {
+            position: absolute;
+            width: 152px;
+            height: 152px;
+            left: 766px;
+            top: 1733px;
+            background: #C9FF00;
+            border-radius: 20px;
+            z-index: 3;
+        }
+
+        .yellow-arrow-bottom {
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            left: 820px;
+            top: 1787px;
+            border: 4px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            z-index: 4;
+        }
+
+        /* Карточка 4 (серая, справа внизу) */
+        .card-gray-right {
+            position: absolute;
+            width: 532px;
+            height: 409px;
+            left: 968.79px;
+            top: 1506px;
+            background: #E7E7E7;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        /* Кнопка "смотреть все" */
+        .view-all {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            width: 138px;
+            height: 19px;
+            left: calc(50% - 138px/2);
+            top: 1945px;
+            text-decoration: none;
+            z-index: 5;
+        }
+
+        .view-all span {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #7A00FF;
+        }
+
+        .view-all .arrow {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+        }
+
+        /* ---------- ФУТЕР (фиолетовый) ---------- */
+        .footer-purple {
+            position: absolute;
+            width: 1920px;
+            height: 700px;
+            left: 5px;
+            top: 2189px;
+            background: #7A00FF;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .footer-bg-letter {
+            position: absolute;
+            width: 470px;
+            height: 480px;
+            left: -106px;
+            top: 2114px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 400px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            opacity: 0.2;
+            z-index: 2;
+        }
+
+        /* Заголовки футера */
+        .footer-title {
+            position: absolute;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-subtitle {
+            position: absolute;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Меню футера */
+        .footer-menu {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 109px;
+            left: 53px;
+            top: 2438px;
+            z-index: 3;
+        }
+
+        .footer-menu a {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        /* Адреса футера */
+        .footer-address-spb {
+            position: absolute;
+            width: 220px;
+            height: 57px;
+            left: 975px;
+            top: 2438px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-address-msk {
+            position: absolute;
+            width: 203px;
+            height: 57px;
+            left: 1212px;
+            top: 2438px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Телефоны */
+        .footer-phone1 {
+            position: absolute;
+            width: 143px;
+            height: 19px;
+            left: 292px;
+            top: 2438px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-phone2 {
+            position: absolute;
+            width: 143px;
+            height: 19px;
+            left: 292px;
+            top: 2467px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* График */
+        .footer-schedule-week {
+            position: absolute;
+            width: 150px;
+            height: 19px;
+            left: 515px;
+            top: 2438px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-schedule-weekend {
+            position: absolute;
+            width: 153px;
+            height: 19px;
+            left: 515px;
+            top: 2467px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Почта */
+        .footer-email {
+            position: absolute;
+            width: 135px;
+            height: 19px;
+            left: 515px;
+            top: 2716px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-email-label {
+            position: absolute;
+            width: 53px;
+            height: 19px;
+            left: 515px;
+            top: 2685px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Соцсети */
+        .footer-social-label {
+            position: absolute;
+            width: 79px;
+            height: 19px;
+            left: 975px;
+            top: 2685px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Юридическая информация */
+        .footer-info-label {
+            position: absolute;
+            width: 119px;
+            height: 19px;
+            left: 53px;
+            top: 2685px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-legal1 {
+            position: absolute;
+            width: 277px;
+            height: 19px;
+            left: 55px;
+            top: 2716px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .footer-legal2 {
+            position: absolute;
+            width: 289px;
+            height: 19px;
+            left: 55px;
+            top: 2746px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Копирайт */
+        .copyright {
+            position: absolute;
+            width: 37px;
+            height: 19px;
+            left: calc(50% - 37px/2 + 4.5px);
+            top: 2845px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        /* Адаптив */
+        @media (max-width: 1400px) {
+            .blog-title { font-size: 100px; left: 50px; top: 200px; }
+            .subhead { font-size: 50px; left: auto; right: 50px; top: 220px; width: 500px; }
+            .plus-sign { left: auto; right: 580px; top: 200px; }
+            .filters { left: 20px; width: calc(100% - 40px); gap: 10px; }
+            .filter-chip span { font-size: 14px; }
+            .card-gray, .card-gray-right, .card-purple-large, .card-purple-bottom { position: relative; margin: 20px auto; left: auto; top: auto; width: 90%; }
+            .blog-page { height: auto; padding-bottom: 800px; }
+            .footer-purple { position: relative; left: 0; top: 100px; width: 100%; height: auto; padding-bottom: 50px; }
+        }
+    </style>
+</head>
+<body>
+<div class="blog-page">
+    <!-- Фиолетовый фон шапки -->
+    <div class="hero-purple"></div>
+
+    <!-- Навигация -->
+    <div class="top-nav">
+        <a href="#">О нас</a>
+        <div class="projects-btn"><a href="#">Наши проекты</a></div>
+        <a href="#">Услуги</a>
+        <a href="#">Блог</a>
+        <a href="#">Контакты</a>
+    </div>
+
+    <!-- Переключатель языков -->
+    <div class="lang-switcher">
+        <div class="lang-ru"><span>RU</span></div>
+        <div class="lang-options">
+            <span>EN</span>
+            <span>FR</span>
+            <span>DE</span>
+        </div>
+    </div>
+
+    <!-- Логотип -->
+    <div class="logo"></div>
+
+    <!-- Заголовок "Блог" -->
+    <h1 class="blog-title">Блог</h1>
+    <div class="plus-sign">+</div>
+    <div class="subhead">Покажем, как это работает</div>
+
+    <!-- Белый круг с иконкой -->
+    <div class="white-circle"></div>
+    <div class="circle-arrow"></div>
+
+    <!-- Фильтры -->
+    <div class="filters">
+        <div class="filter-chip"><span>ВСЕ</span></div>
+        <div class="filter-chip"><span>КЕЙСЫ</span></div>
+        <div class="filter-chip"><span>ИНСТРУМЕНТЫ</span></div>
+        <div class="filter-chip"><span>БРЕНДИНГ</span></div>
+        <div class="filter-chip"><span>ДИЗАЙН</span></div>
+        <div class="filter-chip"><span>ПРОЦЕСС</span></div>
+        <div class="filter-chip"><span>ТРЕНДЫ</span></div>
+        <div class="filter-chip"><span>SMM</span></div>
+        <div class="filter-chip"><span>ОБРАЗОВАНИЕ</span></div>
+    </div>
+
+    <!-- Карточка 1 (серая, слева) -->
+    <div class="card-gray"></div>
+    <div class="card-gray-tag">МАРКЕТИНГ</div>
+    <div class="card-gray-title">Маркетинг без шума: как бренду выделиться в переполненном рынке</div>
+    <div class="card-gray-desc">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
+    <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+
+    <!-- Карточка 2 (фиолетовая, справа вверху) -->
+    <div class="card-purple-large"></div>
+    <div class="purple-tag">ПРОДВИЖЕНИЕ</div>
+    <div class="purple-title">Как перестать «просто вести соцсети» и начать привлекать клиентов</div>
+    <div class="purple-desc">Разбираем, почему контент не работает без стратегии, как связать креатив с воронкой продаж и что именно должно быть в системе продвижения, чтобы она приводила заявки, а не лайки.</div>
+    <div class="yellow-square"></div>
+    <div class="yellow-arrow"></div>
+
+    <!-- Карточка 3 (фиолетовая, слева внизу) -->
+    <div class="card-purple-bottom"></div>
+    <div class="purple-bottom-tag">ПРОДВИЖЕНИЕ</div>
+    <div class="purple-bottom-title">Как перестать «просто вести соцсети» и начать привлекать клиентов</div>
+    <div class="purple-bottom-desc">Разбираем, почему контент не работает без стратегии, как связать креатив с воронкой продаж и что именно должно быть в системе продвижения, чтобы она приводила заявки, а не лайки.</div>
+    <div class="yellow-square-bottom"></div>
+    <div class="yellow-arrow-bottom"></div>
+
+    <!-- Карточка 4 (серая, справа внизу) -->
+    <div class="card-gray-right"></div>
+    <div class="card-gray-tag" style="left: 991.79px; top: 1536px;">МАРКЕТИНГ</div>
+    <div class="card-gray-title" style="left: 991.79px; top: 1581px; width: 413px;">Маркетинг без шума: как бренду выделиться в переполненном рынке</div>
+    <div class="card-gray-desc" style="left: 989.79px; top: 1755px; width: 412px;">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
+    <a href="#" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+
+    <!-- Кнопка "смотреть все" -->
+    <a href="#" class="view-all">
+        <span>смотреть все</span>
+        <div class="arrow"></div>
+    </a>
+
+    <!-- Футер -->
+    <div class="footer-purple"></div>
+    <div class="footer-bg-letter">S1</div>
+
+    <!-- Заголовки футера -->
+    <div class="footer-title" style="left: 53px; top: 2389px;">Компания</div>
+    <div class="footer-title" style="left: 292px; top: 2389px;">КОНТАКТЫ</div>
+    <div class="footer-title" style="left: 515px; top: 2389px;">График работы</div>
+    <div class="footer-title" style="left: 745px; top: 2389px;">НАШИ АДРЕСА</div>
+    <div class="footer-subtitle" style="left: 975px; top: 2391px;">САНКТ-ПЕТЕРБУРГ</div>
+    <div class="footer-subtitle" style="left: 1212px; top: 2391px;">МОСКВА</div>
+
+    <!-- Меню футера -->
+    <div class="footer-menu">
+        <a href="#">УСЛУГИ</a>
+        <a href="#">ПРОЕКТЫ</a>
+        <a href="#">БЛОГ</a>
+        <a href="#">СТАЖИРОВКА</a>
+    </div>
+
+    <!-- Адреса -->
+    <div class="footer-address-spb">Россия, г. Санкт-Петербург, ул.Большая Морская 43</div>
+    <div class="footer-address-msk">Россия, г.Москва, Спартаковская площадь 10.</div>
+
+    <!-- Телефоны -->
+    <div class="footer-phone1">+7 (812) 507- 93-66</div>
+    <div class="footer-phone2">+7 (995) 911- 57-00</div>
+
+    <!-- График -->
+    <div class="footer-schedule-week">ПН-ПТ 10-00 - 19-00</div>
+    <div class="footer-schedule-weekend">СБ, ВС - выходной</div>
+
+    <!-- Почта -->
+    <div class="footer-email-label">ПОЧТА</div>
+    <div class="footer-email">hello@s-one.ru</div>
+
+    <!-- Соцсети -->
+    <div class="footer-social-label">СОЦ СЕТИ</div>
+
+    <!-- Юридическая информация -->
+    <div class="footer-info-label">Информация:</div>
+    <div class="footer-legal1">Пользовательское соглашение</div>
+    <div class="footer-legal2">Политика конфиденциальности</div>
+
+    <!-- Копирайт -->
+    <div class="copyright">2025</div>
+</div>
+</body>
+</html>
