@@ -1,0 +1,401 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 80px; /* Высота шапки + небольшой запас */
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+    color: var(--dark-bg);
+}
+
+ /*Шапка*/
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--dark-bg);
+    font-weight: 500;
+}
+
+
+/* Переключатель языков */
+.lang-switcher {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 176px;
+  height: 44px;
+  left: 1430px;
+  top: 27px;
+  z-index: 10;
+}
+
+.lang-ru {
+  position: relative;
+  width: 71px;
+  height: 44px;
+  background: #7A00FF;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-ru span {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  color: #FCFCFC;
+}
+
+.lang-options {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.lang-options span {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  color: #000000;
+  cursor: pointer;
+}
+
+/* footer.css */
+/* Подключение шрифтов Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;800&family=Raleway:wght@500;600;800&display=swap');
+
+/* Основной контейнер футера */
+.site-footer {
+  position: relative;               /* Относительное позиционирование — для абсолютного позиционирования дочерних элементов */
+  width: 100%;                      /* Ширина на всю доступную область родителя */
+  max-width: 1920px;                /* Максимальная ширина по макету */
+  margin: 0 auto;                   /* Центрирование по горизонтали */
+  height: 800px;                    /* Фиксированная высота, достаточная для размещения всех элементов */
+  font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif; /* Шрифт по умолчанию */
+  background: #7A00FF;              /* Фон футера (фиолетовый) */
+  border-radius: 20px;              /* Скругление углов */
+  overflow: hidden;                 /* Скрываем выходящие за пределы элементы (для аккуратности) */
+}
+
+/* Фоновый фиолетовый слой (используется как дополнительный фон, хотя сам .site-footer уже фиолетовый) */
+.footer-purple {
+  position: absolute;               /* Абсолютное позиционирование внутри .site-footer */
+  width: 1920px;                    /* Ширина равна максимальной ширине контейнера */
+  height: 700px;                    /* Высота фонового блока */
+  left: -5.21px;                    /* Смещение влево для компенсации возможных отступов */
+  top: 88px;                        /* Отступ сверху (рассчитано относительно верха футера) */
+  background: #7A00FF;              /* Цвет фона */
+  border-radius: 20px;              /* Скругление углов */
+  z-index: 1;                       /* Нижний слой, чтобы остальные элементы были сверху */
+}
+
+/* Декоративная большая буква "S1" на фоне */
+.footer-bg-letter {
+  position: absolute;               /* Абсолютное позиционирование */
+  width: 470px;                     /* Ширина блока с буквой */
+  height: 480px;                    /* Высота блока */
+  left: -116.21px;                  /* Частичное смещение за левый край (эффект выступания) */
+  top: 0px;                         /* Прилегает к верхнему краю футера */
+  font-family: 'Roboto';            /* Шрифт */
+  font-weight: 500;                 /* Насыщенность шрифта */
+  font-size: 400px;                 /* Огромный размер буквы */
+  line-height: 120%;                /* Межстрочный интервал */
+  text-transform: uppercase;        /* Все буквы заглавные */
+  color: #FFFFFF;                   /* Белый цвет */
+  opacity: 0.2;                     /* Полупрозрачность (20%) */
+  z-index: 2;                       /* Слой над фоном, но под контентом */
+  pointer-events: none;             /* Чтобы буква не мешала кликам по элементам под ней */
+}
+
+/* Общие стили для заголовков разделов футера */
+.footer-title {
+  position: absolute;               /* Абсолютное позиционирование (координаты заданы в HTML через style) */
+  font-family: 'Roboto';            /* Шрифт */
+  font-weight: 500;                 /* Жирность */
+  font-size: 24px;                  /* Размер шрифта */
+  line-height: 120%;                /* Высота строки */
+  text-transform: uppercase;        /* Все буквы заглавные */
+  color: #FFFFFF;                   /* Белый цвет */
+  z-index: 3;                       /* Верхний слой, над фоном и буквой */
+}
+
+/* Общие стили для подзаголовков (города) */
+.footer-subtitle {
+  position: absolute;               /* Абсолютное позиционирование */
+  font-family: 'Roboto';            /* Шрифт */
+  font-weight: 500;                 /* Жирность */
+  font-size: 20px;                  /* Размер шрифта */
+  line-height: 120%;                /* Высота строки */
+  text-transform: uppercase;        /* Заглавные буквы */
+  color: #FFFFFF;                   /* Белый цвет */
+  z-index: 3;                       /* Верхний слой */
+}
+
+/* Блок меню футера (ссылки) */
+.footer-menu {
+  position: absolute;               /* Абсолютное позиционирование */
+  display: flex;                    /* Гибкий контейнер для вертикального расположения ссылок */
+  flex-direction: column;           /* Вертикальная колонка */
+  align-items: flex-start;          /* Выравнивание по левому краю */
+  gap: 10px;                        /* Расстояние между ссылками */
+  width: 109px;                     /* Фиксированная ширина блока */
+  left: 42.79px;                    /* Отступ слева */
+  top: 324px;                       /* Отступ сверху */
+  z-index: 3;                       /* Верхний слой */
+}
+
+/* Стили самих ссылок в меню */
+.footer-menu a {
+  font-family: 'Roboto';            /* Шрифт */
+  font-weight: 500;                 /* Жирность */
+  font-size: 16px;                  /* Размер шрифта */
+  line-height: 120%;                /* Высота строки */
+  text-transform: uppercase;        /* Заглавные буквы */
+  color: #FFFFFF;                   /* Белый цвет */
+  text-decoration: none;            /* Убираем подчёркивание */
+}
+
+/* Адрес в Санкт-Петербурге */
+.footer-address-spb {
+  position: absolute;               /* Абсолютное позиционирование */
+  width: 220px;                     /* Ширина блока */
+  height: 57px;                     /* Высота блока, но обычно определяется содержимым */
+  left: 964.79px;                   /* Отступ слева */
+  top: 324px;                       /* Отступ сверху */
+  font-family: 'Roboto';            /* Шрифт */
+  font-weight: 500;                 /* Жирность */
+  font-size: 16px;                  /* Размер шрифта */
+  line-height: 120%;                /* Межстрочный интервал */
+  text-transform: uppercase;        /* Заглавные буквы */
+  color: #FFFFFF;                   /* Белый цвет */
+  z-index: 3;
+}
+
+/* Адрес в Москве */
+.footer-address-msk {
+  position: absolute;               /* Абсолютное позиционирование */
+  width: 203px;                     /* Ширина блока */
+  height: 57px;                     /* Высота */
+  left: 1201.79px;                  /* Отступ слева */
+  top: 324px;                       /* Отступ сверху */
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Первый номер телефона */
+.footer-phone1 {
+  position: absolute;
+  width: 143px;
+  height: 19px;
+  left: 281.79px;
+  top: 324px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Второй номер телефона */
+.footer-phone2 {
+  position: absolute;
+  width: 143px;
+  height: 19px;
+  left: 281.79px;
+  top: 353px;                       /* Слегка ниже первого телефона */
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* График работы: будние дни */
+.footer-schedule-week {
+  position: absolute;
+  width: 150px;
+  height: 19px;
+  left: 504.79px;
+  top: 324px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* График работы: выходные дни */
+.footer-schedule-weekend {
+  position: absolute;
+  width: 153px;
+  height: 19px;
+  left: 504.79px;
+  top: 353px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Метка "ПОЧТА" */
+.footer-email-label {
+  position: absolute;
+  width: 53px;
+  height: 19px;
+  left: 504.79px;
+  top: 571px;                       /* Ниже графика работы */
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Email-адрес */
+.footer-email {
+  position: absolute;
+  width: 135px;
+  height: 19px;
+  left: 504.79px;
+  top: 602px;                       /* Чуть ниже метки */
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Метка "СОЦ СЕТИ" */
+.footer-social-label {
+  position: absolute;
+  width: 79px;
+  height: 19px;
+  left: 964.79px;
+  top: 571px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Метка "Информация:" для юридических ссылок */
+.footer-info-label {
+  position: absolute;
+  width: 119px;
+  height: 19px;
+  left: 42.79px;
+  top: 571px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/* Первая юридическая ссылка (Пользовательское соглашение) */
+.footer-legal1 {
+  position: absolute;
+  width: 277px;
+  height: 19px;
+  left: 44.79px;
+  top: 602px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-decoration: underline;       /* Подчёркивание, как в оригинале */
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+  cursor: pointer;                  /* Курсор-рука (намекает на кликабельность) */
+}
+
+/* Вторая юридическая ссылка (Политика конфиденциальности) */
+.footer-legal2 {
+  position: absolute;
+  width: 289px;
+  height: 19px;
+  left: 44.79px;
+  top: 632px;                       /* Ниже первой ссылки */
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* Копирайт (год) */
+.copyright {
+  position: absolute;
+  width: 37px;
+  height: 19px;
+  left: calc(50% - 37px/2 - 5.71px); /* Центрирование по горизонтали с поправкой */
+  top: 731px;                       /* Ближе к нижнему краю футера */
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 3;
+}
+
+/*молния в футере*/
+.splash_white{
+    position: absolute;
+    height: 624px;
+    left: 61.46%;
+    right: 9.77%;
+    top: 47px;
+}

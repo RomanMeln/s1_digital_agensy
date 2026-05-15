@@ -1,37 +1,12 @@
+{% extends 'mainapp/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S1 Digital Agency</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">S1</div>
-            <ul class="nav-menu">
-                <li><a href="#about">Кто мы</a></li>
-                <li><a href="#projects">Наши проекты</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#team">Команда</a></li>
-                <li><a href="#blog">Блог</a></li>
-				<li><a href="#contacts">Контакты</a></li>
-<!--заготовка под страницы-->
-<!--                <li><a href="{% url 'mainapp:about_us' %}">Кто мы</a></li>-->
-<!--                <li><a href="{% url 'mainapp:projects' %}">Наши проекты</a></li>-->
-<!--                <li><a href="{% url 'mainapp:services' %}">Услуги</a></li>-->
-<!--                <li><a href="#team">Команда</a></li>-->
-<!--                <li><a href="{% url 'mainapp:blog' %}">Блог</a></li>-->
-<!--				<li><a href="{% url 'mainapp:contacts' %}">Контакты</a></li>-->
 
-            </ul>
-            <button class="btn-contact">Связаться</button>
-        </nav>
-    </header>
+{% block title %}S1 Digital Agency{% endblock %}
 
+{% block extra_css%}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+
+{% block content %}
     <!-- Главный экран -->
     <section class="hero">
         <div class="hero-circle"></div>
@@ -43,9 +18,6 @@
                 <span>Design</span>
                 <span>Development</span>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="{% static 'img/main_screen.svg' %}" alt="Главная иллюстрация">
         </div>
     </section>
 <!-- Блок КТО МЫ -->
@@ -191,64 +163,5 @@
         </form>
     </div>
 </section>
-<footer class="footer">
-    <div class="footer-bg-text">S1</div>
 
-  <div class="footer-grid">
-    <!-- Колонки -->
-    <div class="footer-col">
-      <h3 class="footer-title">Компания</h3>
-      <nav class="footer-nav">
-        <a href="#">Услуги</a>
-        <a href="#">Проекты</a>
-        <a href="#">Блог</a>
-        <a href="#">Стажировка</a>
-      </nav>
-    </div>
-
-    <div class="footer-col">
-      <h3 class="footer-title">Контакты</h3>
-      <div class="footer-text">
-        <p>+7 (812) 507-93-66</p>
-        <p>+7 (995) 911-57-00</p>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h3 class="footer-title">График работы</h3>
-      <div class="footer-text">
-        <p>ПН-ПТ 10:00 — 19:00</p>
-        <p class="text-muted">СБ, ВС — выходной</p>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h3 class="footer-title">Наши адреса</h3>
-      <div class="footer-address-group">
-        <div>
-          <span class="city-name">Санкт-Петербург</span>
-          <p class="footer-text">ул. Большая Морская 43</p>
-        </div>
-        <div>
-          <span class="city-name">Москва</span>
-          <p class="footer-text">Спартаковская площадь 10</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-info">
-      <a href="#">Пользовательское соглашение</a>
-      <a href="#">Политика конфиденциальности</a>
-    </div>
-    <div class="footer-year">2025</div>
-    <div class="footer-socials">
-      <span>Соц сети:</span>
-      <!-- Иконки VK, Behance -->
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
+{% endblock %}

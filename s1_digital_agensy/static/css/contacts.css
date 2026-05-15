@@ -5,207 +5,254 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fafaf9;
-            color: #1a1a1a;
-            line-height: 1.5;
+            font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FCFCFC;
+            overflow-x: hidden;
         }
 
-        /* Контейнер сетки */
-        .contacts-container {
-            max-width: 1280px;
+        /* ГЛАВНЫЙ КОНТЕЙНЕР  */
+        .contacts-page {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
             margin: 0 auto;
-            padding: 60px 32px 80px;
+            background: #FCFCFC;
+            min-height: 2001px;
         }
 
-        /* Заголовок */
-        .page-title {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 48px;
-            border-left: 6px solid #000;
-            padding-left: 24px;
-            color: #111;
+        /* Жёлтый круг из Figma */
+        .yellow-circle {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            left: 1023px;
+            top: 193px;
+            background: #C9FF00;
+            border-radius: 50%;
+            z-index: 1;
         }
 
-        /* Основная сетка — 2 колонки на десктопе */
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px 64px;
-            margin-bottom: 64px;
+        /* ГЛАВНЫЙ ЗАГОЛОВОК КОНТАКТЫ */
+        .main-title {
+            position: absolute;
+            width: 1022px;
+            height: 216px;
+            left: calc(50% - 1022px/2 + 6.5px);
+            top: 272.59px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 180px;
+            line-height: 120%;
+            color: #000000;
+            z-index: 2;
+            text-align: center;
         }
 
-        /* Левая колонка — вся информация */
-        .info-block p, .address-item, .detail-item {
-            margin-bottom: 12px;
+        /* СЕРЫЙ БЛОК (левая часть с адресами) */
+        .gray-block {
+            position: absolute;
+            width: 946px;
+            height: 468px;
+            left: 0px;
+            top: 626px;
+            background: #E7E7E7;
+            border-radius: 30px;
+            z-index: 2;
         }
 
-        .section-title {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 24px 0 16px 0;
-            letter-spacing: -0.2px;
-            color: #000;
-            border-bottom: 2px solid #e5e5e5;
-            display: inline-block;
-            padding-bottom: 4px;
+        /* ЛОГОТИП В ЛЕВОМ БЛОКЕ */
+        .logo-mask {
+            position: absolute;
+            width: 108px;
+            height: 54px;
+            left: 50px;
+            top: 19.5px;
         }
 
-        .section-title:first-of-type {
-            margin-top: 0;
-        }
-
-        .address-block, .phones-block, .email-block, .schedule-block {
-            margin-bottom: 28px;
-        }
-
-        .address-line, .phone-line, .email-line {
-            font-weight: 500;
-            color: #2c2c2c;
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-
-        .address-detail {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.45;
-        }
-
-        /* Навигационные ссылки */
-        .nav-links {
-            list-style: none;
-            margin: 0 0 32px 0;
-        }
-
-        .nav-links li {
-            margin-bottom: 14px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #1f2937;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        .info-links {
-            list-style: none;
-            margin-top: 24px;
-            padding-top: 16px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .info-links li {
-            margin-bottom: 10px;
-        }
-
-        .info-links a {
-            font-size: 0.85rem;
-            color: #4b5563;
-            text-decoration: none;
-        }
-
-        .info-links a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        /* Блок с адресами (нижняя часть макета: СПБ и МСК) */
-        .addresses-footer {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .city-card {
-            background: white;
-            border-radius: 24px;
-            padding: 28px 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .city-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
-        }
-
-        .city-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.3px;
-        }
-
-        .city-address {
-            color: #334155;
-            line-height: 1.5;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .work-hours {
-            font-size: 0.85rem;
-            color: #5b6e8c;
-            border-top: 1px dashed #e2e8f0;
-            padding-top: 16px;
+        /* Адреса внутри серого блока */
+        .addresses-block {
+            position: absolute;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            width: 348px;
+            height: 142px;
+            left: 50px;
+            top: 686px;
         }
 
-        /* Адаптивность */
-        @media (max-width: 900px) {
-            .contacts-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .addresses-footer {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .contacts-container {
-                padding: 40px 20px 60px;
-            }
-
-            .page-title {
-                padding-left: 16px;
-                margin-bottom: 32px;
-            }
+        .addresses-block .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
         }
 
-        @media (max-width: 480px) {
-            .city-card {
-                padding: 20px;
-            }
-
-            .section-title {
-                font-size: 1.1rem;
-            }
+        .addresses-block .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
         }
 
-        /* Вспомогательные утилиты */
-        .text-muted {
-            color: #6c757d;
+        /* График работы */
+        .schedule-block {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 21px;
+            width: 348px;
+            height: 61px;
+            left: 418px;
+            top: 686px;
         }
 
-        hr {
-            margin: 24px 0;
-            border: 0;
-            height: 1px;
-            background: #e2e8f0;
+        .schedule-block .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .schedule-block .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* E-mail */
+        .email-block-left {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 21px;
+            width: 107px;
+            height: 61px;
+            left: 421px;
+            top: 950px;
+        }
+
+        .email-block-left .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .email-block-left .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* Телефоны */
+        .phones-block-left {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            width: 133px;
+            height: 86px;
+            left: 53px;
+            top: 950px;
+        }
+
+        .phones-block-left .title {
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .phones-block-left .text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* ФИОЛЕТОВЫЙ БЛОК (справа) */
+        .purple-block {
+            position: absolute;
+            width: 874px;
+            height: 467.69px;
+            left: 970px;
+            top: 626px;
+            background: #7A00FF;
+            border-radius: 30px;
+            z-index: 2;
+        }
+
+        /* Текст "Свяжитесь с нами" */
+        .contact-us-text {
+            position: absolute;
+            width: 458.6px;
+            height: 168px;
+            left: calc(50% - 458.6px/2 + 447px);
+            top: 771.97px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 70px;
+            line-height: 120%;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .contact-us-bg {
+            position: absolute;
+            width: 768.5px;
+            height: 240px;
+            left: calc(50% - 768.5px/2 + 447.25px);
+            top: 721.97px;
+            font-family: 'Raleway';
+            font-weight: 700;
+            font-size: 120px;
+            line-height: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Адаптив (для маленьких экранов) */
+        @media (max-width: 1400px) {
+            .main-title { font-size: 100px; top: 320px; }
+            .yellow-circle { width: 200px; height: 200px; left: 70%; }
+            .gray-block, .purple-block { width: 45%; }
+            .purple-block { left: 52%; }
+            .contact-us-text { font-size: 40px; top: 750px; }
+        }
+
+        @media (max-width: 768px) {
+            .top-nav, .lang-switcher { display: none; }
+            .main-title { font-size: 48px; top: 200px; }
+            .gray-block, .purple-block { position: relative; width: 90%; margin: 20px auto; left: auto; top: auto; }
+            .contacts-page { height: auto; padding-bottom: 700px; }
+            .footer-purple { position: relative; left: 0; top: 100px; width: 100%; }
         }

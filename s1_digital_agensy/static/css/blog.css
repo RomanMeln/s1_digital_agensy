@@ -1,0 +1,454 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FCFCFC;
+            overflow-x: hidden;
+        }
+
+        /* ГЛАВНЫЙ КОНТЕЙНЕР */
+        .blog-page {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            background: #FCFCFC;
+            min-height: 2889px;
+        }
+
+        /* ---------- ВЕРХНЯЯ ЧАСТЬ С ФИОЛЕТОВЫМ ФОНОМ ---------- */
+        .hero-purple {
+            position: absolute;
+            width: 100%;
+            max-width: 1920px;
+            height: 620px;
+            left: 0;
+            top: 0;
+            background: #7A00FF;
+            border-radius: 30px;
+            z-index: 0;
+        }
+
+        /* Заголовок "Блог" */
+        .blog-title {
+            position: absolute;
+            width: 418px;
+            height: 216px;
+            left: calc(50% - 418px/2 - 433.15px);
+            top: 224.93px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 180px;
+            line-height: 120%;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Знак + */
+        .plus-sign {
+            position: absolute;
+            width: 76px;
+            height: 180px;
+            left: calc(50% - 76px/2 - 145px);
+            top: 230px;
+            font-family: 'Raleway';
+            font-weight: 700;
+            font-size: 180px;
+            line-height: 100%;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Подзаголовок */
+        .subhead {
+            position: absolute;
+            width: 727px;
+            height: 200px;
+            left: calc(50% - 727px/2 + 278.65px);
+            top: 224.93px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 100px;
+            line-height: 100%;
+            text-align: center;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Белый круг с иконкой */
+        .white-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 1617.52px;
+            top: 279.93px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .circle-arrow {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 1652.52px;
+            top: 314.93px;
+            border: 4px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            z-index: 3;
+        }
+
+        /* ФИЛЬТРЫ (хлебные крошки) */
+        .filters {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            width: 1618px;
+            height: 33px;
+            left: 50px;
+            top: 722px;
+            z-index: 5;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 9px;
+            gap: 10px;
+            height: 33px;
+            border: 1px solid #E7E7E7;
+            border-radius: 30px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-chip span {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 120%;
+            text-align: center;
+            text-transform: uppercase;
+            color: #000000;
+            white-space: nowrap;
+        }
+
+        .filter-chip:hover {
+            background: #7A00FF;
+            border-color: #7A00FF;
+        }
+
+        .filter-chip:hover span {
+            color: #FFFFFF;
+        }
+
+        /* ---------- КАРТОЧКИ СТАТЕЙ ---------- */
+        /* Карточка 1 (серая, слева) */
+        .card-gray {
+            position: absolute;
+            width: 532px;
+            height: 409px;
+            left: 50px;
+            top: 817px;
+            background: #E7E7E7;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .card-gray-tag {
+            position: absolute;
+            left: 72.55px;
+            top: 847px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 35px;
+            text-transform: uppercase;
+            color: #000000;
+            z-index: 3;
+        }
+
+        .card-gray-title {
+            position: absolute;
+            width: 412.7px;
+            height: 38px;
+            left: 72.55px;
+            top: 892px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+            z-index: 3;
+        }
+
+        .card-gray-desc {
+            position: absolute;
+            width: 412px;
+            height: 95px;
+            left: 71px;
+            top: 1066px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #000000;
+            z-index: 3;
+        }
+
+        .card-gray-link {
+            position: absolute;
+            left: 71px;
+            top: 1176px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #7A00FF;
+            text-decoration: none;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-gray-link .arrow {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+        }
+
+        /* Карточка 2 (фиолетовая, справа вверху) */
+        .card-purple-large {
+            position: absolute;
+            width: 899px;
+            height: 669px;
+            left: 970px;
+            top: 817px;
+            background: #7A00FF;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .purple-tag {
+            position: absolute;
+            left: 1000px;
+            top: 863px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 35px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-title {
+            position: absolute;
+            width: 555px;
+            height: 58px;
+            left: 1000px;
+            top: 931px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-desc {
+            position: absolute;
+            width: 554px;
+            height: 93px;
+            left: 1000px;
+            top: 1363px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .yellow-square {
+            position: absolute;
+            width: 152px;
+            height: 152px;
+            left: 1687px;
+            top: 1304px;
+            background: #C9FF00;
+            border-radius: 20px;
+            z-index: 3;
+        }
+
+        .yellow-arrow {
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            left: 1741px;
+            top: 1358px;
+            border: 4px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            z-index: 4;
+        }
+
+        /* Карточка 3 (фиолетовая, слева внизу) */
+        .card-purple-bottom {
+            position: absolute;
+            width: 899px;
+            height: 669px;
+            left: 51px;
+            top: 1246px;
+            background: #7A00FF;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .purple-bottom-tag {
+            position: absolute;
+            left: 81px;
+            top: 1292px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 35px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-bottom-title {
+            position: absolute;
+            width: 555px;
+            height: 58px;
+            left: 81px;
+            top: 1360px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .purple-bottom-desc {
+            position: absolute;
+            width: 554px;
+            height: 93px;
+            left: 81px;
+            top: 1792px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            z-index: 3;
+        }
+
+        .yellow-square-bottom {
+            position: absolute;
+            width: 152px;
+            height: 152px;
+            left: 766px;
+            top: 1733px;
+            background: #C9FF00;
+            border-radius: 20px;
+            z-index: 3;
+        }
+
+        .yellow-arrow-bottom {
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            left: 820px;
+            top: 1787px;
+            border: 4px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            z-index: 4;
+        }
+
+        /* Карточка 4 (серая, справа внизу) */
+        .card-gray-right {
+            position: absolute;
+            width: 532px;
+            height: 409px;
+            left: 968.79px;
+            top: 1506px;
+            background: #E7E7E7;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        /* Кнопка "смотреть все" */
+        .view-all {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            width: 138px;
+            height: 19px;
+            left: calc(50% - 138px/2);
+            top: 1945px;
+            text-decoration: none;
+            z-index: 5;
+        }
+
+        .view-all span {
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #7A00FF;
+        }
+
+        .view-all .arrow {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #7A00FF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+        }
+
+        /* Адаптив */
+        @media (max-width: 1400px) {
+            .blog-title { font-size: 100px; left: 50px; top: 200px; }
+            .subhead { font-size: 50px; left: auto; right: 50px; top: 220px; width: 500px; }
+            .plus-sign { left: auto; right: 580px; top: 200px; }
+            .filters { left: 20px; width: calc(100% - 40px); gap: 10px; }
+            .filter-chip span { font-size: 14px; }
+            .card-gray, .card-gray-right, .card-purple-large, .card-purple-bottom { position: relative; margin: 20px auto; left: auto; top: auto; width: 90%; }
+            .blog-page { height: auto; padding-bottom: 800px; }
+            .footer-purple { position: relative; left: 0; top: 100px; width: 100%; height: auto; padding-bottom: 50px; }
+        }
