@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 def index(request):
@@ -21,3 +22,17 @@ def services(request):
 
 def cases(request):
     return render(request, 'mainapp/cases.html')
+
+def contact_us(request):
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Вывести в консоль для теста:
+        print(f"Новое сообщение от {name} ({email}): {message}")
+
+        return HttpResponse("<h1>Спасибо за заявку! Мы обязательно с Вами свяжемся!</h1>")
+
+    return render(request, 'mainapp/contact-us.html')
