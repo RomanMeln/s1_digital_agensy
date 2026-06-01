@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def index(request):
@@ -33,7 +32,6 @@ def contact_us(request):
         # Вывести в консоль для теста:
         print(f"Новое сообщение от {name} ({email}): {message}")
 
-        return HttpResponse("<h1>Спасибо за заявку! Мы обязательно с Вами свяжемся!</h1>"
-                            "<h1><a href='/'>Перейти на главную страницу</a><h1>")
+        return render(request, 'mainapp/application-success.html')
 
     return render(request, 'mainapp/contact-us.html')
