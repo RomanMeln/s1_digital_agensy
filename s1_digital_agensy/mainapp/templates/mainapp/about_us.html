@@ -76,19 +76,19 @@
     <div class="form-title-large">ОСТАЛИСЬ ВОПРОСЫ?</div>
     <div class="form-subtext">Готовы обсудить ваш проект? Оставьте заявку — мы свяжемся с вами и предложим оптимальное решение.</div>
 
-    <input type="text" class="form-input" placeholder="Имя Фамилия" style="top: 6977px;">
-    <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" style="top: 7067px;">
-    <input type="text" class="form-input" placeholder="Сообщение" style="top: 7157px;">
-
-    <div style="position: absolute; left: 986px; top: 7256px; font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; color: rgba(0,0,0,0.5); z-index: 2;">
-        <input type="checkbox" required><u>Я соглашаюсь на обработку персональных данных</u>
-    </div>
-
-
-    <button style="position: absolute; display: flex; flex-direction: row; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; left: 955px; top: 7287px; z-index: 2;">
-        <span style="font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #7A00FF;">Отправить</span>
-        <div style="width: 10px; height: 10px; border: 2px solid #7A00FF; border-left: none; border-bottom: none; transform: rotate(45deg);"></div>
-    </button>
+    <form action="{% url 'mainapp:contact-us' %}" method="POST" class="contact-form">
+        {% csrf_token %}
+        <input type="text" class="form-input" name="name" placeholder="Имя Фамилия" style="top: 6977px;" required>
+        <input type="tel" class="form-input" name="email" placeholder="+7 (___) ___-__-__" style="top: 7067px;" required>
+        <input type="text" class="form-input" name="message" placeholder="Сообщение" style="top: 7157px;" required>
+        <div style="position: absolute; left: 986px; top: 7256px; font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; color: rgba(0,0,0,0.5); z-index: 2;">
+            <input type="checkbox" required><u>Я соглашаюсь на обработку персональных данных</u>
+        </div>
+        <button style="position: absolute; display: flex; flex-direction: row; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; left: 955px; top: 7287px; z-index: 2;">
+            <span style="font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #7A00FF;">Отправить</span>
+            <div style="width: 10px; height: 10px; border: 2px solid #7A00FF; border-left: none; border-bottom: none; transform: rotate(45deg);"></div>
+        </button>
+    </form>
 
     <div style="position: absolute; width: 440px; left: calc(50% - 440px/2 - 690px); top: 7239px; font-family: 'Roboto';
         font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #7A00FF; z-index: 2;">
