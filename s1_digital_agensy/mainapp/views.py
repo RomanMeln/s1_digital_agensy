@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import ProjectStart
 
 
 def index(request):
@@ -30,7 +31,13 @@ def contact_us(request):
         message = request.POST.get('message')
 
         # Вывести в консоль для теста:
+        project_sql = ProjectStart.objects.create(
+            name=name,
+            email=email,
+            message=message
+        )
         print(f"Новое сообщение от {name} ({email}): {message}")
+        print(f"Сохранено в БД с ID: {project_sql.pk}")
 
         return render(request, 'mainapp/application-success.html')
 
