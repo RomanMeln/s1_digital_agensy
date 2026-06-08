@@ -127,22 +127,37 @@ body {
     overflow: hidden;
 }
 
-.huge-title {
-    font-size: 8rem;
-    font-weight: 900;
-    line-height: 0.9;
-    margin-bottom: 40px;
+.about-service-catalog{
+    text-transform: uppercase;
+    display: grid;
+    /* Разделяет контейнер на 2 равные колонки */
+    grid-template-columns: 1fr 1fr;
+    /* Расстояние между блоками */
+    gap: 40px;
 }
 
-.huge-title span {
-    color: var(--primary-purple);
+.about-service-catalog-left{
+    text-align: right;
+}
+
+.about-who-we-are{
+    text-transform: uppercase;
+    display: grid;
+    /* Разделяет контейнер на 3 равные колонки */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Расстояние между блоками */
+    gap: 40px;
 }
 
 .about-description {
     max-width: 600px;
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-left: auto; /* Сдвигаем текст вправо, как на макете */
+    /* Эти два свойства создают пустые пространства слева и справа*/
+    margin-left: auto;
+    margin-right: auto;
+    /* Текст внутри блока теперь растягивается ровно по его ширине */
+    text-align: justify;
 }
 
 /* УСЛУГИ (список с линиями) */
