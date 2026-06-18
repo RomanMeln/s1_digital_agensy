@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
+    'blogapp',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# URL-адрес для доступа к медиафайлам через браузер
+MEDIA_URL = '/media/'
+
+# Абсолютный путь в файловой системе, куда будут сохраняться файлы
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

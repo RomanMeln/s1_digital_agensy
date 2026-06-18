@@ -1,0 +1,84 @@
+{% extends 'mainapp/base.html' %}
+
+{% load static %}
+
+{% block title %}Блог{% endblock %}
+
+{% block extra_css%}<link rel="stylesheet" href="{% static 'css/blog.css' %}">{% endblock %}
+
+{% block content %}
+
+<div class="blog-page">
+    <!-- Фиолетовый фон шапки -->
+    <div class="hero-purple"></div>
+
+    <!-- Заголовок "Блог" -->
+    <h1 class="blog-title">Блог</h1>
+    <div class="plus-sign">+</div>
+    <div class="subhead">Покажем, как это работает</div>
+
+    <!-- Белый круг с иконкой -->
+    <div class="white-circle"></div>
+    <div class="circle-arrow"></div>
+
+    <!-- Фильтры -->
+    <div class="filters">
+        <div class="filter-chip"><span>ВСЕ</span></div>
+        <div class="filter-chip"><span>КЕЙСЫ</span></div>
+        <div class="filter-chip"><span>ИНСТРУМЕНТЫ</span></div>
+        <div class="filter-chip"><span>БРЕНДИНГ</span></div>
+        <div class="filter-chip"><span>ДИЗАЙН</span></div>
+        <div class="filter-chip"><span>ПРОЦЕСС</span></div>
+        <div class="filter-chip"><span>ТРЕНДЫ</span></div>
+        <div class="filter-chip"><span>SMM</span></div>
+        <div class="filter-chip"><span>ОБРАЗОВАНИЕ</span></div>
+    </div>
+
+    <!-- Карточка 1 (серая, слева) -->
+    <div class="card-gray"></div>
+    <div class="card-gray-tag">МАРКЕТИНГ</div>
+    <div class="card-gray-title">Маркетинг без шума: как бренду выделиться в переполненном рынке</div>
+    <div class="card-gray-desc">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
+    <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+
+    <!-- Карточка 2 (фиолетовая, справа вверху) -->
+    <div class="card-purple-large"></div>
+    <div class="purple-tag">ПРОДВИЖЕНИЕ</div>
+    <div class="purple-title">Как перестать «просто вести соцсети» и начать привлекать клиентов</div>
+    <div class="purple-desc">Разбираем, почему контент не работает без стратегии, как связать креатив с воронкой продаж и что именно должно быть в системе продвижения, чтобы она приводила заявки, а не лайки.</div>
+    <div class="yellow-square"></div>
+    <div class="yellow-arrow"></div>
+
+    <!-- Карточка 3 (фиолетовая, слева внизу) -->
+    <div class="card-purple-bottom"></div>
+    <div class="purple-bottom-tag">ПРОДВИЖЕНИЕ</div>
+    <div class="purple-bottom-title">Как перестать «просто вести соцсети» и начать привлекать клиентов</div>
+    <div class="purple-bottom-desc">Разбираем, почему контент не работает без стратегии, как связать креатив с воронкой продаж и что именно должно быть в системе продвижения, чтобы она приводила заявки, а не лайки.</div>
+    <div class="yellow-square-bottom"></div>
+    <div class="yellow-arrow-bottom"></div>
+
+    <!-- Карточка 4 (серая, справа внизу) -->
+    <div class="card-gray-right"></div>
+    <div class="card-gray-tag" style="left: 991.79px; top: 1536px;">МАРКЕТИНГ</div>
+    <div class="card-gray-title" style="left: 991.79px; top: 1581px; width: 413px;">Маркетинг без шума: как бренду выделиться в переполненном рынке</div>
+    <div class="card-gray-desc" style="left: 989.79px; top: 1755px; width: 412px;">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
+    <a href="#" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+
+<!--    {% for post in posts %}-->
+<!--    <div class="blog-card">-->
+<!--        <h2>{{ post.title }}</h2>-->
+<!--        &lt;!&ndash; Проверка, загружено ли фото, чтобы избежать ошибок &ndash;&gt;-->
+<!--        {% if post.image %}-->
+<!--            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">-->
+<!--        {% endif %}-->
+<!--        <p>{{ post.text|truncatewords:30 }}</p>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+
+    <!-- Кнопка "смотреть все" -->
+    <a href="#" class="view-all">
+        <span>смотреть все</span>
+        <div class="arrow"></div>
+    </a>
+</div>
+{% endblock %}

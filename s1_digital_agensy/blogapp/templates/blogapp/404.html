@@ -1,0 +1,286 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1 Digital | 404</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FCFCFC;
+            overflow-x: hidden;
+        }
+
+        .error-page {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            background: #FCFCFC;
+            min-height: 100vh;
+        }
+
+        /* Фиолетовый фон */
+        .error-hero {
+            position: absolute;
+            width: 100%;
+            max-width: 1920px;
+            height: 600px;
+            left: 0px;
+            top: 0px;
+            background: #7A00FF;
+            border-radius: 30px;
+            z-index: 0;
+        }
+
+        /* Жёлтый круг */
+        .error-yellow-circle {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            left: calc(50% - 500px/2 + 300px);
+            top: 100px;
+            background: #C9FF00;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Жёлтый круг 2 */
+        .error-yellow-circle-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            left: calc(50% - 300px/2 - 400px);
+            top: 350px;
+            background: #C9FF00;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Цифра 404 */
+        .error-number {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left: 0;
+            top: 180px;
+            font-family: 'Raleway';
+            font-weight: 800;
+            font-size: 220px;
+            line-height: 100%;
+            color: #FFFFFF;
+            mix-blend-mode: hard-light;
+            z-index: 2;
+            letter-spacing: 20px;
+        }
+
+        /* Заголовок */
+        .error-title {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left: 0;
+            top: 420px;
+            font-family: 'Raleway';
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 120%;
+            color: #FFFFFF;
+            z-index: 2;
+        }
+
+        /* Текст описания */
+        .error-description {
+            position: absolute;
+            width: 600px;
+            text-align: center;
+            left: calc(50% - 300px);
+            top: 520px;
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 140%;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 2;
+        }
+
+        /* Блок с кнопками */
+        .error-actions {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            left: 0;
+            width: 100%;
+            top: 620px;
+            z-index: 2;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: #FFFFFF;
+            border-radius: 50px;
+            font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #7A00FF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: transparent;
+            border: 2px solid #FFFFFF;
+            border-radius: 50px;
+            font-family: 'Roboto';
+            font-weight: 600;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .arrow-icon {
+            width: 10px;
+            height: 10px;
+            border: 2px solid currentColor;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+        }
+
+        /* Блок с популярными ссылками */
+        .popular-links {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top: 760px;
+            background: #F5F5F7;
+            padding: 50px 80px;
+            z-index: 2;
+        }
+
+        .popular-title {
+            font-family: 'Raleway';
+            font-weight: 700;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1A1A1A;
+        }
+
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .popular-link {
+            font-family: 'Roboto';
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #7A00FF;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.2s;
+        }
+
+        .popular-link:hover {
+            background: rgba(122, 0, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .error-number { font-size: 120px; top: 150px; }
+            .error-title { font-size: 32px; top: 340px; }
+            .error-description { width: 90%; left: 5%; top: 430px; font-size: 14px; }
+            .error-actions { flex-direction: column; align-items: center; gap: 15px; top: 530px; }
+            .btn-primary, .btn-secondary { padding: 12px 30px; font-size: 14px; }
+            .popular-links { padding: 30px 20px; top: 680px; }
+            .popular-title { font-size: 22px; }
+            .popular-link { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+<div class="error-page">
+    <!-- Фиолетовый фон -->
+    <div class="error-hero"></div>
+
+    <!-- Жёлтые круги -->
+    <div class="error-yellow-circle"></div>
+    <div class="error-yellow-circle-2"></div>
+
+    <!-- Контент -->
+    <div class="error-number">404</div>
+    <div class="error-title">Страница не найдена</div>
+    <div class="error-description">
+        К сожалению, страница, которую вы ищете, не существует или была перемещена.<br>
+        Проверьте адрес или вернитесь на главную.
+    </div>
+
+    <div class="error-actions">
+        <a href="/" class="btn-primary">
+            На главную
+            <div class="arrow-icon"></div>
+        </a>
+        <a href="javascript:history.back()" class="btn-secondary">
+            Назад
+        </a>
+    </div>
+
+    <!-- Популярные ссылки -->
+    <div class="popular-links">
+        <div class="popular-title">Возможно, вы искали</div>
+        <div class="links-grid">
+            <a href="/" class="popular-link">Главная</a>
+            <a href="/o-nas/" class="popular-link">О нас</a>
+            <a href="/uslugi/" class="popular-link">Услуги</a>
+            <a href="/proekty/" class="popular-link">Проекты</a>
+            <a href="/blog/" class="popular-link">Блог</a>
+            <a href="/komanda/" class="popular-link">Команда</a>
+            <a href="/kontakty/" class="popular-link">Контакты</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

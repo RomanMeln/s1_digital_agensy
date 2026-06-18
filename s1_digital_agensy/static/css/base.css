@@ -15,11 +15,21 @@ body {
 }
 
  /*Шапка*/
+/*.nav-container {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 20px 50px;*/
+/*}*/
+
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    padding: 20px 50px;
+    justify-content: space-between; /* логотип слева, а меню и кнопки справа */
+    padding: 20px 40px; /* внутренние отступы  */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-menu {
@@ -35,19 +45,29 @@ body {
     font-weight: 500;
 }
 
+/* Стилизация конкретной ссылки под кнопку */
+.nav-btn {
+  background-color: #007bff; /* Синий цвет фона */
+  color: white; /* Белый цвет текста */
+  padding: 10px 20px; /* Отступы: 10px сверху/снизу, 20px слева/справа */
+  border-radius:30px; /* Скругление углов */
+  transition: background-color 0.3s ease; /* Плавная анимация при наведении */
+}
+
+/* Эффект при наведении мыши на кнопку */
+.nav-btn:hover {
+  background-color: #0056b3; /* Более темный синий цвет */
+}
 
 /* Переключатель языков */
 .lang-switcher {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  width: 176px;
-  height: 44px;
-  left: 1430px;
-  top: 27px;
-  z-index: 10;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: auto; /* Позволит блоку подстраиваться под контент */
+    height: 44px;
+    z-index: 10;
 }
 
 .lang-ru {
@@ -398,4 +418,5 @@ body {
     left: 61.46%;
     right: 9.77%;
     top: 47px;
+    z-index: 1;
 }

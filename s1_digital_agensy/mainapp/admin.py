@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import ProjectStart
 
 # Register your models here.
+
+admin.site.register(ProjectStart)
+
 # @admin.register(ProjectStart)
 # class ProjectStartAdmin(admin.ModelAdmin):
 #     list_display = ['name', 'contact', 'created_at']

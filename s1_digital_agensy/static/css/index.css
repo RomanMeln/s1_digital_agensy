@@ -7,20 +7,11 @@ section[id] {
     scroll-margin-top: 80px; /* Высота шапки + небольшой запас */
 }
 
-:root {
-    --primary-purple: #7B2CBF;
-    --accent-yellow: #D9FF00;
-    --dark-bg: #1a1a1a;
-    --white: #ffffff;
-}
-
-
-
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--white);
-    color: var(--dark-bg);
+    background-color: #ffffff;
+    color: #1a1a1a;
 }
 
 
@@ -33,15 +24,20 @@ body {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    background-color: #B9B8B8;
 }
 
 .hero-circle {
     position: absolute;
     width: 500px;
     height: 500px;
-    background-color: var(--accent-yellow);
+    background-color: #D9FF00;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 0; /* Порядок слоя: элемент будет выше фона и блоков без z-index */
+}
+
+.hero-content{
+    z-index: 1
 }
 
 .hero h1 {
@@ -51,13 +47,13 @@ body {
 }
 
 .hero h1 span {
-    color: var(--primary-purple);
+    color: #7B2CBF;
 }
 
 /* Сетка проектов */
 .projects {
     padding: 100px 50px;
-    background-color: var(--primary-purple);
+    background-color: #7B2CBF;
     color: white;
 }
 
@@ -176,7 +172,7 @@ body {
 
 .service-item:hover {
     padding-left: 20px;
-    color: var(--primary-purple);
+    color: #7B2CBF;
 }
 
 .service-num {
@@ -195,7 +191,7 @@ body {
     font-size: 2rem;
 }
 .blog-section {
-    background-color: var(--primary-purple);
+    background-color: #7B2CBF;
     color: white;
     padding: 100px 50px;
 }
@@ -237,7 +233,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: var(--accent-yellow);
+    background-color: #D9FF00;
     color: black;
     padding: 5px 15px;
     border-radius: 20px;
@@ -263,7 +259,7 @@ body {
 
 .side-item:hover {
     transform: translateY(-5px);
-    background-color: var(--accent-yellow);
+    background-color: #D9FF00;
 }
 
 .blog-date {
@@ -281,7 +277,7 @@ body {
 .contact-section {
     position: relative;
     padding: 120px 50px;
-    background-color: var(--white);
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -294,7 +290,7 @@ body {
     position: absolute;
     width: 600px;
     height: 600px;
-    background-color: var(--accent-yellow);
+    background-color: #D9FF00;
     border-radius: 50%;
     z-index: 1; /* Кладем вниз */
     top: 50%;
@@ -320,7 +316,7 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 2px solid var(--dark-bg);
+    border: 2px solid #1a1a1a;
     border-radius: 10px;
     font-family: inherit;
     font-size: 1rem;
@@ -329,7 +325,7 @@ body {
 }
 
 .btn-submit {
-    background-color: var(--dark-bg);
+    background-color: #1a1a1a;
     color: white;
     padding: 20px;
     border: none;
@@ -342,7 +338,7 @@ body {
 }
 
 .btn-submit:hover {
-    background-color: var(--primary-purple);
+    background-color: #7B2CBF;
     transform: scale(1.02);
 }
 

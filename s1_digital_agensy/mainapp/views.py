@@ -14,8 +14,8 @@ def contacts(request):
 def about_us(request):
     return render(request, 'mainapp/about_us.html')
 
-def blog(request):
-    return render(request, 'mainapp/blog.html')
+# def blog(request):
+#     return render(request, 'blogapp/blog.html')
 
 def services(request):
     return render(request, 'mainapp/services.html')
