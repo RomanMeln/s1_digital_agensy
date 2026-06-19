@@ -27,3 +27,8 @@ test.txt
 # База данных SQLite
 *.sqlite3
 db.sqlite3
+
+media/
+
+.DS_Store
+**/ .DS_Store
