@@ -23,7 +23,7 @@ def services(request):
 def cases(request):
     return render(request, 'mainapp/cases.html')
 
-def contact_us(request):
+def contact_us_email(request):
     if request.method == 'POST':
 
         name = request.POST.get('name')
@@ -33,10 +33,32 @@ def contact_us(request):
         # Вывести в консоль для теста:
         project_sql = ProjectStart.objects.create(
             name=name,
-            email=email,
+            contact=email,
             message=message
         )
         print(f"Новое сообщение от {name} ({email}): {message}")
+        print(f"Сохранено в БД с ID: {project_sql.pk}")
+
+        return render(request, 'mainapp/application-success.html')
+
+    return render(request, 'mainapp/contact-us.html')
+
+
+def contact_us_phone(request):
+    if request.method == "POST":
+        # Забираем данные из HTML-полей
+        name = request.POST.get('name')
+        phone = request.POST.get('email')
+        message = request.POST.get('message')
+
+
+        project_sql = ProjectStart.objects.create(
+            name=name,
+            contact=phone,
+            message=message
+        )
+
+        print(f"Новое сообщение от {name} ({phone}): {message}")
         print(f"Сохранено в БД с ID: {project_sql.pk}")
 
         return render(request, 'mainapp/application-success.html')

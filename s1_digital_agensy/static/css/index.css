@@ -53,7 +53,7 @@ body {
 /* Сетка проектов */
 .projects {
     padding: 100px 50px;
-    background-color: #7B2CBF;
+    background-color: #7A00FF;
     color: white;
 }
 
@@ -191,14 +191,14 @@ body {
     font-size: 2rem;
 }
 .blog-section {
-    background-color: #7B2CBF;
+    background-color: #7A00FF;
     color: white;
     padding: 100px 50px;
 }
 
 .blog-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
     margin-bottom: 50px;
 }

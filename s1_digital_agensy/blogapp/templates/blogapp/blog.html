@@ -64,21 +64,24 @@
     <div class="card-gray-desc" style="left: 989.79px; top: 1755px; width: 412px;">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
     <a href="#" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
 
-<!--    {% for post in posts %}-->
-<!--    <div class="blog-card">-->
-<!--        <h2>{{ post.title }}</h2>-->
-<!--        &lt;!&ndash; Проверка, загружено ли фото, чтобы избежать ошибок &ndash;&gt;-->
-<!--        {% if post.image %}-->
-<!--            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">-->
-<!--        {% endif %}-->
-<!--        <p>{{ post.text|truncatewords:30 }}</p>-->
-<!--    </div>-->
-<!--    {% endfor %}-->
-
     <!-- Кнопка "смотреть все" -->
     <a href="#" class="view-all">
         <span>смотреть все</span>
         <div class="arrow"></div>
     </a>
 </div>
+<section class="blog-section">
+    <h2 class="section-title">Наш Блог</h2>
+
+    {% for post in posts %}
+    <div class="blog-card">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        {% endif %}
+
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description|truncatewords:30 }}</p>
+    </div>
+    {% endfor %}
+</section>
 {% endblock %}

@@ -157,6 +157,19 @@
         }
 
         /* ---------- КАРТОЧКИ СТАТЕЙ ---------- */
+
+.blog-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px;
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
         /* Карточка 1 (серая, слева) */
         .card-gray {
             position: absolute;

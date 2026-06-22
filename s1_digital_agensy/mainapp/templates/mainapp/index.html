@@ -246,10 +246,7 @@
 <section id="blog" class="blog-section">
     <div class="container">
         <div class="blog-header">
-            <h2 class="section-title">
-                <a href="{% url 'blogapp:blog' %}">БЛОГ</a>
-            </h2>
-            <a href="#" class="all-posts">Все статьи →</a>
+            <h1><a href="{% url 'blogapp:blog' %}">БЛОГ</a></h1>
         </div>
 
         <div class="blog-grid">
@@ -280,6 +277,9 @@
                 </div>
             </div>
         </div>
+        <div class="blog-header">
+            <a href="#" class="all-posts">Все статьи →</a>
+        </div>
     </div>
 </section>
 <section id="contacts" class="contact-section">
@@ -290,7 +290,7 @@
         <h2 class="section-title">СВЯЖИТЕСЬ С НАМИ</h2>
         <p>Есть проект? Давайте обсудим его и создадим что-то крутое вместе.</p>
 
-        <form action="{% url 'mainapp:contact-us' %}" method="POST" class="contact-form">
+        <form action="{% url 'mainapp:contact-us-email' %}" method="POST" class="contact-form">
             {% csrf_token %} <!-- Обязательная защита Django для форм -->
             <div class="form-group">
                 <input type="text" name="name" placeholder="Ваше имя" required>
