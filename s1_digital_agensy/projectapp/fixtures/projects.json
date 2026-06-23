@@ -1,0 +1,57 @@
+[
+  {
+    "model": "projectapp.project",
+    "pk": 1,
+    "fields": {
+      "title": "Contora Lisovets",
+      "description": "Салон красоты Владислава Лисовца",
+      "text": "CONTORA — салон красоты Владислава Лисовца. Разработали современный сайт, провели SEO-продвижение и усилили онлайн-присутствие бренда, что привело к росту продаж и увеличению потока клиентов.",
+      "image": "project_photos/default.png",
+      "created_at": "2026-06-23T18:38:00Z"
+    }
+  },
+  {
+    "model": "projectapp.project",
+    "pk": 2,
+    "fields": {
+      "title": "Beauty Lab store",
+      "description":"Салон красоты и интернет магазин косметики",
+      "text": "Салон красоты и интернет магазин косметики",
+      "image": "project_photos/default.png",
+      "created_at": "2026-06-23T18:40:00Z"
+    }
+  },
+  {
+    "model": "projectapp.project",
+    "pk": 3,
+    "fields": {
+      "title": "Усадьба Ореховны",
+      "description": "Первый европейский сад в россии",
+      "text": "Первый европейский сад в россии",
+      "image": "project_photos/default.png",
+      "created_at": "2026-06-23T18:42:00Z"
+    }
+  },
+  {
+    "model": "projectapp.project",
+    "pk": 4,
+    "fields": {
+      "title": "ELISEEV STORE",
+      "description": "МАГАЗИН ОДЕЖДЫ",
+      "text": "МАГАЗИН ОДЕЖДЫ",
+      "image": "project_photos/default.png",
+      "created_at": "2026-06-23T18:45:00Z"
+    }
+  },
+  {
+    "model": "projectapp.project",
+    "pk": 5,
+    "fields": {
+      "title": "CROP&DROP",
+      "description": "КУЛЬТОВАЯ ПАРИКМАХЕРСКАЯ Санкт-Петербург",
+      "text": "КУЛЬТОВАЯ ПАРИКМАХЕРСКАЯ Санкт-Петербург",
+      "image": "project_photos/default.png",
+      "created_at": "2026-06-23T18:50:00Z"
+    }
+  }
+]
