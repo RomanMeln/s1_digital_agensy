@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls')), # добавил главное приложение
     path('blog/', include('blogapp.urls')), # добавил блог
+    path('projects/', include('projectapp.urls')), # добавил проекты
 ]
 
 if settings.DEBUG:

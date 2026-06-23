@@ -19,7 +19,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="{% url 'mainapp:about_us' %}">Кто мы</a></li>
-                <li><a href="{% url 'mainapp:projects' %}" class="nav-btn">Наши проекты</a></li>
+                <li><a href="{% url 'projectapp:projects' %}" class="nav-btn">Наши проекты</a></li>
                 <li><a href="{% url 'mainapp:services' %}">Услуги</a></li>
                 <li><a href="#team">Команда</a></li>
                 <li><a href="{% url 'blogapp:blog' %}">Блог</a></li>
@@ -68,7 +68,7 @@
           <!-- Меню -->
         <div class="footer-menu">
             <a href="{% url 'mainapp:services' %}">УСЛУГИ</a>
-            <a href="{% url 'mainapp:projects' %}">ПРОЕКТЫ</a>
+            <a href="{% url 'projectapp:projects' %}">ПРОЕКТЫ</a>
             <a href="{% url 'blogapp:blog' %}">БЛОГ</a>
             <a href="#">СТАЖИРОВКА</a>
         </div>
