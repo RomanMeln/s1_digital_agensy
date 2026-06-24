@@ -1,0 +1,72 @@
+[
+  {
+    "model": "blogapp.categoryname",
+    "pk": 1,
+    "fields": {
+      "name": "SMM"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 2,
+    "fields": {
+      "name": "Дизайн"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 3,
+    "fields": {
+      "name": "Маркетинг"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 4,
+    "fields": {
+      "name": "Продвижение"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 5,
+    "fields": {
+      "name": "Инструменты"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 6,
+    "fields": {
+      "name": "Брендинг"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 7,
+    "fields": {
+      "name": "Кейсы"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 8,
+    "fields": {
+      "name": "Процесс"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 9,
+    "fields": {
+      "name": "Тренды"
+    }
+  },
+  {
+    "model": "blogapp.categoryname",
+    "pk": 10,
+    "fields": {
+      "name": "Образование"
+    }
+  }
+]
