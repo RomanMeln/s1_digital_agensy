@@ -106,19 +106,21 @@
             z-index: 3;
         }
 
-        /* ФИЛЬТРЫ (хлебные крошки) */
+        /* ФИЛЬТРЫ */
         .filters {
             position: absolute;
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 20px;
-            width: 1618px;
-            height: 33px;
+            flex-wrap: wrap; /* Разрешает перенос чипсов на новую строку */
+
+            /* ДЛЯ АДАПТИВНОСТИ: */
             left: 50px;
+            right: 50px;       /* Задаем отступ справа вместо жесткой ширины */
+            max-width: 1400px; /* Ограничиваем максимальную ширину для огромных мониторов */
             top: 722px;
             z-index: 5;
-            flex-wrap: wrap;
         }
 
         .filter-chip {

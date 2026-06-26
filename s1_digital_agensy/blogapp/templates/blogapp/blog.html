@@ -24,44 +24,55 @@
     <!-- Фильтры -->
     <div class="filters">
         <div class="filter-chip"><span>ВСЕ</span></div>
-        <div class="filter-chip"><span>КЕЙСЫ</span></div>
-        <div class="filter-chip"><span>ИНСТРУМЕНТЫ</span></div>
-        <div class="filter-chip"><span>БРЕНДИНГ</span></div>
-        <div class="filter-chip"><span>ДИЗАЙН</span></div>
-        <div class="filter-chip"><span>ПРОЦЕСС</span></div>
-        <div class="filter-chip"><span>ТРЕНДЫ</span></div>
-        <div class="filter-chip"><span>SMM</span></div>
-        <div class="filter-chip"><span>ОБРАЗОВАНИЕ</span></div>
+        {% for cat in categories %}
+            <div class="filter-chip">
+                <span>{{ cat.name }}</span>
+            </div>
+        {% endfor %}
+<!--        <div class="filter-chip"><span>КЕЙСЫ</span></div>-->
+<!--        <div class="filter-chip"><span>ИНСТРУМЕНТЫ</span></div>-->
+<!--        <div class="filter-chip"><span>БРЕНДИНГ</span></div>-->
+<!--        <div class="filter-chip"><span>ДИЗАЙН</span></div>-->
+<!--        <div class="filter-chip"><span>ПРОЦЕСС</span></div>-->
+<!--        <div class="filter-chip"><span>ТРЕНДЫ</span></div>-->
+<!--        <div class="filter-chip"><span>SMM</span></div>-->
+<!--        <div class="filter-chip"><span>ОБРАЗОВАНИЕ</span></div>-->
     </div>
 
     <!-- Карточка 1 (серая, слева) -->
     <div class="card-gray"></div>
-    <div class="card-gray-tag">МАРКЕТИНГ</div>
-    <div class="card-gray-title">Маркетинг без шума: как бренду выделиться в переполненном рынке</div>
-    <div class="card-gray-desc">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
+    <div class="card-gray-tag">{{ def_post.category }}</div>
+    <div class="card-gray-title">{{ def_post.title }}</div>
+    <div class="card-gray-desc">{{ def_post.description }}</div>
     <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
 
     <!-- Карточка 2 (фиолетовая, справа вверху) -->
     <div class="card-purple-large"></div>
-    <div class="purple-tag">ПРОДВИЖЕНИЕ</div>
-    <div class="purple-title">Как перестать «просто вести соцсети» и начать привлекать клиентов</div>
-    <div class="purple-desc">Разбираем, почему контент не работает без стратегии, как связать креатив с воронкой продаж и что именно должно быть в системе продвижения, чтобы она приводила заявки, а не лайки.</div>
+    {% with p=posts.1|default:def_post %}
+        <div class="purple-tag">{{ p.category }}</div>
+        <div class="purple-title">{{ p.title }}</div>
+        <div class="purple-desc">{{ p.description }}</div>
+    {% endwith %}
     <div class="yellow-square"></div>
     <div class="yellow-arrow"></div>
 
     <!-- Карточка 3 (фиолетовая, слева внизу) -->
     <div class="card-purple-bottom"></div>
-    <div class="purple-bottom-tag">ПРОДВИЖЕНИЕ</div>
-    <div class="purple-bottom-title">Как перестать «просто вести соцсети» и начать привлекать клиентов</div>
-    <div class="purple-bottom-desc">Разбираем, почему контент не работает без стратегии, как связать креатив с воронкой продаж и что именно должно быть в системе продвижения, чтобы она приводила заявки, а не лайки.</div>
+    {% with p=posts.2|default:def_post %}
+        <div class="purple-bottom-tag">{{ p.category }}</div>
+        <div class="purple-bottom-title">{{ p.title }}</div>
+        <div class="purple-bottom-desc">{{ p.description }}</div>
+    {% endwith %}
     <div class="yellow-square-bottom"></div>
     <div class="yellow-arrow-bottom"></div>
 
     <!-- Карточка 4 (серая, справа внизу) -->
     <div class="card-gray-right"></div>
-    <div class="card-gray-tag" style="left: 991.79px; top: 1536px;">МАРКЕТИНГ</div>
-    <div class="card-gray-title" style="left: 991.79px; top: 1581px; width: 413px;">Маркетинг без шума: как бренду выделиться в переполненном рынке</div>
-    <div class="card-gray-desc" style="left: 989.79px; top: 1755px; width: 412px;">Говорим о том, как найти свою точку отличия, не скатиться в клише и выстроить коммуникацию, которую действительно замечают. С примерами, ошибками и практическими выводами.</div>
+    {% with p=posts.3|default:def_post %}
+        <div class="card-gray-tag" style="left: 991.79px; top: 1536px;">{{ p.category }}</div>
+        <div class="card-gray-title" style="left: 991.79px; top: 1581px; width: 413px;">{{ p.title }}</div>
+        <div class="card-gray-desc" style="left: 989.79px; top: 1755px; width: 412px;">{{ p.description }}</div>
+    {% endwith %}
     <a href="#" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
 
     <!-- Кнопка "смотреть все" -->
@@ -70,19 +81,19 @@
         <div class="arrow"></div>
     </a>
 </div>
-<section class="blog-section">
-    <h2 class="section-title">Наш Блог</h2>
+<!--<section class="blog-section">-->
+<!--    <h2 class="section-title">Наш Блог</h2>-->
 
-    {% for post in posts %}
-    <div class="blog-card">
-        {% if post.image %}
-            <img src="{{ post.image.url }}" alt="{{ post.title }}">
-        {% endif %}
+<!--    {% for post in posts %}-->
+<!--    <div class="blog-card">-->
+<!--        {% if post.image %}-->
+<!--            <img src="{{ post.image.url }}" alt="{{ post.title }}">-->
+<!--        {% endif %}-->
 
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.description|truncatewords:30 }}</p>
-        <h1>{{ post.category }}</h1>
-    </div>
-    {% endfor %}
-</section>
+<!--        <h3>{{ post.title }}</h3>-->
+<!--        <p>{{ post.description|truncatewords:30 }}</p>-->
+<!--        <h1>{{ post.category }}</h1>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+<!--</section>-->
 {% endblock %}
