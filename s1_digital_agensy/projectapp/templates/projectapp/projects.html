@@ -29,7 +29,7 @@
     <div class="yellow-circle"></div>
 
     <!-- Основной текст -->
-    <div class="main-description">ПИСЯ Визуал с характером. Диджитал с результатом. Бренды, которые продают.</div>
+    <div class="main-description">Визуал с характером. Диджитал с результатом. Бренды, которые продают.</div>
 
     <!-- Серая вертикальная полоса -->
     <div class="gray-vertical-bar"></div>
@@ -37,11 +37,11 @@
     <!-- Фиолетовая колонка (CONTORA) -->
     <div class="purple-column"></div>
     <div style="position: absolute; left: 60px; top: 1855px; z-index: 3;">
-        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">CONTORA</div>
-        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF; margin-top: 10px;">САЛОН КРАСОТЫ ВЛАДИСЛАВА ЛИСОВЦА</div>
+        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">{{ def_project.title }}</div>
+        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF; margin-top: 10px;">{{ def_project.description }}</div>
     </div>
     <div style="position: absolute; left: 60px; top: 2030px; width: 328px; height: 277px; background: url('https://via.placeholder.com/328x277') center/cover; border-radius: 10px; z-index: 3;"></div>
-    <div style="position: absolute; left: 60px; top: 2326px; width: 328px; font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF; z-index: 3;">CONTORA — салон красоты Владислава Лисовца. Разработали современный сайт, провели SEO-продвижение и усилили онлайн-присутствие бренда, что привело к росту продаж и увеличению потока клиентов.</div>
+    <div style="position: absolute; left: 60px; top: 2326px; width: 328px; font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF; z-index: 3;">{{ def_project.text }}</div>
     <div style="position: absolute; display: flex; flex-direction: row; align-items: center; gap: 10px; left: 60px; top: 2480px; z-index: 3;">
         <span style="font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #FFFFFF;">узнать больше</span>
         <div style="width: 10px; height: 10px; border: 2px solid #FFFFFF; border-left: none; border-bottom: none; transform: rotate(45deg);"></div>
@@ -50,43 +50,48 @@
     <!-- Жёлтая колонка 1 (ELISEEV STORE) -->
     <div class="yellow-column-1"></div>
     <div style="position: absolute; left: 435px; top: 1561px; width: 348px; height: 294px; background: url('https://via.placeholder.com/348x294') center/cover; border-radius: 10px; z-index: 3;"></div>
+    {% with pr=projects.1|default:def_project %}
     <div style="position: absolute; left: 435px; top: 1870px; z-index: 3;">
-        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #000000;">ELISEEV STORE</div>
-        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 5px;">МАГАЗИН ОДЕЖДЫ</div>
+        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #000000;">{{ pr.title }}</div>
+        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 5px;">{{ pr.description }}</div>
     </div>
-
+    {% endwith %}
     <!-- Жёлтая колонка 2 (CROP&DROP) -->
     <div class="yellow-column-2"></div>
     <div style="position: absolute; left: 800px; top: 2022px; width: 348px; height: 294px; background: url('https://via.placeholder.com/348x294') center/cover; border-radius: 10px; z-index: 3;"></div>
+    {% with pr=projects.2|default:def_project %}
     <div style="position: absolute; left: 800px; top: 2330px; z-index: 3;">
-        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #000000;">CROP&amp;DROP</div>
-        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 5px;">КУЛЬТОВАЯ ПАРИКМАХЕРСКАЯ Санкт-Петербург</div>
+        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #000000;">{{ pr.title }}</div>
+        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 5px;">{{ pr.description }}</div>
     </div>
+    {% endwith %}
 
     <!-- Жёлтая колонка 3 (BEAUTY LAB STORE) -->
     <div class="yellow-column-3"></div>
     <div style="position: absolute; left: 1170px; top: 1561px; width: 349px; height: 295px; background: url('https://via.placeholder.com/349x295') center/cover; border-radius: 10px; z-index: 3;"></div>
+    {% with pr=projects.3|default:def_project %}
     <div style="position: absolute; left: 1170px; top: 1870px; z-index: 3;">
-        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #000000;">BEAUTY LAB STORE</div>
-        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 5px;">САЛОН КРАСОТЫ И ИНТЕРНЕТ-МАГАЗИН КОСМЕТИК</div>
+        <div style="font-family: 'Roboto'; font-weight: 600; font-size: 30px; line-height: 120%; text-transform: uppercase; color: #000000;">{{ pr.title }}/div>
+        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 5px;">{{ pr.description }}</div>
     </div>
+    {% endwith %}
 
     <!-- Фиолетовый круг "ТЯНИТЕ" -->
     <div class="drag-purple-circle"></div>
     <div class="drag-text">ТЯНИТЕ</div>
 </div>
-<section class="project-section">
-    <h2 class="section-title">Наши проекты</h2>
+<!--<section class="project-section">-->
+<!--    <h2 class="section-title">Наши проекты</h2>-->
 
-    {% for project in projects %}
-    <div class="project-card-card">
-        {% if project.image %}
-            <img src="{{ project.image.url }}" alt="{{ project.title }}">
-        {% endif %}
+<!--    {% for project in projects %}-->
+<!--    <div class="project-card-card">-->
+<!--        {% if project.image %}-->
+<!--            <img src="{{ project.image.url }}" alt="{{ project.title }}">-->
+<!--        {% endif %}-->
 
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description|truncatewords:30 }}</p>
-    </div>
-    {% endfor %}
-</section>
+<!--        <h3>{{ project.title }}</h3>-->
+<!--        <p>{{ project.description|truncatewords:30 }}</p>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+<!--</section>-->
 {% endblock %}
