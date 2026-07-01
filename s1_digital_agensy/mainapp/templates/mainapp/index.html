@@ -66,29 +66,80 @@
         <div class="about-circle"></div> <!-- Тот самый желтый круг из макета -->
     </div>
 </section>
+    <!-- Секция Проекты -->
+<section id="projects" class="projects-section">
+    <!-- Заголовок, который мы настроили ранее -->
+    <h2 class="projects-section-title">Наши проекты</h2>
 
+    <!-- Контейнер для сетки проектов -->
+    <div class="projects-grid">
 
-
-    <!-- Секция Проекты (пример карточек) -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">
-            <a href="{% url 'projectapp:projects' %}">проекты</a>
-        </h2>
-        <div class="projects-grid">
-            <div class="project-card large" style="background-color: #7B2CBF;">
-                <h3>CONTORA LISOVETS</h3>
-            </div>
-            <div class="project-card small">
-                <h3>Дизайн системы</h3>
-            </div>
-            <div class="project-card small">
-                <h3>Брендинг</h3>
+        <!-- Главный проект (займет всю левую половину) -->
+        <div class="project-item project-main">
+            <div class="project-content">
+                <h3>{{ def_project.title }}</h3>
+                <p>{{ def_project.description }}</p>
+                {% if def_project.image %}
+                    <img src="{{ def_project.image.url }}" alt="{{ def_project.title }}">
+                {% endif %}
             </div>
         </div>
-    </section>
+
+        <!-- Второстепенные проекты (встанут в правую половину 2х2) -->
+        <div class="project-item">
+            {% with pr=projects.1|default:def_project %}
+            <div class="project-content">
+                <h3>{{ pr.title }}</h3>
+                <p>{{ pr.description }}</p>
+                {% if pr.image %}
+                    <img src="{{ pr.image.url }}" alt="{{ pr.title }}">
+                {% endif %}
+            </div>
+            {% endwith %}
+        </div>
+
+        <div class="project-item">
+            {% with pr=projects.2|default:def_project %}
+            <div class="project-content">
+                <h3>{{ pr.title }}</h3>
+                <p>{{ pr.description }}</p>
+                {% if pr.image %}
+                    <img src="{{ pr.image.url }}" alt="{{ pr.title }}">
+                {% endif %}
+            </div>
+            {% endwith %}
+        </div>
+
+        <div class="project-item">
+            {% with pr=projects.3|default:def_project %}
+            <div class="project-content">
+                <h3>{{ pr.title }}</h3>
+                <p>{{ pr.description }}</p>
+                {% if pr.image %}
+                    <img src="{{ pr.image.url }}" alt="{{ pr.title }}">
+                {% endif %}
+            </div>
+            {% endwith %}
+        </div>
+
+        <div class="project-item">
+            {% with pr=projects.4|default:def_project %}
+            <div class="project-content">
+                <h3>{{ pr.title }}</h3>
+                <p>{{ pr.description }}</p>
+                {% if pr.image %}
+                    <img src="{{ pr.image.url }}" alt="{{ pr.title }}">
+                {% endif %}
+            </div>
+            {% endwith %}
+        </div>
+
+    </div>
+</section>
+
 	<!-- Блок УСЛУГИ -->
 <section id="services" class="services-section">
-    <h2 class="section-title">
+    <h2 class="services-section-title">
         <a href="{% url 'mainapp:services' %}">УСЛУГИ</a>
     </h2>
     <div class="services-list">
@@ -165,9 +216,10 @@
     </div>
 </section>
 <section id="team" class="team">
+    <h2 class="section-title">КОМАНДА</h2>
+    <p class="team-subtitle">Наши специалисты — это сердце агентства</p>
     <div class="container">
-        <h2 class="section-title">КОМАНДА</h2>
-        <p class="team-subtitle">Наши специалисты — это сердце агентства</p>
+
 
         <div class="team-grid">
             <div class="team-card">
@@ -243,45 +295,62 @@
         </div>
     </div>
 </section>
-<section id="blog" class="blog-section">
-    <div class="container">
-        <div class="blog-header">
-            <h1><a href="{% url 'blogapp:blog' %}">БЛОГ</a></h1>
-        </div>
 
-        <div class="blog-grid">
-            <!-- Главная статья (слева) -->
-            <div class="blog-main-card">
-                <div class="blog-badge">Новое</div>
-                <div class="blog-main-content">
-                    <span class="blog-date">24 Июня 2024</span>
-                    <h3>Как нейросети меняют рынок маркетинга в 2024 году</h3>
-                    <p>Разбираемся, какие инструменты действительно экономят бюджет, а какие — лишь игрушки.</p>
-                    <a href="#" class="read-more">Читать далее</a>
-                </div>
-            </div>
+<section id="posts" class="posts-section">
+    <!-- Заголовок, который мы настроили ранее -->
+    <h2 class="posts-section-title">Блог</h2>
 
-            <!-- Список статей (справа) -->
-            <div class="blog-side-list">
-                <div class="side-item">
-                    <span class="blog-date">15 Июня</span>
-                    <h4>Тренды дизайна: почему минимализм снова в моде?</h4>
-                </div>
-                <div class="side-item">
-                    <span class="blog-date">10 Июня</span>
-                    <h4>Кейс: как мы увеличили конверсию для S1 на 40%</h4>
-                </div>
-                <div class="side-item">
-                    <span class="blog-date">05 Июня</span>
-                    <h4>Интервью с нашим арт-директором</h4>
-                </div>
+    <!-- Контейнер для сетки проектов -->
+    <div class="posts-grid">
+
+        <!-- Главный проект (займет всю левую половину) -->
+        <div class="post-item post-main">
+            <div class="post-content">
+                <h3>{{ def_post.category }}</h3>
+                <p>{{ def_post.title }}</p>
             </div>
         </div>
-        <div class="blog-header">
-            <a href="#" class="all-posts">Все статьи →</a>
+
+        <!-- Второстепенные проекты (встанут в правую половину 2х2) -->
+        <div class="post-item">
+            <div class="post-content">
+                {% with p=posts.1|default:def_post %}
+                <h3>{{ p.category }}</h3>
+                <p>{{ p.title }}</p>
+                {% endwith %}
+            </div>
         </div>
+
+        <div class="post-item">
+            <div class="post-content">
+                {% with p=posts.2|default:def_post %}
+                <h3>{{ p.category }}</h3>
+                <p>{{ p.title }}</p>
+                {% endwith %}
+            </div>
+        </div>
+
+        <div class="post-item">
+            <div class="post-content">
+                {% with p=posts.3|default:def_post %}
+                <h3>{{ p.category }}</h3>
+                <p>{{ p.title }}</p>
+                {% endwith %}
+            </div>
+        </div>
+
+        <div class="post-item">
+            <div class="post-content">
+                {% with p=posts.4|default:def_post %}
+                <h3>{{ p.category }}</h3>
+                <p>{{ p.title }}</p>
+                {% endwith %}
+            </div>
+        </div>
+
     </div>
 </section>
+
 <section id="contacts" class="contact-section">
     <!-- Фоновый декоративный круг -->
     <div class="contact-circle"></div>

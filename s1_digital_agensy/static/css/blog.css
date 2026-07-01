@@ -14,10 +14,10 @@
         .blog-page {
             position: relative;
             width: 100%;
-            max-width: 1920px;
+            max-width: 1400px;
             margin: 0 auto;
             background: #FCFCFC;
-            min-height: 2889px;
+            min-height: 2000px;
         }
 
         /* ---------- ВЕРХНЯЯ ЧАСТЬ С ФИОЛЕТОВЫМ ФОНОМ ---------- */
