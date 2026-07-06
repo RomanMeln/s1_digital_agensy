@@ -23,6 +23,7 @@ build/
 # Логи
 *.log
 test.txt
+Text_al.md
 
 # База данных SQLite
 *.sqlite3

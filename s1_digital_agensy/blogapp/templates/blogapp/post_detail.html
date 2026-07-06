@@ -1,0 +1,34 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 120px 20px; max-width: 800px; margin: 0 auto;">
+    <!-- Категория -->
+    <span style="color: #6C5CE7; font-weight: bold; text-transform: uppercase;">{{ post.category.name }}</span>
+    
+    <!-- Заголовок -->
+    <h1 style="margin-top: 10px; margin-bottom: 20px;">{{ post.title }}</h1>
+    
+    <!-- Дата публикации -->
+    <p style="color: gray; font-size: 14px;">Опубликовано: {{ post.created_at|date:"d.m.Y" }}</p>
+    
+    <!-- Изображение статьи -->
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; max-height: 450px; object-fit: cover; border-radius: 12px; margin-bottom: 30px;">
+    {% endif %}
+    
+    <!-- Полный текст статьи -->
+    <div class="post-text" style="line-height: 1.8; font-size: 18px;">
+        {{ post.text|linebreaks }}
+    </div>
+    
+    <!-- Кнопка возврата в блог -->
+    <div style="margin-top: 50px;">
+        <a href="{% url 'blogapp:blog' %}" style="text-decoration: none; color: #6C5CE7; font-weight: bold;">
+            ← Назад в блог
+        </a>
+    </div>
+</div>
+{% endblock %}
