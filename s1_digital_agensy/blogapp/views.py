@@ -2,55 +2,41 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, CategoryName
 
 
-# def blog(request):
-#     posts = Post.objects.all().order_by('-created_at')[:4]
-#     categories = CategoryName.objects.all()
-#     # проверка наличия статьи
-#     if posts:
-#         default_post = posts[0] # дефолтный пост
-#     else:
-#         # если постов нет
-#         default_post = Post(
-#             title="Заголовок новой статьи",
-#             text="Текст появится, когда вы добавите статьи в админ-панель."
-#             # description и image подставятся автоматически из дефолтов модели!
-#         )
-#
-#         # Добавляем его в список, чтобы posts.0 на главной странице не вызвал ошибку
-#         posts.append(default_post)
-#
-#     return render(request, 'blogapp/blog.html', {'posts': posts,
-#                                                  'def_post': default_post, 'categories': categories})
-
 def blog(request):
-    # Получаем ID категории из GET-запроса (?category=ID)
+    # Получает ID категории из GET-запроса (?category=ID)
     category_id = request.GET.get('category')
 
-    # Оптимизируем запрос через select_related (загружаем пост вместе с его категорией за 1 запрос)
+    # Оптимизирует запрос через select_related (загружает пост вместе с его категорией за 1 запрос)
     posts_queryset = Post.objects.all().select_related('category').order_by('-created_at')
 
-    # Фильтруем, если ID передан и это число
+    # Фильтрует, если ID передан и это число
     if category_id and category_id.isdigit():
         posts_queryset = posts_queryset.filter(category_id=int(category_id))
 
-    # Забираем максимум 4 поста и превращаем QuerySet в обычный список Python
+    # Забирает максимум 4 поста и превращает QuerySet в обычный список Python
     posts = list(posts_queryset[:4])
     categories = CategoryName.objects.all()
 
-    # Создаем дефолтный пост на случай, если постов не хватает
+    # Создает дефолтный пост на случай, если постов не хватает
     default_post = Post(
         title="Заголовок новой статьи",
         description="Текст появится, когда вы добавите статьи в админ-панель.",
         text="Полный текст статьи."
     )
-    # Создаем временный объект категории для дефолтного поста, чтобы template не падал
+    # Создает временный объект категории для дефолтного поста, чтобы template не падал
     default_post.category = CategoryName(name="Маркетинг")
 
-    # Безопасность шаблона: добиваем список до 4 элементов дефолтными постами
-    while len(posts) < 4:
-        posts.append(default_post)
+    if posts:  # проверяет, что в категории есть хотя бы один пост
+        real_posts_count = len(posts)
+        while len(posts) < 4:
+            # берет посты по кругу (0, 1, 2...) из тех, что нашлись
+            posts.append(posts[len(posts) % real_posts_count])
+    else:
+        # если вообще нет постов, тогда уже используем заглушку
+        while len(posts) < 4:
+            posts.append(default_post)
 
-    # Передаем ID текущей категории в контекст как число (или None), чтобы подсветить фильтр в HTML
+    # Передает ID текущей категории в контекст как число (или None), чтобы подсветить фильтр в HTML
     if category_id and category_id.isdigit():
         current_category = int(category_id)
     else:
@@ -67,7 +53,7 @@ def blog(request):
 
 
 def post_detail(request, post_id):
-    # Находим статью по ID или отдаем ошибку 404, если её нет
+    # Находит статью по ID или отдаем ошибку 404, если её нет
     post = get_object_or_404(Post.objects.select_related('category'), id=post_id)
 
     context = {
