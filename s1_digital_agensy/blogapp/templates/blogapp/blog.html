@@ -9,36 +9,23 @@
 {% block content %}
 
 <div class="blog-page">
-    <!-- Фиолетовый фон шапки -->
-    <div class="hero-purple"></div>
 
-    <!-- Заголовок "Блог" -->
-    <h1 class="blog-title">Блог</h1>
-    <div class="plus-sign">+</div>
-    <div class="subhead">Покажем, как это работает</div>
+    <div>
+        <!-- Фиолетовый фон шапки -->
+        <div class="hero-purple"></div>
 
-    <!-- Белый круг с иконкой -->
-    <div class="white-circle"></div>
-    <div class="circle-arrow"></div>
+        <!-- Заголовок "Блог" -->
+        <h1 class="blog-title">Блог</h1>
+        <div class="plus-sign">+</div>
+        <div class="subhead">Покажем, как это работает</div>
+    </div>
 
     <!-- Фильтры -->
-<!--    <div class="filters">-->
-<!--        <div class="filter-chip"><span>ВСЕ</span></div>-->
-<!--        {% for cat in categories %}-->
-<!--            <div class="filter-chip">-->
-<!--                <span>{{ cat.name }}</span>-->
-<!--            </div>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-
     <div class="filters">
-        <!-- Кнопка ВСЕ: активна, если current_category равен None -->
         <a href="{% url 'blogapp:blog' %}" class="filter-chip {% if not current_category %}active{% endif %}">
             <span>ВСЕ</span>
         </a>
-
         {% for cat in categories %}
-            <!-- Кнопка конкретной категории: активна, если её id совпадает с выбранным -->
             <a href="{% url 'blogapp:blog' %}?category={{ cat.id }}"
                class="filter-chip {% if current_category == cat.id %}active{% endif %}">
                 <span>{{ cat.name }}</span>
@@ -46,70 +33,96 @@
         {% endfor %}
     </div>
 
+    <!-- карточки -->
+    <div class="cards">
 
-    <!-- Карточка 1 (серая, слева) -->
-    <div class="card-gray"></div>
-    <div class="card-gray-tag">{{ def_post.category }}</div>
-    <div class="card-gray-title">{{ def_post.title }}</div>
-    <div class="card-gray-desc">{{ def_post.description }}</div>
-<!--    <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>-->
-    <!-- Проверяем, настоящий ли это пост из базы данных -->
-    {% if def_post.id %}
-        <a href="{% url 'blogapp:post_detail' def_post.id %}" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-    {% else %}
-        <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-    {% endif %}
+        <!-- Карточка 1 (серая, слева вверху) -->
+        <div class="card-gray">
+            <!-- текст статьи -->
+            <div class="card-left-part">
+                <div class="card-gray-tag">{{ def_post.category }}</div>
+                <div class="card-gray-title">{{ def_post.title }}</div>
+                <div class="card-gray-desc">{{ def_post.description }}</div>
 
+                {% if def_post.id %}
+                    <a href="{% url 'blogapp:post_detail' def_post.id %}" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+                {% else %}
+                    <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+                {% endif %}
+            </div>
+            <!-- Картинка статьи -->
+            <div class="card-right-part">
+                {% if def_post.image %}
+                    <img src="{{ def_post.image.url }}" alt="{{ def_post.title }}" class="card-post-img">
+                {% else %}
+                    <img src="/media/blog_photos/default.png" alt="Заглушка" class="card-post-img">
+                {% endif %}
+            </div>
+        </div>
 
-    <!-- Карточка 2 (фиолетовая, справа вверху) -->
-    <div class="card-purple-large"></div>
-    {% with p=posts.1|default:def_post %}
-        <div class="purple-tag">{{ p.category }}</div>
-        <div class="purple-title">{{ p.title }}</div>
-        <div class="purple-desc">{{ p.description }}</div>
-        <div class="yellow-square"></div>
-        <div class="yellow-arrow"></div>
-            <!-- Добавленный текст ссылки -->
-        {% if p.id %}
-            <a href="{% url 'blogapp:post_detail' p.id %}" class="card-gray-link" style="color: #FFF;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-        {% else %}
-            <a href="#" class="card-gray-link" style="color: #FFF;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-        {% endif %}
-    {% endwith %}
-<!--    <div class="yellow-square"></div>-->
-<!--    <div class="yellow-arrow"></div>-->
+        <!-- Карточка 2 (фиолетовая, справа вверху) -->
+        {% with p=posts.1|default:def_post %}
+        <div class="card-purple-large">
+            <div class="purple-content-wrapper">
+                <div class="purple-tag">{{ p.category }}</div>
+                <div class="purple-title">{{ p.title }}</div>
+                <div class="purple-desc">{{ p.description }}</div>
+            </div>
+            {% if p.id %}
+                <a href="{% url 'blogapp:post_detail' p.id %}" class="yellow-square-link">
+                    <div class="yellow-square"><div class="yellow-arrow"></div></div>
+                </a>
+            {% else %}
+                <div class="yellow-square"><div class="yellow-arrow"></div></div>
+            {% endif %}
+        </div>
+        {% endwith %}
 
-    <!-- Карточка 3 (фиолетовая, слева внизу) -->
-    <div class="card-purple-bottom"></div>
-    {% with p=posts.2|default:def_post %}
-        <div class="purple-bottom-tag">{{ p.category }}</div>
-        <div class="purple-bottom-title">{{ p.title }}</div>
-        <div class="purple-bottom-desc">{{ p.description }}</div>
-        <div class="yellow-square-bottom"></div>
-        <div class="yellow-arrow-bottom"></div>
-        {% if p.id %}
-            <a href="{% url 'blogapp:post_detail' p.id %}" class="card-gray-link" style="color: #FFF;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-        {% else %}
-            <a href="#" class="card-gray-link" style="color: #FFF;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-        {% endif %}
-    {% endwith %}
-<!--    <div class="yellow-square-bottom"></div>-->
-<!--    <div class="yellow-arrow-bottom"></div>-->
+        <!-- Карточка 3 (фиолетовая, слева внизу) -->
+        {% with p=posts.2|default:def_post %}
+        <div class="card-purple-bottom">
+            <div class="purple-content-wrapper">
+                <div class="purple-bottom-tag">{{ p.category }}</div>
+                <div class="purple-bottom-title">{{ p.title }}</div>
+                <div class="purple-bottom-desc">{{ p.description }}</div>
+            </div>
+            {% if p.id %}
+                <a href="{% url 'blogapp:post_detail' p.id %}" class="yellow-square-link">
+                    <div class="yellow-square-bottom"><div class="yellow-arrow-bottom"></div></div>
+                </a>
+            {% else %}
+                <div class="yellow-square-bottom"><div class="yellow-arrow-bottom"></div></div>
+            {% endif %}
+        </div>
+        {% endwith %}
 
-    <!-- Карточка 4 (серая, справа внизу) -->
-    <div class="card-gray-right"></div>
-    {% with p=posts.3|default:def_post %}
-        <div class="card-gray-tag" style="left: 991.79px; top: 1536px;">{{ p.category }}</div>
-        <div class="card-gray-title" style="left: 991.79px; top: 1581px; width: 413px;">{{ p.title }}</div>
-        <div class="card-gray-desc" style="left: 989.79px; top: 1755px; width: 412px;">{{ p.description }}</div>
-                <!-- Безопасная проверка для четвертого поста -->
-        {% if p.id %}
-            <a href="{% url 'blogapp:post_detail' p.id %}" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-        {% else %}
-            <a href="#" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
-        {% endif %}
-    {% endwith %}
-<!--    <a href="#" class="card-gray-link" style="left: 989.79px; top: 1865px;">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>-->
+        <!-- Карточка 4 (серая, справа внизу) -->
+        {% with p=posts.3|default:def_post %}
+        <div class="card-gray-right">
+            <!-- текст статьи -->
+            <div class="card-left-part">
+                <div class="card-gray-tag">{{ p.category }}</div>
+                <div class="card-gray-title">{{ p.title }}</div>
+                <div class="card-gray-desc">{{ p.description }}</div>
+
+                {% if p.id %}
+                    <a href="{% url 'blogapp:post_detail' p.id %}" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+                {% else %}
+                    <a href="#" class="card-gray-link">УЗНАТЬ БОЛЬШЕ <div class="arrow"></div></a>
+                {% endif %}
+            </div>
+            <!-- Картинка статьи -->
+            <div class="card-right-part">
+                {% if p.image %}
+                    <img src="{{ p.image.url }}" alt="{{ p.title }}" class="card-post-img">
+                {% else %}
+                    <img src="/media/blog_photos/default.png" alt="Заглушка" class="card-post-img">
+                {% endif %}
+            </div>
+        </div>
+        {% endwith %}
+
+    </div>
 
     <!-- Кнопка "смотреть все" -->
     <a href="#" class="view-all">

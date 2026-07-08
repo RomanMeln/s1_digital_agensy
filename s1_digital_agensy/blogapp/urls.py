@@ -6,6 +6,5 @@ app_name = 'blogapp'
 
 urlpatterns = [
     path('', views.blog, name='blog'),
-    # Новый маршрут для страницы статьи:
     path('<int:post_id>/', views.post_detail, name='post_detail'),
 ]
