@@ -8,46 +8,51 @@
 
 {% block content %}
 
-<div class="contacts-page">
+<section id="contacts" class="contacts-section">
+    <!-- Контейнер для сетки проектов -->
+    <div class="contacts-grid">
 
-    <!-- Жёлтый круг из Figma -->
-    <div class="yellow-circle"></div>
-
-    <!-- Главный заголовок -->
-    <h1 class="main-title">КОНТАКТЫ</h1>
-
-    <!-- Серый блок (левая часть) -->
-    <div class="gray-block">
-        <div class="logo-mask">
-            <!-- Здесь логотип -->
-        </div>
-        
-        <div class="addresses-block">
-            <div class="title">АДРЕСА</div>
-            <div class="text">Россия, г. Санкт-Петербург, ул.Большая Морская 43</div>
-            <div class="text">Россия, г.Москва, Спартаковская площадь 10.</div>
+        <!-- Главный карточка (займет всю левую половину) -->
+        <div class="contact-main">
+            <div class="contact-content">
+                <h3 style="font-size: 100px; margin-bottom: 0">КОНТАКТЫ</h3>
+                <h3 style="font-size: 50px; margin-top: 0">СВЯЖИТЕСЬ С НАМИ</h3>
+            </div>
         </div>
 
-        <div class="schedule-block">
-            <div class="title">График работы:</div>
-            <div class="text">ПН-ПТ: 10:00-19:00 СБ, ВС (Выходной)</div>
+        <!-- Второстепенные карточки (встанут в правую половину 2х2) -->
+        <div class="contact-item">
+            <div class="contact-content">
+                <h1>Адреса</h1>
+                <p><h4>Россия, г. Санкт-Петербург, ул.Большая Морская 43</h4></p>
+                <p><h4>Россия, г.Москва, Спартаковская площадь 10.</h4></p>
+            </div>
         </div>
 
-        <div class="email-block-left">
-            <div class="title">E-MAIL</div>
-            <div class="text">hello@s-one.ru</div>
+        <div class="contact-item">
+            <div class="contact-content">
+                <h1>График работы:</h1>
+                <p><h4>ПН-ПТ 10-00 - 19-00</h4></p>
+                <p><h4>СБ, ВС - выходной</h4></p>
+            </div>
         </div>
 
-        <div class="phones-block-left">
-            <div class="title">ТЕЛЕФОНЫ</div>
-            <div class="text">+7 812 507-9366</div>
-            <div class="text">+7 995 911-5700</div>
+        <div class="contact-item">
+            <div class="contact-content">
+                <h1>Телефоны</h1>
+                <p><a href="tel:+78125079366">+7 (812) 507- 93-66</a></p>
+                <p><a href="tel:+79959115700">+7 (995) 911- 57-00</a></p>
+            </div>
         </div>
+
+        <div class="contact-item">
+            <div class="contact-content">
+                <h1>E-mail</h1>
+                <p><a href="mailto:hello@s-one.ru">hello@s-one.ru</a></p>
+            </div>
+        </div>
+
     </div>
+</section>
 
-    <!-- Фиолетовый блок (правая часть) -->
-    <div class="purple-block"></div>
-    <div class="contact-us-text">Свяжитесь с нами</div>
-    <div class="contact-us-bg">Свяжитесь с нами</div>
-</div>
 {% endblock %}
