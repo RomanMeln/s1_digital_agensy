@@ -47,57 +47,84 @@
         {% endblock %}
     </main>
 
-    <!-- футер, который будет везде -->
-    <footer class="site-footer">
-      <!-- Фоновый фиолетовый блок -->
-        <div class="footer-purple"></div>
 
-        <!-- Декоративная буква на фоне -->
-        <div class="footer-bg-letter">S1</div>
+<footer class="site-footer">
+    <!-- Фоновые декоративные элементы -->
+    <div class="footer-purple"></div>
+    <div class="footer-bg-letter">S1</div>
 
-        <!-- Заголовки разделов -->
-        <div class="footer-title" style="left: 42.79px; top: 275px;">Компания</div>
-        <div class="footer-title" style="left: 281.79px; top: 275px;">КОНТАКТЫ</div>
-        <div class="footer-title" style="left: 504.79px; top: 275px;">График работы</div>
-        <div class="footer-title" style="left: 734.79px; top: 275px;">НАШИ АДРЕСА</div>
+    <!-- Основной контейнер сетки -->
+    <div class="footer-grid-container">
 
-        <!-- Подзаголовки адресов -->
-        <div class="footer-subtitle" style="left: 964.79px; top: 277px;">САНКТ-ПЕТЕРБУРГ</div>
-        <div class="footer-subtitle" style="left: 1201.79px; top: 277px;">МОСКВА</div>
-
-          <!-- Меню -->
-        <div class="footer-menu">
-            <a href="{% url 'mainapp:services' %}">УСЛУГИ</a>
-            <a href="{% url 'projectapp:projects' %}">ПРОЕКТЫ</a>
-            <a href="{% url 'blogapp:blog' %}">БЛОГ</a>
-            <a href="#">СТАЖИРОВКА</a>
+        <!-- === СТРОКА 1 === -->
+        <!-- Столбец 1: Компания -->
+        <div class="grid-col">
+            <div class="footer-title">Компания</div>
+            <div class="footer-menu">
+                <a href="{% url 'mainapp:services' %}">УСЛУГИ</a>
+                <a href="{% url 'projectapp:projects' %}">ПРОЕКТЫ</a>
+                <a href="{% url 'blogapp:blog' %}">БЛОГ</a>
+                <a href="#">СТАЖИРОВКА</a>
+            </div>
+        </div>
+        <!-- Столбец 2: Контакты -->
+        <div class="grid-col">
+            <div class="footer-title">КОНТАКТЫ</div>
+            <a href="tel:+78125079366" class="footer-phone1">+7 (812) 507- 93-66</a>
+            <a href="tel:+79959115700" class="footer-phone2">+7 (995) 911- 57-00</a>
+        </div>
+        <!-- Столбец 3: График работы -->
+        <div class="grid-col">
+            <div class="footer-title">График работы</div>
+            <div class="footer-schedule-week">ПН-ПТ 10-00 - 19-00</div>
+            <div class="footer-schedule-weekend">СБ, ВС - выходной</div>
+        </div>
+        <!-- Столбец 4: Наши адреса -->
+        <div class="grid-col">
+            <div class="footer-title">НАШИ АДРЕСА</div>
+        </div>
+        <!-- Столбец 5: Санкт-Петербург -->
+        <div class="grid-col">
+            <div class="footer-subtitle">САНКТ-ПЕТЕРБУРГ</div>
+            <div class="footer-address-spb">Россия, г. Санкт-Петербург, ул.Большая Морская 43</div>
+        </div>
+        <!-- Столбец 6: Москва -->
+        <div class="grid-col">
+            <div class="footer-subtitle">МОСКВА</div>
+            <div class="footer-address-msk">Россия, г.Москва, Спартаковская площадь 10.</div>
         </div>
 
-        <!-- Адреса -->
-        <div class="footer-address-spb">Россия, г. Санкт-Петербург, ул.Большая Морская 43</div>
-        <div class="footer-address-msk">Россия, г.Москва, Спартаковская площадь 10.</div>
-        <!-- Телефоны -->
-        <a href="tel:+78125079366" class="footer-phone1">+7 (812) 507- 93-66</a>
-        <a href="tel:+79959115700" class="footer-phone2">+7 (995) 911- 57-00</a>
+        <!-- === СТРОКА 2 === -->
+        <!-- Столбец 1: Юридическая информация -->
+        <div class="grid-col row-2">
+            <div class="footer-info-label">Информация:</div>
+            <div class="footer-legal1">Пользовательское соглашение</div>
+            <div class="footer-legal2">Политика конфиденциальности</div>
+        </div>
+        <!-- Столбец 2: Почта -->
+        <div class="grid-col row-2">
+            <div class="footer-email-label">ПОЧТА</div>
+            <a href="mailto:hello@s-one.ru" class="footer-email">hello@s-one.ru</a>
+        </div>
+        <!-- Столбец 3: Соцсети -->
+        <div class="grid-col row-2">
+            <div class="footer-social-label">СОЦ СЕТИ</div>
+        </div>
 
-        <!-- График работы -->
-        <div class="footer-schedule-week">ПН-ПТ 10-00 - 19-00</div>
-        <div class="footer-schedule-weekend">СБ, ВС - выходной</div>
+        <div class="grid-copyright">
+            <div class="copyright">2026</div>
+        </div>
 
-        <!-- Почта -->
-        <div class="footer-email-label">ПОЧТА</div>
-        <a href="mailto:hello@s-one.ru" class="footer-email">hello@s-one.ru</a>
+<!--молния-->
+        <div class="grid-splash">
+            <img class="splash_white" src="{% static 'img/splash-white.png' %}" alt="lightning">
+        </div>
 
-        <!-- Соцсети -->
-        <div class="footer-social-label">СОЦ СЕТИ</div>
-        <div ><img class="splash_white" src="{% static 'img/splash-white.png' %}"></div>
-        <!-- Юридическая информация -->
-        <div class="footer-info-label">Информация:</div>
-        <div class="footer-legal1">Пользовательское соглашение</div>
-        <div class="footer-legal2">Политика конфиденциальности</div>
+    </div>
+<!--    <div >-->
+<!--&lt;!&ndash;        <img class="splash_white" src="{% static 'img/splash-white.png' %}">&ndash;&gt;-->
+<!--    </div>-->
+</footer>
 
-        <!-- Копирайт -->
-        <div class="copyright">2026</div>
-    </footer>
 </body>
 </html>

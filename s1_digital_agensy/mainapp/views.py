@@ -47,8 +47,8 @@ def about_us(request):
 def services(request):
     return render(request, 'mainapp/services.html')
 
-def cases(request):
-    return render(request, 'mainapp/cases.html')
+# def case(request):
+#     return render(request, 'mainapp/case.html')
 
 def contact_us_email(request):
     if request.method == 'POST':

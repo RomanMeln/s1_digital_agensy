@@ -14,13 +14,6 @@ body {
     color: var(--dark-bg);
 }
 
- /*Шапка*/
-/*.nav-container {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    padding: 20px 50px;*/
-/*}*/
 
 .nav-container {
     display: flex;
@@ -106,317 +99,147 @@ body {
 
 /* footer.css */
 /* Подключение шрифтов Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;800&family=Raleway:wght@500;600;800&display=swap');
 
-/* Основной контейнер футера */
+@import url('https://googleapis.com');
+
+/* Основной контейнер */
 .site-footer {
-  position: relative;               /* Относительное позиционирование — для абсолютного позиционирования дочерних элементов */
-  width: 100%;                      /* Ширина на всю доступную область родителя */
-  max-width: 1920px;                /* Максимальная ширина по макету */
-  margin: 0 auto;                   /* Центрирование по горизонтали */
-  height: 800px;                    /* Фиксированная высота, достаточная для размещения всех элементов */
-  font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif; /* Шрифт по умолчанию */
-  background: #7A00FF;              /* Фон футера (фиолетовый) */
-  border-radius: 20px;              /* Скругление углов */
-  overflow: hidden;                 /* Скрываем выходящие за пределы элементы (для аккуратности) */
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #7A00FF;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: auto;                     /* Меняем фиксированные 800px на авто-высоту */
+  min-height: 550px;                /* Задаем аккуратную минимальную высоту */
+  padding: 60px 40px 40px 40px;     /* Уменьшаем нижний отступ до 40px */
 }
 
-/* Фоновый фиолетовый слой (используется как дополнительный фон, хотя сам .site-footer уже фиолетовый) */
+/* Декоративный фон */
 .footer-purple {
-  position: absolute;               /* Абсолютное позиционирование внутри .site-footer */
-  width: 1920px;                    /* Ширина равна максимальной ширине контейнера */
-  height: 700px;                    /* Высота фонового блока */
-  left: -5.21px;                    /* Смещение влево для компенсации возможных отступов */
-  top: 88px;                        /* Отступ сверху (рассчитано относительно верха футера) */
-  background: #7A00FF;              /* Цвет фона */
-  border-radius: 20px;              /* Скругление углов */
-  z-index: 1;                       /* Нижний слой, чтобы остальные элементы были сверху */
+  position: absolute;
+  inset: 0;
+  background: #7A00FF;
+  z-index: 1;
 }
 
-/* Декоративная большая буква "S1" на фоне */
 .footer-bg-letter {
-  position: absolute;               /* Абсолютное позиционирование */
-  width: 470px;                     /* Ширина блока с буквой */
-  height: 480px;                    /* Высота блока */
-  left: -116.21px;                  /* Частичное смещение за левый край (эффект выступания) */
-  top: 0px;                         /* Прилегает к верхнему краю футера */
-  font-family: 'Roboto';            /* Шрифт */
-  font-weight: 500;                 /* Насыщенность шрифта */
-  font-size: 400px;                 /* Огромный размер буквы */
-  line-height: 120%;                /* Межстрочный интервал */
-  text-transform: uppercase;        /* Все буквы заглавные */
-  color: #FFFFFF;                   /* Белый цвет */
-  opacity: 0.2;                     /* Полупрозрачность (20%) */
-  z-index: 2;                       /* Слой над фоном, но под контентом */
-  pointer-events: none;             /* Чтобы буква не мешала кликам по элементам под ней */
-}
-
-/* Общие стили для заголовков разделов футера */
-.footer-title {
-  position: absolute;               /* Абсолютное позиционирование (координаты заданы в HTML через style) */
-  font-family: 'Roboto';            /* Шрифт */
-  font-weight: 500;                 /* Жирность */
-  font-size: 24px;                  /* Размер шрифта */
-  line-height: 120%;                /* Высота строки */
-  text-transform: uppercase;        /* Все буквы заглавные */
-  color: #FFFFFF;                   /* Белый цвет */
-  z-index: 3;                       /* Верхний слой, над фоном и буквой */
-}
-
-/* Общие стили для подзаголовков (города) */
-.footer-subtitle {
-  position: absolute;               /* Абсолютное позиционирование */
-  font-family: 'Roboto';            /* Шрифт */
-  font-weight: 500;                 /* Жирность */
-  font-size: 20px;                  /* Размер шрифта */
-  line-height: 120%;                /* Высота строки */
-  text-transform: uppercase;        /* Заглавные буквы */
-  color: #FFFFFF;                   /* Белый цвет */
-  z-index: 3;                       /* Верхний слой */
-}
-
-/* Блок меню футера (ссылки) */
-.footer-menu {
-  position: absolute;               /* Абсолютное позиционирование */
-  display: flex;                    /* Гибкий контейнер для вертикального расположения ссылок */
-  flex-direction: column;           /* Вертикальная колонка */
-  align-items: flex-start;          /* Выравнивание по левому краю */
-  gap: 10px;                        /* Расстояние между ссылками */
-  width: 109px;                     /* Фиксированная ширина блока */
-  left: 42.79px;                    /* Отступ слева */
-  top: 324px;                       /* Отступ сверху */
-  z-index: 3;                       /* Верхний слой */
-}
-
-/* Стили самих ссылок в меню */
-.footer-menu a {
-  font-family: 'Roboto';            /* Шрифт */
-  font-weight: 500;                 /* Жирность */
-  font-size: 16px;                  /* Размер шрифта */
-  line-height: 120%;                /* Высота строки */
-  text-transform: uppercase;        /* Заглавные буквы */
-  color: #FFFFFF;                   /* Белый цвет */
-  text-decoration: none;            /* Убираем подчёркивание */
-}
-
-/* Адрес в Санкт-Петербурге */
-.footer-address-spb {
-  position: absolute;               /* Абсолютное позиционирование */
-  width: 220px;                     /* Ширина блока */
-  height: 57px;                     /* Высота блока, но обычно определяется содержимым */
-  left: 964.79px;                   /* Отступ слева */
-  top: 324px;                       /* Отступ сверху */
-  font-family: 'Roboto';            /* Шрифт */
-  font-weight: 500;                 /* Жирность */
-  font-size: 16px;                  /* Размер шрифта */
-  line-height: 120%;                /* Межстрочный интервал */
-  text-transform: uppercase;        /* Заглавные буквы */
-  color: #FFFFFF;                   /* Белый цвет */
-  z-index: 3;
-}
-
-/* Адрес в Москве */
-.footer-address-msk {
-  position: absolute;               /* Абсолютное позиционирование */
-  width: 203px;                     /* Ширина блока */
-  height: 57px;                     /* Высота */
-  left: 1201.79px;                  /* Отступ слева */
-  top: 324px;                       /* Отступ сверху */
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
-}
-
-/* Первый номер телефона */
-.footer-phone1 {
   position: absolute;
-  width: 143px;
-  height: 19px;
-  left: 281.79px;
-  top: 324px;
+  left: -40px;
+  top: -20px;
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
+  font-size: 400px;
   color: #FFFFFF;
-  z-index: 3;
+  opacity: 0.15;
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* Второй номер телефона */
-.footer-phone2 {
-  position: absolute;
-  width: 143px;
-  height: 19px;
-  left: 281.79px;
-  top: 353px;                       /* Слегка ниже первого телефона */
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
+/* сетка grid */
+.footer-grid-container {
+  position: relative;
   z-index: 3;
+  display: grid;
+  /* Формируем 8 равных столбцов */
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  /* Расстояние между строками и столбцами */
+  row-gap: 80px;
+  column-gap: 30px;
 }
 
-/* График работы: будние дни */
-.footer-schedule-week {
-  position: absolute;
-  width: 150px;
-  height: 19px;
-  left: 504.79px;
-  top: 324px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
+/* Общие стили для столбцов */
+.grid-col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Отступ между заголовком и текстом внутри столбца */
 }
 
-/* График работы: выходные дни */
-.footer-schedule-weekend {
-  position: absolute;
-  width: 153px;
-  height: 19px;
-  left: 504.79px;
-  top: 353px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
+/* Принудительный перенос элементов 2-й строки в начало */
+.grid-col.row-2 {
+  grid-row: 2;
 }
 
-/* Метка "ПОЧТА" */
-.footer-email-label {
-  position: absolute;
-  width: 53px;
-  height: 19px;
-  left: 504.79px;
-  top: 571px;                       /* Ниже графика работы */
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
+/* Растягиваем элементы информации и почты во 2-й строке на более широкие блоки */
+.grid-col.row-2:nth-child(7) { grid-column: 1 / span 2; } /* Информация занимает 1 и 2 столбцы */
+.grid-col.row-2:nth-child(8) { grid-column: 3 / span 2; } /* Почта занимает 3 и 4 столбцы */
+.grid-col.row-2:nth-child(9) { grid-column: 5 / span 2; } /* Соцсети занимают 5 и 6 столбцы */
+
+.grid-copyright {
+  grid-row: 3;
+  grid-column: 1 / -1;     /* Растягиваем от самого левого до самого правого края */
+  display: flex;
+  justify-content: center; /* Строгое центрирование по горизонтали */
+  align-items: center;
+  width: 100%;
+  padding-top: 40px;
 }
 
-/* Email-адрес */
-.footer-email {
-  position: absolute;
-  width: 135px;
-  height: 19px;
-  left: 504.79px;
-  top: 602px;                       /* Чуть ниже метки */
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
+.grid-splash {
+  display: contents;
 }
 
-/* Метка "СОЦ СЕТИ" */
-.footer-social-label {
-  position: absolute;
-  width: 79px;
-  height: 19px;
-  left: 964.79px;
-  top: 571px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
-}
-
-/* Метка "Информация:" для юридических ссылок */
-.footer-info-label {
-  position: absolute;
-  width: 119px;
-  height: 19px;
-  left: 42.79px;
-  top: 571px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
-}
-
-/* Первая юридическая ссылка (Пользовательское соглашение) */
-.footer-legal1 {
-  position: absolute;
-  width: 277px;
-  height: 19px;
-  left: 44.79px;
-  top: 602px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-decoration: underline;       /* Подчёркивание, как в оригинале */
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
-  cursor: pointer;                  /* Курсор-рука (намекает на кликабельность) */
-}
-
-/* Вторая юридическая ссылка (Политика конфиденциальности) */
-.footer-legal2 {
-  position: absolute;
-  width: 289px;
-  height: 19px;
-  left: 44.79px;
-  top: 632px;                       /* Ниже первой ссылки */
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-decoration: underline;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
-  cursor: pointer;
-}
-
-/* Копирайт (год) */
-.copyright {
-  position: absolute;
-  width: 37px;
-  height: 19px;
-  left: calc(50% - 37px/2 - 5.71px); /* Центрирование по горизонтали с поправкой */
-  top: 731px;                       /* Ближе к нижнему краю футера */
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  z-index: 3;
-}
 
 /*молния в футере*/
-.splash_white{
-    position: absolute;
-    height: 624px;
-    left: 61.46%;
-    right: 9.77%;
-    top: 47px;
-    z-index: 1;
+.splash_white {
+  position: absolute;       /* Абсолютное позиционирование относительно .site-footer */
+  top: 0;                /* Отступ от верхнего края футера */
+  right: 0;              /* Отступ от правого края футера */
+  bottom: 0;             /* Отступ от нижнего края футера */
+  width: 50%;               /* Картинка будет стабильно занимать 35% от всей ширины футера */
+  height: 100%;/* Занимает всю высоту футера за вычетом отступов */
+  object-fit: contain;      /* Пропорционально увеличивает молнию до максимума */
+  object-position: right center; /* Прижимает саму графику к правому краю */
+  z-index: 2;               /* Находится над фиолетовым фоном, но под текстом (если они пересекутся) */
+}
+/*молния в футере*/
+/*.splash_white{*/
+/*    position: absolute;*/
+/*    height: 624px;*/
+/*    left: 61.46%;*/
+/*    right: 9.77%;*/
+/*    top: 10px;*/
+/*    z-index: 1;*/
+/*}*/
+
+/* Стилизация текстовых блоков */
+.footer-title, .footer-subtitle, .footer-info-label, .footer-email-label, .footer-social-label {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.footer-subtitle {
+  font-size: 18px;
+}
+
+/* Ссылки и обычный текст */
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-menu a, .footer-phone1, .footer-phone2,
+.footer-schedule-week, .footer-schedule-weekend,
+.footer-address-spb, .footer-address-msk,
+.footer-email, .footer-legal1, .footer-legal2, .copyright {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.footer-legal1, .footer-legal2 {
+  text-decoration: underline;
+  cursor: pointer;
 }

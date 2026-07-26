@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Project
 
 def project(request):
@@ -18,3 +18,11 @@ def project(request):
         projects.append(default_project)
     return render(request, 'projectapp/projects.html', {'projects': projects,
                                                         'def_project': default_project})
+
+def case(request, pk):
+    selected_case = get_object_or_404(Project, pk=pk)
+    
+    context = {
+        'selected_case': selected_case
+    }
+    return render(request, 'projectapp/case.html', context)

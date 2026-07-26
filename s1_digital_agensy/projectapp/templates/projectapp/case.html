@@ -4,9 +4,22 @@
 
 {% block title %}S1 Digital Agency{% endblock %}
 
-{% block extra_css%}<link rel="stylesheet" href="{% static 'css/cases.css' %}">{% endblock %}
+{% block extra_css%}<link rel="stylesheet" href="{% static 'css/case.css' %}">{% endblock %}
 
 {% block content %}
+
+<section class="grid-container">
+    <div class="grid-item">
+        <h1>{{ selected_case.title }}</h1>
+        <h3>{{ selected_case.description }}</h3>
+    </div>
+    <div class="grid-item">
+        {% if selected_case.image %}
+            <img src="{{ selected_case.image.url }}" alt="{{ post.title }}" class="item-image">
+        {% endif %}
+    </div>
+</section>
+
 
 <div class="case-page">
     <!-- Верхние блоки -->
