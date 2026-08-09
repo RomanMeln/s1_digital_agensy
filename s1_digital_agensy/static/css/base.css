@@ -83,6 +83,8 @@ body {
 }
 
 .lang-options {
+  /*display: none;*/
+  /*  для отображения включу после реализации других языков*/
   display: flex;
   flex-direction: row;
   gap: 10px;

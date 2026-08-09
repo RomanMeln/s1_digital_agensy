@@ -7,24 +7,35 @@
 {% block extra_css%}<link rel="stylesheet" href="{% static 'css/services.css' %}">{% endblock %}
 
 {% block content %}
-
-<div class="services-page">
-    <!-- Фиолетовый фон шапки -->
-    <div class="hero-purple"></div>
-
-    <!-- Главный заголовок -->
+<!--титул-->
+<section class="hero-purple">
     <h1 class="main-title">НАШИ УСЛУГИ</h1>
     <div class="subhead">Делимся экспертизой, чтобы ваш бренд звучал громче в онлайне</div>
+</section>
 
-    <!-- КОМПЛЕКСНЫЙ МАРКЕТИНГ -->
-    <div class="complex-title">КОМПЛЕКСНЫЙ МАРКЕТИНГ</div>
-    <div class="plus-sign">+</div>
+<section class="marketing-section">
+    <!-- ЛЕВАЯ КОЛОНКА -->
+    <div class="marketing-left">
 
-    <!-- Вертикальная линия -->
+        <!-- Фиолетовый блок теперь содержит текст и кнопку внутри себя -->
+        <div class="purple-synergy-block">
+            <p class="synergy-text">Синергия маркетинговых инструментов многократно увеличивает их эффективность для бизнеса</p>
+            <a href="#" class="learn-more-btn">
+                <span>узнать больше</span>
+                <div class="arrow"></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- ВЕРТИКАЛЬНАЯ ЛИНИЯ-РАЗДЕЛИТЕЛЬ -->
     <div class="divider-line"></div>
 
-    <!-- Список услуг -->
+    <!-- ПРАВАЯ КОЛОНКА (Список услуг) -->
     <div class="services-list-container">
+        <div class="title-wrapper">
+            <h2 class="complex-title">КОМПЛЕКСНЫЙ МАРКЕТИНГ</h2>
+            <div class="plus-sign">+</div>
+        </div>
         <div class="service-item">SEO</div>
         <div class="service-item">БРЕНДИНГ</div>
         <div class="service-item">МАРКЕТИНГОВАЯ СТРАТЕГИЯ</div>
@@ -39,23 +50,37 @@
         <div class="service-item">КОПИРАЙТИНГ</div>
         <div class="service-item">ДИЗАЙН</div>
     </div>
+</section>
 
-    <!-- Фиолетовый блок с текстом синергии -->
-    <div class="purple-synergy-block"></div>
-    <div class="synergy-text">Синергия маркетинговых инструментов многократно увеличивает их эффективность для бизнеса</div>
-    <a href="#" class="learn-more-btn">
-        <span>узнать больше</span>
-        <div class="arrow"></div>
-    </a>
+<section id="contacts" class="contact-section">
+        <!-- Изображение в левом верхнем углу (настраивается через CSS или тег img) -->
+    <div class="corner-decoration"></div>
 
-    <!-- Серая форма -->
-    <div class="form-gray-section"></div>
-    <div class="form-title">Хотите так же? Оставьте заявку — поможем добиться результата.</div>
-    <input type="text" class="message-input" placeholder="Сообщение">
-    <button class="submit-btn-form">
-        <span>Отправить</span>
-        <div class="arrow"></div>
-    </button>
-</div>
+    <div class="contact-content">
+        <h2 class="section-title">Хотите так же?</h2>
+        <p> Оставьте заявку — поможем добиться результата.</p>
+
+        <form action="{% url 'mainapp:contact-us-email' %}" method="POST" class="contact-form">
+            {% csrf_token %} <!-- Обязательная защита Django для форм -->
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Имя Фамилия" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Сообщение" ></textarea>
+            </div>
+                            <!-- Согласие на обработку данных -->
+            <div class="form-privacy-wrapper">
+                <label class="form-privacy-label">
+                    <input type="checkbox" class="form-checkbox" required>
+                    <span>Я соглашаюсь на обработку <u>персональных данных</u></span>
+                </label>
+            </div>
+            <button type="submit" class="btn-submit">ОТПРАВИТЬ</button>
+        </form>
+    </div>
+</section>
 
 {% endblock %}

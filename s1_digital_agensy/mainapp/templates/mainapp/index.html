@@ -9,7 +9,10 @@
 {% block content %}
     <!-- Главный экран -->
     <section class="hero">
-        <div class="hero-circle"></div>
+
+        <div class="hero-circle">
+            <img src="{% static 'img/main_lightning.png' %}" alt="main_lightning" class="main_lightning">
+        </div>
         <div class="hero-content">
             <h1>S1 digital-<span>агентство</span></h1>
             <p>Выводим ваш бизнес на новый уровень прибыли</p>
@@ -68,12 +71,10 @@
 </section>
     <!-- Секция Проекты -->
 <section id="projects" class="projects-section">
-    <!-- Заголовок, который мы настроили ранее -->
     <h2 class="projects-section-title">Наши проекты</h2>
 
     <!-- Контейнер для сетки проектов -->
     <div class="projects-grid">
-
         <!-- Главный проект (займет всю левую половину) -->
         <div class="project-item project-main">
             <div class="project-content">

@@ -1,10 +1,10 @@
-/* Общие настройки */
+
 html {
     scroll-behavior: smooth;
 }
 
 section[id] {
-    scroll-margin-top: 80px; /* Высота шапки + небольшой запас */
+    scroll-margin-top: 80px;
 }
 
 body {
@@ -15,7 +15,6 @@ body {
 }
 
 
-/* Герой-блок */
 .hero {
     position: relative;
     height: 80vh;
@@ -24,7 +23,7 @@ body {
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background-color: #B9B8B8;
+    background-color: #EAEAEA;
 }
 
 .hero-circle {
@@ -33,7 +32,17 @@ body {
     height: 500px;
     background-color: #D9FF00;
     border-radius: 50%;
-    z-index: 0; /* Порядок слоя: элемент будет выше фона и блоков без z-index */
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_lightning{
+    width: 500px;
+    height: auto;
+    z-index: 1;
+    filter: brightness(0.7) sepia(1) hue-rotate(195deg) saturate(15) contrast(1.8);
 }
 
 .hero-content{
@@ -120,20 +129,6 @@ body {
     align-items: center;
     justify-content: center;
     color: #666666;
-}
-
-/* АДАПТИВНОСТЬ: На смартфонах и планшетах превращаем всё в 1 колонку */
-@media (max-width: 992px) {
-    .projects-grid {
-        grid-template-columns: 1fr; /* Одна колонка */
-        grid-template-rows: auto;    /* Высота подстроится автоматически */
-    }
-
-    .project-main {
-        grid-column: auto; /* Сбрасываем объединение колонок */
-        grid-row: auto;    /* Сбрасываем объединение строк */
-        min-height: 300px; /* Чтобы главный не сжался */
-    }
 }
 
 .team {
@@ -337,20 +332,6 @@ body {
 /* Эффект при наведении */
 .post-item:hover {
     transform: translateY(-5px); /* Карточка слегка приподнимается */
-}
-
-/* АДАПТИВНОСТЬ: На смартфонах и планшетах превращаем всё в 1 колонку */
-@media (max-width: 992px) {
-    .posts-grid {
-        grid-template-columns: 1fr; /* Одна колонка */
-        grid-template-rows: auto;    /* Высота подстроится автоматически */
-    }
-
-    .post-main {
-        grid-column: auto; /* Сбрасываем объединение колонок */
-        grid-row: auto;    /* Сбрасываем объединение строк */
-        min-height: 300px; /* Чтобы главный не сжался */
-    }
 }
 
 .side-item {

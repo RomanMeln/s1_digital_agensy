@@ -1,297 +1,275 @@
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Roboto', 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FCFCFC;
-            overflow-x: hidden;
-        }
+ .hero-purple {
+    height: 769px;
+    background: #7A00FF;
+    border-radius: 20px;
 
-        /* ГЛАВНЫЙ КОНТЕЙНЕР  */
-        .services-page {
-            position: relative;
-            width: 100%;
-            max-width: 1920px;
-            margin: 0 auto;
-            background: #FCFCFC;
-            min-height: 3991px;
-        }
+    /* Включаем флексбокс для родителя */
+    display: flex;
+    flex-direction: column;    /* Располагаем элементы друг под другом */
+    justify-content: center;   /* Выравниваем по вертикали строго по центру */
+    align-items: center;       /* Выравниваем по горизонтали строго по центру */
+    padding: 0 20px;           /* Защита от прилипания текста к краям на экранах поменьше */
+    box-sizing: border-box;
+}
 
-        /* ---------- ВЕРХНЯЯ ЧАСТЬ С ФИОЛЕТОВЫМ ФОНОМ ---------- */
-        .hero-purple {
-            position: absolute;
-            width: 100%;
-            max-width: 1920px;
-            height: 769px;
-            left: 0;
-            top: 0;
-            background: #7A00FF;
-            mix-blend-mode: darken;
-            border-radius: 20px;
-            z-index: 0;
-        }
+.main-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 180px;
+    line-height: 120%;
+    color: #FFFFFF;
+    text-align: center;        /* Центрируем текст внутри своей строки */
+    margin: 0 0 24px 0;        /* Обнуляем внешние отступы и делаем небольшой отступ снизу до подзаголовка */
+}
 
-        /* Главный заголовок */
-        .main-title {
-            position: absolute;
-            width: 1344px;
-            height: 216px;
-            left: calc(50% - 1344px/2 + 3.5px);
-            top: 272.58px;
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 800;
-            font-size: 180px;
-            line-height: 120%;
-            color: #FFFFFF;
-            text-align: center;
-            z-index: 2;
-        }
+.subhead {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 100%;
+    text-align: center;        /* Центрируем текст подзаголовка */
+    color: #FFFFFF;
+    max-width: 1000px;         /* Ограничиваем ширину, чтобы длинный текст красиво переносился, а не растягивался во всю ширь */
+    margin: 0;                 /* Обнуляем дефолтные отступы */
+}
 
-        /* Подзаголовок */
-        .subhead {
-            position: absolute;
-            width: 1056.5px;
-            height: 120px;
-            left: calc(50% - 1056.5px/2);
-            top: 499px;
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 60px;
-            line-height: 100%;
-            text-align: center;
-            color: #FFFFFF;
-            z-index: 2;
-        }
 
-        /* КОМПЛЕКСНЫЙ МАРКЕТИНГ */
-        .complex-title {
-            position: absolute;
-            width: 852.52px;
-            height: 168px;
-            left: 1016.27px;
-            top: 849.5px;
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 800;
-            font-size: 70px;
-            line-height: 120%;
-            text-transform: uppercase;
-            color: #7A00FF;
-            z-index: 3;
-        }
+/*        !* КОМПЛЕКСНЫЙ МАРКЕТИНГ *!*/
 
-        /* Плюс */
-        .plus-sign {
-            position: absolute;
-            width: 34px;
-            height: 80px;
-            left: 970px;
-            top: 889.5px;
-            font-family: 'Raleway';
-            font-weight: 800;
-            font-size: 80px;
-            line-height: 100%;
-            text-transform: uppercase;
-            color: #7A00FF;
-            z-index: 3;
-        }
 
-        /* Список услуг (13 пунктов) */
-        .services-list-container {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 50px;
-            width: 853px;
-            height: 1250px;
-            left: 1016px;
-            top: 1060px;
-            z-index: 3;
-        }
+ /* Общий контейнер секции */
+.marketing-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1440px; /* или ширина вашего контейнера из Figma */
+    margin: 80px auto;
+    padding: 0 40px;
+    position: relative;
+}
 
-        .service-item {
-            font-family: 'Raleway';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 50px;
-            line-height: 100%;
-            text-transform: uppercase;
-            color: #000000;
-        }
+/* --- ЛЕВАЯ ЧАСТЬ --- */
+/*.marketing-left {*/
+/*    width: 45%;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 40px; !* Отступ между заголовком и фиолетовым блоком *!*/
+/*}*/
 
-        /* Вертикальная линия-разделитель */
-        .divider-line {
-            position: absolute;
-            width: 4px;
-            height: 1460.5px;
-            left: 960px;
-            top: 849.5px;
-            background: #D9D9D9;
-            z-index: 2;
-        }
+.marketing-left {
+    width: 45%;
+    align-self: stretch;      /* Растягиваем левую колонку на всю высоту секции */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Выравнивает фиолетовый блок строго по центру вертикали */
+}
 
-        /* Фиолетовый блок (правый) с текстом синергии */
-        .purple-synergy-block {
-            position: absolute;
-            width: 863px;
-            height: 1026px;
-            left: 44.79px;
-            top: 1102.5px;
-            background: #7A00FF;
-            border-radius: 20px;
-            z-index: 2;
-        }
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .synergy-text {
-            position: absolute;
-            width: 550px;
-            height: 120px;
-            left: 65px;
-            top: 1796px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 30px;
-            line-height: 100%;
-            text-transform: uppercase;
-            color: #FFFFFF;
-            z-index: 3;
-        }
+.complex-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 70px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #7A00FF;
+    margin: 0;
+}
 
-        .learn-more-btn {
-            position: absolute;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            width: 152px;
-            height: 19px;
-            left: 64.79px;
-            top: 1935.5px;
-            z-index: 3;
-            text-decoration: none;
-        }
+.plus-sign {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #7A00FF;
+}
 
-        .learn-more-btn span {
-            font-family: 'Roboto';
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 120%;
-            text-transform: uppercase;
-            color: #FFFFFF;
-        }
+/* Фиолетовый блок синергии */
+/*.purple-synergy-block {*/
+/*    background: #7A00FF;*/
+/*    border-radius: 20px;*/
+/*    padding: 60px 40px; !* Внутренние отступы блока *!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*    min-height: 450px; !* Управляет высотой блока автоматически *!*/
+/*    box-sizing: border-box;*/
+/*}*/
 
-        .learn-more-btn .arrow {
-            width: 10px;
-            height: 10px;
-            border: 2px solid #FFFFFF;
-            border-left: none;
-            border-bottom: none;
-            transform: rotate(45deg);
-        }
+.purple-synergy-block {
+    background: #7A00FF;
+    border-radius: 20px;
+    padding: 60px 40px;       /* Увеличили внутренние отступы для баланса */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-        /* ---------- СЕРАЯ ФОРМА ---------- */
-        .form-gray-section {
-            position: absolute;
-            width: 100%;
-            max-width: 1920px;
-            height: 551px;
-            left: -3.5px;
-            top: 2553.21px;
-            background: #F5F5F5;
-            border-radius: 20px;
-            z-index: 1;
-        }
+    /* Увеличиваем высоту в 2 раза по сравнению с предыдущими 450px-550px */
+    min-height: 950px;
+    box-sizing: border-box;
+}
 
-        .form-title {
-            position: absolute;
-            width: 1105px;
-            height: 96px;
-            left: 425.5px;
-            top: 2736.21px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 40px;
-            line-height: 120%;
-            text-align: center;
-            text-transform: uppercase;
-            color: #000000;
-            z-index: 2;
-        }
+.synergy-text {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    /* Магия Flexbox: этот отступ оттолкнет текст и кнопку в самый низ блока */
+    margin-top: auto;
+    margin-bottom: 24px; /* Отступ снизу до кнопки */
+}
 
-        .message-input {
-            position: absolute;
-            width: 301px;
-            height: 55px;
-            left: 741.5px;
-            top: 2852.21px;
-            border: 1px solid #C2BBBB;
-            border-radius: 20px;
-            padding: 0 20px;
-            font-family: 'Roboto';
-            font-size: 16px;
-            z-index: 2;
-        }
+.learn-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    align-self: flex-start;
+    margin: 0;
+}
 
-        .message-input::placeholder {
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 120%;
-            text-transform: capitalize;
-            color: #797474;
-            position: relative;
-            top: -5px;
-        }
+.learn-more-btn span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
 
-        .submit-btn-form {
-            position: absolute;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            width: 152px;
-            height: 19px;
-            left: 1062.5px;
-            top: 2870.21px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 2;
-        }
+.learn-more-btn .arrow {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #FFFFFF;
+    border-left: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+}
 
-        .submit-btn-form span {
-            font-family: 'Roboto';
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 120%;
-            text-transform: uppercase;
-            color: #7A00FF;
-        }
+/* --- РАЗДЕЛИТЕЛЬ --- */
+.divider-line {
+    width: 4px;
+    align-self: stretch; /* Линия автоматически растягивается на высоту всей секции */
+    background: #D9D9D9;
+    margin: 0 40px;
+}
 
-        .submit-btn-form .arrow {
-            width: 10px;
-            height: 10px;
-            border: 2px solid #7A00FF;
-            border-left: none;
-            border-bottom: none;
-            transform: rotate(45deg);
-        }
+/* --- ПРАВАЯ ЧАСТЬ (Список) --- */
+.services-list-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* Отступы между услугами */
+}
 
-        /* Адаптив */
-        @media (max-width: 1400px) {
-            .main-title { font-size: 100px; top: 300px; }
-            .subhead { font-size: 40px; top: 480px; }
-            .complex-title { font-size: 50px; left: 50%; transform: translateX(-50%); top: 900px; text-align: center; }
-            .services-list-container { left: 10%; width: 80%; top: 1100px; }
-            .service-item { font-size: 30px; }
-            .purple-synergy-block { width: 90%; left: 5%; top: 2400px; height: auto; padding-bottom: 100px; }
-            .synergy-text { position: relative; left: 5%; top: auto; margin-top: 50px; }
-        }
+.service-item {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px; /* Немного уменьшили, чтобы текст не вылетал на средних экранах */
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.service-item:hover {
+    color: #7A00FF; /* Эффект при наведении */
+    cursor: pointer;
+}
+
+
+ /* ---------- СЕРАЯ ФОРМА (РОДИТЕЛЬ) ---------- */
+.form-gray-section {
+    position: relative; /* Чтобы абсолютно позиционировать картинку в углу */
+    width: 100%;
+    min-height: 551px;
+    background: #F5F5F5;
+    border-radius: 20px;
+    padding: 80px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Центрирует форму по горизонтали */
+    align-items: center;     /* Центрирует форму по вертикали */
+    margin: 80px auto;
+    overflow: hidden;        /* Чтобы декоративная картинка не вылезала за скругленные углы */
+}
+
+/* Декоративный рисунок в левом верхнем углу */
+.corner-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22%; /* Занимает 22% от ширины секции */
+    aspect-ratio: 1 / 1; /* Сохраняет пропорции 1:1 (замена фиксированной высоте) */
+    background: url('/static/img/corner_blot.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+}
+
+/*форма из главной страницы*/
+.contact-section {
+    position: relative;
+    padding: 120px 50px;
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+.contact-content {
+    position: relative;
+    z-index: 2; /* Текст и форма поверх круга */
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: white;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    background-color: #7A00FF;
+    color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    background-color: #7B2CBF;
+    transform: scale(1.02);
+}

@@ -7,93 +7,321 @@
 {% block extra_css%}<link rel="stylesheet" href="{% static 'css/about_us.css' %}">{% endblock %}
 
 {% block content %}
+<!--серый титульный-->
 
-
-<div class="about-page">
-    <!-- Верхний серый фон -->
-    <div class="hero-gray"></div>
-
-    <!-- Жёлтые круги -->
+<!-- Серый титульный блок "О нас" -->
+<section class="about-hero-section">
+    <!-- Декоративные элементы (Жёлтые круги / Картинки) -->
+    <!-- Если это будут реальные картинки из Figma, замените тег div на: -->
+    <!-- <img src="{% static 'img/circle1.png' %}" class="yellow-circle-1" alt="декор"> -->
     <div class="yellow-circle-1"></div>
     <div class="yellow-circle-2"></div>
 
-    <!-- Заголовки -->
-    <h1 class="about-title-main">О НАС</h1>
-    <div class="about-subhead">идеи, технологии, результат.</div>
-    <div class="about-subhead-right">стратегия, дизайн, эффективность</div>
+    <!-- Контентная часть (Текст) -->
+    <div class="about-hero-content">
+        <div class="about-subhead">идеи, технологии, результат.</div>
 
-    <div class="about-description">Привет! Мы S1 Digital — маркетинговое AI-агентство. Повышаем конкурентоспособность продуктов, привлекаем клиентов из всех каналов коммуникаций и усиливаем работу отдела продаж. Формируем узнаваемость и репутацию брендов, используя передовые AI-технологии и нейросети.</div>
+        <h1 class="about-title-main">О НАС</h1>
 
-    <!-- Секция "МЫ В ЦИФРАХ" -->
-    <div class="digits-title">МЫ В ЦИФРАХ</div>
-    <div class="team-image"></div>
+        <div class="about-subhead-right">стратегия, дизайн, эффективность</div>
 
-    <!-- Блок 11+ -->
-    <div class="number-block-1">
-        <div class="number-large">11+</div>
-        <div class="number-label">Развиваем бренды</div>
-        <div class="number-desc">Мы помогаем бизнесу расти в цифровой среде: усиливаем позиции брендов, выстраиваем эффективный маркетинг и приводим клиентов из всех ключевых каналов. Объединяем стратегию, креатив и технологии, чтобы достигать измеримых результатов и устойчивого роста.</div>
-    </div>
-
-    <div class="divider-horizontal" style="left: 786px; top: 1566px;"></div>
-    <div class="divider-horizontal" style="left: 1338px; top: 1566px; transform: matrix(1, 0, 0, -1, 0, 0);"></div>
-
-    <div style="position: absolute; left: 871px; top: 1600.42px; font-family: 'Roboto'; font-weight: 600; font-size: 150px; line-height: 120%; text-align: center; text-transform: uppercase; color: #E7E7E7; z-index: 2;">24</div>
-    <div style="position: absolute; width: 362px; left: 871px; top: 1800.42px; text-align: center; z-index: 2;">
-        <div class="number-label">профессионала в команде</div>
-        <div class="number-desc">Над каждым проектом работает команда специалистов, объединённых опытом, ответственностью и фокусом на результате. Это эксперты в своих направлениях, которые умеют работать с задачами разного уровня сложности и брать на себя полную ответственность за итоговый результат.</div>
-    </div>
-
-    <div class="divider-horizontal" style="left: 1338.1px; top: 2030.92px;"></div>
-    <div class="divider-horizontal" style="left: 786px; top: 2031px;"></div>
-
-    <div style="position: absolute; left: 1416px; top: 1600.5px; font-family: 'Roboto'; font-weight: 600; font-size: 150px; line-height: 120%; text-align: center; text-transform: uppercase; color: #E7E7E7; z-index: 2;">15+</div>
-    <div style="position: absolute; width: 362px; left: 1416px; top: 1800.5px; text-align: center; z-index: 2;">
-        <div class="number-label">отраслей</div>
-        <div class="number-desc">Мы работаем с проектами в разных отраслях, глубоко понимая специфику бизнес-процессов, требования рынка и реальные задачи компаний. Такой опыт позволяет нам быстро погружаться в контекст, говорить с заказчиком на одном языке и предлагать решения, которые приносят практический результат.</div>
-    </div>
-
-    <!-- DATA-DRIVEN ПОДХОД -->
-    <div class="datadriven-1">Data-driven подход</div>
-    <div class="datadriven-2">Под ключ</div>
-
-    <!-- Блок "Актуальный digital-стек" -->
-    <div style="position: absolute; width: 1428px; left: 245px; top: 2470px; text-align: center; z-index: 2;">
-        <div style="font-family: 'Raleway'; font-weight: 800; font-size: 100px; line-height: 120%; text-transform: uppercase; color: #000000;">Актуальный digital-стек</div>
-        <div style="font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #000000; margin-top: 20px;">Работаем с актуальным набором digital-инструментов для эффективного продвижения Используем современные технологии и инструменты, которые дают результат Применяем передовые digital-инструменты для роста бизнеса</div>
-    </div>
-
-    <div style="position: absolute; width: 1508px; left: 205px; top: 2677px; font-family: 'Raleway'; font-weight: 800; font-size: 100px; line-height: 120%; text-align: center; text-transform: uppercase; color: #E7E7E7; z-index: 2;">команда экспертов</div>
-
-    <!-- Фиолетовый блок КОМАНДА -->
-    <div class="team-purple"></div>
-    <div class="team-title">Команда</div>
-    <div class="team-subtext">Над проектами работает сильная команда профильных специалистов с практическим опытом и высоким уровнем экспертизы.</div>
-    <div class="leader-name">Александр Костин</div>
-
-    <!-- ФОРМА -->
-    <div class="form-yellow-circle"></div>
-    <div class="form-title-large">ОСТАЛИСЬ ВОПРОСЫ?</div>
-    <div class="form-subtext">Готовы обсудить ваш проект? Оставьте заявку — мы свяжемся с вами и предложим оптимальное решение.</div>
-
-    <form action="{% url 'mainapp:contact-us-phone' %}" method="POST" class="contact-form">
-        {% csrf_token %}
-        <input type="text" class="form-input" name="name" placeholder="Имя Фамилия" style="top: 6977px;" required>
-        <input type="tel" class="form-input" name="email" placeholder="+7 (___) ___-__-__" style="top: 7067px;" required>
-        <input type="text" class="form-input" name="message" placeholder="Сообщение" style="top: 7157px;" required>
-        <div style="position: absolute; left: 986px; top: 7256px; font-family: 'Roboto'; font-weight: 400; font-size: 16px; line-height: 120%; color: rgba(0,0,0,0.5); z-index: 2;">
-            <input type="checkbox" required><u>Я соглашаюсь на обработку персональных данных</u>
+        <div class="about-description">
+            Привет! Мы S1 Digital — маркетинговое AI-агентство. Повышаем конкурентоспособность продуктов, привлекаем клиентов из всех каналов коммуникаций и усиливаем работу отдела продаж. Формируем узнаваемость и репутацию брендов, используя передовые AI-технологии и нейросети.
         </div>
-        <button style="position: absolute; display: flex; flex-direction: row; align-items: center; gap: 10px; background: none; border: none; cursor: pointer; left: 955px; top: 7287px; z-index: 2;">
-            <span style="font-family: 'Roboto'; font-weight: 500; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #7A00FF;">Отправить</span>
-            <div style="width: 10px; height: 10px; border: 2px solid #7A00FF; border-left: none; border-bottom: none; transform: rotate(45deg);"></div>
-        </button>
-    </form>
-
-    <div style="position: absolute; width: 440px; left: calc(50% - 440px/2 - 690px); top: 7239px; font-family: 'Roboto';
-        font-weight: 400; font-size: 16px; line-height: 120%; text-transform: uppercase; color: #7A00FF; z-index: 2;">
-            Хотите больше клиентов и продаж?
-            Оставьте заявку — мы свяжемся с вами, проведём диагностику вашего маркетинга и покажем точки роста.
     </div>
+</section>
+
+
+<!--&lt;!&ndash; СЕКЦИЯ МЫ В ЦИФРАХ &ndash;&gt;-->
+<!--<section class="digits-section">-->
+<!--    &lt;!&ndash; Заголовок секции &ndash;&gt;-->
+<!--    <h2 class="digits-title">МЫ В ЦИФРАХ</h2>-->
+
+<!--    &lt;!&ndash; Основной контейнер для контента &ndash;&gt;-->
+<!--    <div class="digits-container">-->
+
+<!--        &lt;!&ndash; Левая колонка: Главное изображение команды &ndash;&gt;-->
+<!--        <div class="digits-media">-->
+<!--            <img src="{% static 'img/people.jpg' %}" class="team-image" alt="Наша команда">-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Правая колонка: Сетка с цифрами и разделителями &ndash;&gt;-->
+<!--        <div class="digits-grid">-->
+
+<!--            &lt;!&ndash; Блок 11+ &ndash;&gt;-->
+<!--            <div class="number-block">-->
+<!--                <div class="number-large">11+</div>-->
+<!--                <div class="number-label">Развиваем бренды</div>-->
+<!--                <div class="number-desc">Мы помогаем бизнесу расти в цифровой среде: усиливаем позиции брендов, выстраиваем эффективный маркетинг и приводим клиентов из всех ключевых каналов. Объединяем стратегию, креатив и технологии, чтобы достигать измеримых результатов и устойчивого роста.</div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Верхняя разделительная линия &ndash;&gt;-->
+<!--            <div class="divider-horizontal"></div>-->
+
+<!--                        &lt;!&ndash; Блок 640+ &ndash;&gt;-->
+<!--            <div class="number-block">-->
+<!--                <div class="number-large">640+</div>-->
+<!--                <div class="number-label">Реализованных проектов</div>-->
+<!--                <div class="number-desc">выполненных за годы работы, отражают не просто количество, а накопленный практический опыт и выстроенную систему реализации задач. В портфеле — проекты разного масштаба и сложности: от точечных решений до комплексных инициатив, требующих глубокого погружения, точного планирования и координации.</div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Верхняя разделительная линия &ndash;&gt;-->
+<!--            <div class="divider-horizontal"></div>-->
+
+<!--            &lt;!&ndash; Блок 24 &ndash;&gt;-->
+<!--            <div class="number-block">-->
+<!--                <div class="number-large">24</div>-->
+<!--                <div class="number-label">профессионала в команде</div>-->
+<!--                <div class="number-desc">Над каждым проектом работает команда специалистов, объединённых опытом, ответственностью и фокусом на результате. Это эксперты в своих направлениях, которые умеют работать с задачами разного уровня сложности и брать на себя полную ответственность за итоговый результат.</div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Нижняя разделительная линия &ndash;&gt;-->
+<!--            <div class="divider-horizontal"></div>-->
+
+<!--            &lt;!&ndash; Блок 15+ &ndash;&gt;-->
+<!--            <div class="number-block">-->
+<!--                <div class="number-large">15+</div>-->
+<!--                <div class="number-label">отраслей</div>-->
+<!--                <div class="number-desc">Мы работаем с проектами в разных отраслях, глубоко понимая специфику бизнес-процессов, требования рынка и реальные задачи компаний. Такой опыт позволяет нам быстро погружаться в контекст, говорить с заказчиком на одном языке и предлагать решения, которые приносят практический результат.</div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!-- СЕКЦИЯ МЫ В ЦИФРАХ (Полностью резиновая, 2х2) -->
+<section class="digits-section">
+    <!-- Заголовок секции -->
+    <h2 class="digits-title">МЫ В ЦИФРАХ</h2>
+
+    <!-- Основной контейнер для контента -->
+    <div class="digits-container">
+
+        <!-- Левая колонка: Главное изображение команды (Занимает ~1/3 по высоте блоков) -->
+        <div class="digits-media">
+            <img src="{% static 'img/people.jpg' %}" class="team-image" alt="Наша команда">
+        </div>
+
+        <!-- Правая колонка: Сетка 2х2 (Линии-разделители теперь встроены внутрь блоков через CSS) -->
+        <div class="digits-grid-2x2">
+
+            <!-- Блок 1 (11+) -->
+            <div class="number-block">
+                <div class="number-large">11+</div>
+                <div class="number-label">Развиваем бренды</div>
+                <div class="number-desc">Мы помогаем бизнесу расти в цифровой среде: усиливаем позиции брендов, выстраиваем эффективный маркетинг и приводим клиентов из всех ключевых каналов. Объединяем стратегию, креатив и технологии, чтобы достигать измеримых результатов и устойчивого роста.</div>
+            </div>
+
+            <!-- Блок 2 (640+) -->
+            <div class="number-block">
+                <div class="number-large">640+</div>
+                <div class="number-label">Реализованных проектов</div>
+                <div class="number-desc">выполненных за годы работы, отражают не просто количество, а накопленный практический опыт и выстроенную систему реализации задач. В портфеле — проекты разного масштаба и сложности: от точечных решений до комплексных инициатив, требующих глубокого погружения, точного планирования и координации.</div>
+            </div>
+
+            <!-- Блок 3 (24) -->
+            <div class="number-block">
+                <div class="number-large">24</div>
+                <div class="number-label">профессионала в команде</div>
+                <div class="number-desc">Над каждым проектом работает команда специалистов, объединённых опытом, ответственностью и фокусом на результате. Это эксперты в своих направлениях, которые умеют работать с задачами разного уровня сложности и брать на себя полную ответственность за итоговый результат.</div>
+            </div>
+
+            <!-- Блок 4 (15+) -->
+            <div class="number-block">
+                <div class="number-large">15+</div>
+                <div class="number-label">отраслей</div>
+                <div class="number-desc">Мы работаем с проектами в разных отраслях, глубоко понимая специфику бизнес-процессов, требования рынка и реальные задачи компаний. Такой опыт позволяет нам быстро погружаться в контекст, говорить с заказчиком на одном языке и предлагать решения, которые приносят практический результат.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- СЕКЦИЯ "АКТУАЛЬНЫЙ СТЕК" -->
+<section class="stack-section">
+
+    <!-- Декоративные фоновые заголовки -->
+    <div class="stack-bg-text">Data-driven подход</div>
+    <div class="stack-bg-text">Под ключ</div>
+
+    <!-- Основной контентный блок -->
+    <div class="stack-main-content">
+        <h2 class="stack-title">Актуальный digital-стек</h2>
+        <p class="stack-description">
+            Работаем с актуальным набором digital-инструментов для эффективного продвижения.
+            Используем современные технологии и инструменты, которые дают результат.
+            Применяем передовые digital-инструменты для роста бизнеса.
+        </p>
+    </div>
+
+    <!-- Нижний декоративный фоновый заголовок -->
+    <div class="stack-bg-text">команда экспертов</div>
+</section>
+
+
+<!-- СЕКЦИЯ "КОМАНДА" -->
+<section class="team-section">
+
+    <!-- Заголовок и подзаголовок -->
+    <h2 class="team-title">Команда</h2>
+    <p class="team-subtext">Над проектами работает сильная команда профильных специалистов с практическим опытом и высоким уровнем экспертизы.</p>
+
+    <!-- БЛОК ЛИДЕРА (В центре) -->
+    <div class="team-leader">
+        <!-- Если у лидера есть фото, раскомментируйте строку ниже: -->
+        <!-- <img src="{% static 'img/leader.jpg' %}" class="leader-photo" alt="Александр Костин"> -->
+        <div class="leader-name">Александр Костин</div>
+        <div class="leader-role">Основатель / CEO</div>
+    </div>
+
+    <!-- СЕТКА ОСТАЛЬНЫХ ЧЛЕНОВ КОМАНДЫ (Внизу в строчку) -->
+    <div class="team-grid">
+
+        <!-- Участник 1 -->
+        <div class="team-member">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-name">Имя Фамилия</div>
+            <div class="member-role">Арт-директор</div>
+        </div>
+
+        <!-- Участник 2 -->
+        <div class="team-member">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-name">Имя Фамилия</div>
+            <div class="member-role">AI-Инженер</div>
+        </div>
+
+        <!-- Участник 3 -->
+        <div class="team-member">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-name">Имя Фамилия</div>
+            <div class="member-role">Маркетолог</div>
+        </div>
+
+        <!-- Участник 4 -->
+        <div class="team-member">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-name">Имя Фамилия</div>
+            <div class="member-role">Project Manager</div>
+        </div>
+
+    </div>
+</section>
+
+<!--отзывы-->
+<section></section>
+
+    <!-- СЕКЦИЯ ОТЗЫВЫ -->
+<section class="reviews-section">
+
+    <!-- Заголовок по центру -->
+    <h2 class="reviews-title">Отзывы</h2>
+
+    <!-- Сетка отзывов (Аналог 3х3 с объединенными блоками) -->
+    <div class="reviews-grid">
+
+        <!-- СТРОКА 1 -->
+        <!-- Блок 1 (Обычный квадрат) -->
+        <div class="review-card">
+            <div class="review-author">Клиент 1</div>
+            <div class="review-text">Текст отзыва первого клиента. Краткое описание результатов работы и впечатлений.</div>
+        </div>
+
+        <!-- Блок 2 + Блок 3 (Объединенный прямоугольник) -->
+        <div class="review-card review-wide-top">
+            <div class="review-author">Клиент 2 и 3 (Объединенный)</div>
+            <div class="review-text">Большой блок для развернутого отзыва. Здесь отлично поместится подробный кейс с результатами, цифрами эффективности и благодарностью за проделанную AI-агентством работу.</div>
+        </div>
+
+        <!-- СТРОКА 2 -->
+        <!-- Блок 4 (Обычный квадрат) -->
+        <div class="review-card">
+            <div class="review-author">Клиент 4</div>
+            <div class="review-text">Отзыв четвертого клиента о внедрении нейросетей в бизнес-процессы компании.</div>
+        </div>
+
+        <!-- Блок 5 (Обычный квадрат) -->
+        <div class="review-card">
+            <div class="review-author">Клиент 5</div>
+            <div class="review-text">Отзыв пятого клиента. Оценка стратегии продвижения и качества коммуникации.</div>
+        </div>
+
+        <!-- Блок 6 (Обычный квадрат) -->
+        <div class="review-card">
+            <div class="review-author">Клиент 6</div>
+            <div class="review-text">Отзыв шестого клиента про автоматизацию отдела продаж и рост конверсии.</div>
+        </div>
+
+        <!-- СТРОКА 3 -->
+        <!-- Блок 7 + Блок 8 (Объединенный прямоугольник) -->
+        <div class="review-card review-wide-bottom">
+            <div class="review-author">Клиент 7 и 8 (Объединенный)</div>
+            <div class="review-text">Еще один длинный прямоугольный блок внизу сетки. Помогает сбалансировать дизайн страницы и визуально разнообразить стандартные квадратные карточки отзывов.</div>
+        </div>
+
+        <!-- Блок 9 (Обычный квадрат) -->
+        <div class="review-card">
+            <div class="review-author">Клиент 9</div>
+            <div class="review-text">Финальный отзыв девятого клиента. Итоги долгосрочного партнерства и масштабирования.</div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- СЕКЦИЯ ФОРМА СВЯЗИ -->
+<section class="contact-section">
+    <!-- Жёлтый декоративный круг-подложка -->
+    <div class="form-yellow-circle">
+
+        <!-- Контейнер для сетки (Текст слева, форма справа) -->
+        <div class="form-grid-container">
+
+            <!-- Левая колонка: Заголовки и промо-текст -->
+            <div class="form-info-side">
+                <h2 class="form-title-large">ОСТАЛИСЬ ВОПРОСЫ?</h2>
+                <p class="form-subtext">Готовы обсудить ваш проект? Оставьте заявку — мы свяжемся с вами и предложим оптимальное решение.</p>
+
+                <div class="form-promo-text">
+                    Хотите больше клиентов и продаж?
+                    Оставьте заявку — мы свяжемся с вами, проведём диагностику вашего маркетинга и покажем точки роста.
+                </div>
+            </div>
+
+            <!-- Правая колонка: Сама форма ввода -->
+            <form action="{% url 'mainapp:contact-us-phone' %}" method="POST" class="contact-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <input type="text" class="form-input" name="name" placeholder="Имя Фамилия" required>
+                </div>
+
+                <div class="form-group">
+                    <!-- Исправлено name с 'email' на 'phone' для соответствия плейсхолдеру телефона -->
+                    <input type="tel" class="form-input" name="phone" placeholder="+7 (___) ___-__-__" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-input" name="message" placeholder="Сообщение" required>
+                </div>
+
+                <!-- Согласие на обработку данных -->
+                <div class="form-privacy-wrapper">
+                    <label class="form-privacy-label">
+                        <input type="checkbox" class="form-checkbox" required>
+                        <span>Я соглашаюсь на обработку <u>персональных данных</u></span>
+                    </label>
+                </div>
+
+                <!-- Кнопка отправки -->
+                <button type="submit" class="form-submit-btn">
+                    <span class="btn-text">Отправить</span>
+                    <div class="btn-arrow"></div>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</section>
 
 {% endblock %}

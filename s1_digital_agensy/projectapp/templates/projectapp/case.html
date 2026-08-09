@@ -12,113 +12,143 @@
     <div class="grid-item">
         <h1>{{ selected_case.title }}</h1>
         <h3>{{ selected_case.description }}</h3>
+                <!-- Новый блок с метриками -->
+        <div class="case-metrics">
+            <div class="metric-item">
+                <span class="metric-value">1,5 млн</span>
+                <span class="metric-label">Продаж</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-value">15%</span>
+                <span class="metric-label">Рост конверсии</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-value">2026 год</span>
+                <span class="metric-label">Срок реализации</span>
+            </div>
+        </div>
     </div>
     <div class="grid-item">
         {% if selected_case.image %}
-            <img src="{{ selected_case.image.url }}" alt="{{ post.title }}" class="item-image">
+            <img src="{{ selected_case.image.url }}" alt="{{ selected_case.title }}" class="item-image">
         {% endif %}
     </div>
 </section>
-
-
-<div class="case-page">
-    <!-- Верхние блоки -->
-    <div class="hero-left"></div>
-    <div class="hero-right"></div>
-
-    <!-- Eliseev info -->
-    <div class="eliseev-title">Eliseev — магазин одежды Создали e-commerce-сайт с нуля: продумали структуру, навигацию и каталог так, чтобы путь от просмотра до покупки был быстрым и удобным.</div>
-    <div class="eliseev-subtitle">Eliseev.STORE</div>
-    <div class="eliseev-logo-circle"></div>
-    <div class="eliseev-store-text">ELISEEV STORE</div>
-
-    <!-- Карточки результатов -->
-    <div class="result-card-1"></div>
-    <div class="result-card-2"></div>
-    <div class="result-card-3"></div>
-
-    <div class="card-label" style="left: 404px; top: 714px;">Результаты</div>
-    <div class="card-label" style="left: 763px; top: 714px;">Год</div>
-
-    <div class="card-number" style="left: 386px; top: 761px;">1,5</div>
-    <div class="card-desc" style="left: 386px; top: 811px;">раза выросла<br>конверсия в заявку</div>
-
-    <div class="card-number" style="left: 741px; top: 772px;">2021</div>
-
-    <div class="dev-badge"></div>
-    <div class="dev-badge"><span>Разработка сайта</span></div>
-
-    <div class="card-divider"></div>
-
-    <!-- Заголовок о компании -->
+<section>
+<!--    о компании-->
     <div class="about-title">о компании</div>
+    <div class="grid-container-company">
+        <div class="grid-item-company"></div>
+        <div class="grid-item-company">
+            <div><p>Компания существует с 2020 года и позиционирует себя как бренд люксового качества в среднем ценовом сегменте.</p></div>
+            <p>Ее миссия — сделать стильные, эстетичные и качественные изделия доступными для большего числа людей, сохраняя при этом высокий уровень исполнения и честный подход к ценообразованию.Бренд придерживается прозрачной ценовой политики и не увеличивает стоимость продукции на необоснованные проценты.</p>
+            <div class="grid-container">
+                <div></div>
+                <div><p>Цена каждого изделия формируется из затрат на индивидуальный пошив одним мастером, стоимости высококачественных тканей, логистики, аренды, налогов, а также фиксированной наценки в размере 30%. Такой подход не позволяет компании выходить на маркетплейсы и проводить массовые распродажи, однако обеспечивает честное отношение к клиентам и устойчивую экономическую модель.</p></div>
+            </div>
+            <div class="grid-item">
+                {% if selected_case.image %}
+                    <img src="{{ selected_case.image.url }}" alt="{{ selected_case.title }}" class="item-image">
+                {% endif %}
+            </div>
+        </div>
+        <div class="grid-item-company"></div>
+    </div>
+</section>
 
-    <!-- Тексты о компании -->
-    <div class="about-text-1">Компания существует с 2020 года и позиционирует себя как бренд люксового качества в среднем ценовом сегменте.</div>
-    <div class="about-text-2">Ее миссия — сделать стильные, эстетичные и качественные изделия доступными для большего числа людей, сохраняя при этом высокий уровень исполнения и честный подход к ценообразованию. Бренд придерживается прозрачной ценовой политики и не увеличивает стоимость продукции на необоснованные проценты.</div>
-    <div class="about-text-3">Цена каждого изделия формируется из затрат на индивидуальный пошив одним мастером, стоимости высококачественных тканей, логистики, аренды, налогов, а также фиксированной наценки в размере 30%. Такой подход не позволяет компании выходить на маркетплейсы и проводить массовые распродажи, однако обеспечивает честное отношение к клиентам и устойчивую экономическую модель.</div>
+<!--    этапы-->
+<section class="stages">
+    <div class="stages-title"><h1>ЭТАПЫ</h1></div>
+    <div class="grid-container-stages">
+        <div class="stage-item">
+            <span class="stage-title">ЗАДАЧА</span>
+            <span class="stage-text">Создать e-commerce-сайт с нуля и выстроить удобный
+                пользовательский путь, который повысит конверсию и упростит
+                процесс покупки.
+            </span>
+        </div>
+        <div class="stage-item">
+            <span class="stage-title">РЕШЕНИЕ</span>
+            <span class="stage-text">Разработали сайт с нуля: спроектировали структуру, навигацию
+                и каталог товаров, выстроили пользовательские сценарии и
+                оптимизировали UX под онлайн-продажи. Реализовали
+                адаптивную версию и подготовили сайт к масштабированию.
+            </span>
+        </div>
+        <div class="stage-item">
+            <span class="stage-title">РЕЗУЛЬТАТ</span>
+            <span class="stage-text">Запущен e-commerce-сайт, который стал эффективным каналом
+                онлайн-продаж бренда.
+            </span>
+            <ul>
+                <li>Конверсия в покупку выросла в 1,5 раза</li>
+                <li>Снижение показателя отказов на 35%</li>
+                <li>Увеличение вовлечённости пользователей на 40%</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <!-- Жёлтый круг -->
-    <div class="yellow-circle"></div>
+<!--    результаты в цифрах    -->
+<section>
+    <div class="about-title">результат в цифрах</div>
+    <div class="yellow-panel-1">
+        <div class="result-card-1">+40–120%</div>
+        <div class="panel-desc-1">рост лидов / заявок после редизайна и оптимизации конверсии</div>
+    </div>
+    <div class="yellow-panel-2">
+        <div class="result-card-2">2–4×</div>
+        <div class="panel-desc-2">увеличение времени на сайте благодаря правильному контенту и дизайну</div>
+    </div>
+    <div class="purple-panel">
+        <div class="result-card-3">–40–70%</div>
+        <div class="panel-desc-3">снижение отказов за счёт улучшения скорости и удобства</div>
+    </div>
+</section>
 
-    <!-- Картинка контактов -->
-    <div class="contacts-image"></div>
-
-    <!-- Фиолетовый блок ЭТАПЫ -->
-    <div class="stages-purple"></div>
-    <div class="stages-title">ЭТАПЫ</div>
-
-    <!-- Чипы -->
-    <div class="chip-task"><span>ЗАДАЧА</span></div>
-    <div class="chip-solution"><span>Решение</span></div>
-    <div class="chip-result"><span>Результат</span></div>
-
-    <!-- Тексты этапов -->
-    <div class="task-text">Создать e-commerce-сайт с нуля и выстроить удобный пользовательский путь, который повысит конверсию и упростит процесс покупки.</div>
-    <div class="solution-text">Разработали сайт с нуля: спроектировали структуру, навигацию и каталог товаров, выстроили пользовательские сценарии и оптимизировали UX под онлайн-продажи. Реализовали адаптивную версию и подготовили сайт к масштабированию.</div>
-    <div class="result-text">Запущен e-commerce-сайт, который стал эффективным каналом онлайн-продаж бренда.</div>
-    <div class="result-subtext">Конверсия в покупку выросла в 1,5 раза Снижение показателя отказов на 35% Увеличение вовлечённости пользователей на 40%</div>
-
-    <!-- Разделители -->
-    <div class="divider-left"></div>
-    <div class="divider-center"></div>
-    <div class="divider-right"></div>
-
-    <!-- Заголовок результат в цифрах -->
-    <div class="digits-title">результат в цифрах</div>
-
-    <!-- Жёлтые и фиолетовая панели -->
-    <div class="yellow-panel-1"></div>
-    <div class="yellow-panel-2"></div>
-    <div class="purple-panel"></div>
-
-    <div class="big-number-1">+40–120%</div>
-    <div class="big-number-2">2–4×</div>
-    <div class="big-number-3">–40–70%</div>
-
-    <div class="panel-desc-1">рост лидов / заявок после редизайна и оптимизации конверсии</div>
-    <div class="panel-desc-2">увеличение времени на сайте благодаря правильному контенту и дизайну</div>
-    <div class="panel-desc-3">снижение отказов за счёт улучшения скорости и удобства</div>
-
-    <!-- Визуальные материалы -->
+<!--    визуальные материалы-->
+<section>
     <div class="visual-title">Визуальные материалы</div>
+    <div class="grid-container-company">
+        <div class="grid-item">
+            {% if selected_case.image %}
+            <img src="{{ selected_case.image.url }}" alt="{{ selected_case.title }}" class="item-image">
+            {% endif %}
+        </div>
+        <div class="grid-item">
+            {% if selected_case.image %}
+            <img src="{{ selected_case.image.url }}" alt="{{ selected_case.title }}" class="item-image">
+            {% endif %}
+        </div>
+        <div class="grid-item">
+            {% if selected_case.image %}
+            <img src="{{ selected_case.image.url }}" alt="{{ selected_case.title }}" class="item-image">
+            {% endif %}
+        </div>
+    </div>
+</section>
 
-    <!-- Галерея -->
-    <div class="gallery-img-1"></div>
-    <div class="gallery-img-2"></div>
-    <div class="gallery-img-3"></div>
+<!--    заявка-->
+<section class="bid-case">
+    <form action="{% url 'mainapp:contact-us-phone' %}" method="POST" class="contact-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-input" name="name" placeholder="Имя Фамилия" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" class="form-input" name="telephone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-input" name="message" placeholder="Сообщение" required>
+        </div>
+        <div>
+            <input type="checkbox" required><u>Я соглашаюсь на обработку персональных данных</u>
+        </div>
+        <button>
+            <span>Отправить</span>
+            <div></div>
+        </button>
+    </form>
+</section>
 
-    <div class="drag-yellow-circle"></div>
-    <div class="drag-text">ТЯНИТЕ</div>
-
-    <!-- Форма -->
-    <div class="form-gray-section"></div>
-    <div class="form-title">Хотите так же? Оставьте заявку — поможем добиться результата.</div>
-    <input type="text" class="message-input" placeholder="Сообщение">
-    <button class="submit-btn">
-        <span>Отправить</span>
-        <div class="arrow"></div>
-    </button>
-
-</div>
 {% endblock %}
