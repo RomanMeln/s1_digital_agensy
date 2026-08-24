@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .models import ProjectStart
 from blogapp.models import Post, CategoryName
 from projectapp.models import Project
 
@@ -47,47 +46,3 @@ def about_us(request):
 def services(request):
     return render(request, 'mainapp/services.html')
 
-# def case(request):
-#     return render(request, 'mainapp/case.html')
-
-def contact_us_email(request):
-    if request.method == 'POST':
-
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-
-        # Вывести в консоль для теста:
-        project_sql = ProjectStart.objects.create(
-            name=name,
-            contact=email,
-            message=message
-        )
-        print(f"Новое сообщение от {name} ({email}): {message}")
-        print(f"Сохранено в БД с ID: {project_sql.pk}")
-
-        return render(request, 'mainapp/application-success.html')
-
-    return render(request, 'mainapp/contact-us.html')
-
-
-def contact_us_phone(request):
-    if request.method == "POST":
-        # Забираем данные из HTML-полей
-        name = request.POST.get('name')
-        phone = request.POST.get('email')
-        message = request.POST.get('message')
-
-
-        project_sql = ProjectStart.objects.create(
-            name=name,
-            contact=phone,
-            message=message
-        )
-
-        print(f"Новое сообщение от {name} ({phone}): {message}")
-        print(f"Сохранено в БД с ID: {project_sql.pk}")
-
-        return render(request, 'mainapp/application-success.html')
-
-    return render(request, 'mainapp/contact-us.html')

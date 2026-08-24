@@ -12,8 +12,8 @@ urlpatterns = [
     # path('blog/', views.blog, name='blog'),
     path('services/', views.services, name='services'),
     # path('cases/', views.cases, name='cases'),
-    path('contact-us/', views.contact_us_email, name='contact-us-email'),
-    path('contact-us/', views.contact_us_email, name='contact-us-phone'),
-    path('application-success/', views.contact_us_email, name='application-success-email'),
-    path('application-success/', views.contact_us_phone, name='application-success-phone'),
+    # path('contact-us/', views.contact_us_email, name='contact-us-email'),
+    # path('contact-us/', views.contact_us_email, name='contact-us-phone'),
+    # path('application-success/', views.contact_us_email, name='application-success-email'),
+    # path('application-success/', views.contact_us_phone, name='application-success-phone'),
 ]

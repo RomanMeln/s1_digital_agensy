@@ -130,21 +130,39 @@
 
 <!--    заявка-->
 <section class="bid-case">
-    <form action="{% url 'mainapp:contact-us-phone' %}" method="POST" class="contact-form">
+    <form action="{% url 'leads:submit_proposal' %}" method="POST" class="contact-form">
         {% csrf_token %}
+
         <div class="form-group">
-            <input type="text" class="form-input" name="name" placeholder="Имя Фамилия" required>
+            {{ lead_form.name }}
+            {% if lead_form.name.errors %}
+                <span class="error-text">{{ lead_form.name.errors.0 }}</span>
+            {% endif %}
         </div>
+
         <div class="form-group">
-            <input type="tel" class="form-input" name="telephone" placeholder="+7 (___) ___-__-__" required>
+            {{ lead_form.contact }}
+            {% if lead_form.contact.errors %}
+                <span class="error-text">{{ lead_form.contact.errors.0 }}</span>
+            {% endif %}
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-input" name="message" placeholder="Сообщение" required>
+            {{ lead_form.message }}
+            {% if lead_form.message.errors %}
+                <span class="error-text">{{ lead_form.message.errors.0 }}</span>
+            {% endif %}
         </div>
+
         <div>
-            <input type="checkbox" required><u>Я соглашаюсь на обработку персональных данных</u>
+            {{ lead_form.agreement }}
+            <u>Я соглашаюсь на обработку персональных данных</u>
+            {% if lead_form.agreement.errors %}
+                <br><span class="error-text">{{ lead_form.agreement.errors.0 }}</span>
+            {% endif %}
         </div>
-        <button>
+
+        <button type="submit">
             <span>Отправить</span>
             <div></div>
         </button>

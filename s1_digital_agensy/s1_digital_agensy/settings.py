@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'mainapp',
     'blogapp',
     'projectapp',
+    'leads',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'leads.context_processors.project_forms', # регистрирую новый процессор
             ],
         },
     },

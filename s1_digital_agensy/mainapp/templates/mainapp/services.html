@@ -53,32 +53,49 @@
 </section>
 
 <section id="contacts" class="contact-section">
-        <!-- Изображение в левом верхнем углу (настраивается через CSS или тег img) -->
+        <!-- Изображение в левом верхнем углу -->
     <div class="corner-decoration"></div>
 
     <div class="contact-content">
         <h2 class="section-title">Хотите так же?</h2>
         <p> Оставьте заявку — поможем добиться результата.</p>
 
-        <form action="{% url 'mainapp:contact-us-email' %}" method="POST" class="contact-form">
-            {% csrf_token %} <!-- Обязательная защита Django для форм -->
+        <form action="{% url 'leads:submit_proposal' %}" method="POST" class="contact-form">
+            {% csrf_token %}
+
             <div class="form-group">
-                <input type="text" name="name" placeholder="Имя Фамилия" required>
+                {{ lead_form.name }}
+                {% if lead_form.name.errors %}
+                    <span class="error-text">{{ lead_form.name.errors.0 }}</span>
+                {% endif %}
             </div>
+
             <div class="form-group">
-                <input type="email" name="email" placeholder="Email" required>
+                {{ lead_form.contact }}
+                {% if lead_form.contact.errors %}
+                    <span class="error-text">{{ lead_form.contact.errors.0 }}</span>
+                {% endif %}
             </div>
+
             <div class="form-group">
-                <textarea name="message" placeholder="Сообщение" ></textarea>
+                {{ lead_form.message }}
+                {% if lead_form.message.errors %}
+                    <span class="error-text">{{ lead_form.message.errors.0 }}</span>
+                {% endif %}
             </div>
-                            <!-- Согласие на обработку данных -->
-            <div class="form-privacy-wrapper">
-                <label class="form-privacy-label">
-                    <input type="checkbox" class="form-checkbox" required>
-                    <span>Я соглашаюсь на обработку <u>персональных данных</u></span>
-                </label>
+
+            <div>
+                {{ lead_form.agreement }}
+                <u>Я соглашаюсь на обработку персональных данных</u>
+                {% if lead_form.agreement.errors %}
+                    <br><span class="error-text">{{ lead_form.agreement.errors.0 }}</span>
+                {% endif %}
             </div>
-            <button type="submit" class="btn-submit">ОТПРАВИТЬ</button>
+
+            <button type="submit">
+                <span>Отправить</span>
+                <div></div>
+            </button>
         </form>
     </div>
 </section>

@@ -29,6 +29,7 @@ urlpatterns = [
     path('', include('mainapp.urls')), # добавил главное приложение
     path('blog/', include('blogapp.urls')), # добавил блог
     path('projects/', include('projectapp.urls')), # добавил проекты
+    path('leads/', include('leads.urls')), #добавил заявки
 ]
 
 if settings.DEBUG:
