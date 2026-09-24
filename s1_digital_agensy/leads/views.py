@@ -1,20 +1,18 @@
-from django.shortcuts import redirect
-from django.contrib import messages
+from django.shortcuts import render, redirect
 from .forms import ProjectStartForm
 
 
 def submit_proposal(request):
     if request.method == 'POST':
-        # создает форму и наполняет её данными из POST-запроса
         form = ProjectStartForm(request.POST)
 
-        # is_valid() автоматически запустит clean_name() и clean_contact() из формы выше
         if form.is_valid():
             form.save()
-            messages.success(request, "Заявка успешно отправлена!")
-        else:
-            # Если возникли ошибки, Django добавит их в форму
-            messages.error(request, "Ошибка заполнения формы. Проверьте введенные данные.")
+            # УСПЕХ
+            return render(request, 'mainapp/application-success.html')
 
-    # Возвращает пользователя обратно на ту страницу, откуда он пришел
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+        else:
+            # ОШИБКА
+            return render(request, 'mainapp/application-error.html', {'form': form})
+
+    return redirect('/')

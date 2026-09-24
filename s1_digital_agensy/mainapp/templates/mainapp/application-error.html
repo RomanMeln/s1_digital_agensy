@@ -1,0 +1,44 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}Ошибка отправки заявки{% endblock %}
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 80px 20px; font-family: sans-serif;">
+    <!-- Иконка предупреждения -->
+    <div style="font-size: 64px; color: #ff4d4d; margin-bottom: 15px;">⚠️</div>
+
+    <h1 style="color: #222; margin-bottom: 10px; font-size: 28px;">Форма заполнена некорректно</h1>
+    <p style="color: #666; margin-bottom: 40px;">Пожалуйста, исправьте следующие ошибки, чтобы мы могли обработать вашу заявку:</p>
+
+    <!-- Контейнер со списком ошибок -->
+    <div style="max-width: 550px; margin: 0 auto 40px auto; text-align: left; background: #fff5f5; padding: 25px; border-radius: 12px; border-left: 5px solid #ff4d4d; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.08);">
+
+        <!-- Проверяем глобальные ошибки формы (если они есть) -->
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p style="margin: 0 0 10px 0; color: #d32f2f;"><strong>Системная ошибка:</strong> {{ error }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Проходим циклом по полям формы и выводим их лейблы и ошибки -->
+        {% for field in form %}
+            {% if field.errors %}
+                <div style="margin-bottom: 12px;">
+                    <span style="color: #222; font-weight: 600;">{{ field.label }}:</span>
+                    <span style="color: #d32f2f;">{{ field.errors.0 }}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <!-- Кнопка возврата с сохранением истории (вернуться именно на ту страницу, где заполняли) -->
+    <p>
+        <a href="javascript:history.back()" style="display: inline-block; padding: 12px 30px; background: #222; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">
+            ← Вернуться и исправить
+        </a>
+    </p>
+</div>
+{% endblock %}

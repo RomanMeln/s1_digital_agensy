@@ -16,6 +16,7 @@ class ProjectStartForm(forms.ModelForm):
     )
 
     agreement = forms.BooleanField(
+        label="Согласие на обработку данных",
         required=True,
         widget=forms.CheckboxInput(attrs={'required': 'required'})
     )
