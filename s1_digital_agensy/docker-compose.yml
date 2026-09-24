@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: s1_digital_agency_web
+    command: python manage.py runserver 0.0.0.0:8000
+    # Пробрасываем порт: 8000 на Маке будет вести на 8000 внутри контейнера
+    ports:
+      - "8000:8000"
+    # Монтируем локальную папку. Изменения в коде на Маке будут сразу видны в Docker (Hot Reload)
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=True
